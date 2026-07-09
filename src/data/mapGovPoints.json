@@ -12,7 +12,20 @@
       "y": 839090,
       "lat": 22.491394683,
       "lng": 114.167078744,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "流水响 ， 八仙岭郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "流水响营地位于石坳山之西麓 ， 流水响水塘南端 。 周围树木蔽天 ， 百鸟争鸣 ， 景色十分秀丽 。 流水响水塘旁的柳林别具一格 ， 置身其中可有世外桃源之感 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "流水响水塘 ： 流水响水塘位于龙山东北 ， 原是一个供农田灌溉用的小型水塘 ， 邻近流水响村 。 水塘环境清幽 ， 景色怡人 。",
+        "accessZhHans": "在粉岭港铁站乘坐 52B 号往鹤薮专线小巴 ， 于流水响道坳顶回旋处下车 。 沿流水响水塘道 ， 途经流水响水塘 ， 接流水响郊游径 ， 步行约 30 分钟 ， 便可抵达营地 。 专线小巴查询电话 ﹕ 2669 0737",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_01_LauShuiHeung.html"
+      }
     },
     {
       "id": "84049133",
@@ -24,7 +37,20 @@
       "y": 839867,
       "lat": 22.498411596,
       "lng": 114.177778222,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "鹤薮 ， 八仙岭郊野公园",
+        "campTypeZhHans": "中型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "鹤薮营地位于石坳山之东麓 ， 邻近鹤薮水塘 。 而除周围的美丽景色之外 ， 此地树木蔽天 ， 百鸟争鸣 ， 溪流处处 ， 即使是炎炎夏日 ， 也是清爽凉快 ， 暑气全消 。 水塘郊游径四通八达 ， 可前往沙罗洞或流水响水塘 ， 也可挑战屏风山及八仙岭等 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 晾衫架 、 浴室及凉亭",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "鹤薮水塘家乐径 ： 是一条环绕鹤薮水塘的郊游径 ， 路径由大石砌成 ， 原为 「 凤马古道 」 ， 沿途山明水秀好风光 。 步行此径时 ， 会经过多条石涧及一个实验树林 。 路径平缓 ， 适合家庭郊游 ， 全程约需 1 小时 。",
+        "accessZhHans": "在粉岭港铁站乘坐 52B 号往鹤薮专线小巴 ， 于鹤薮村总站下车 。 沿鹤薮道往鹤薮水塘前行 ， 步行约 15 分钟 ， 便可抵达营地 。 专线小巴查询电话 ﹕ 2669 0737",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_02_HokTau.html"
+      }
     },
     {
       "id": "84049127",
@@ -36,7 +62,20 @@
       "y": 838658,
       "lat": 22.487480297,
       "lng": 114.242925244,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "涌背 ， 八仙岭郊野公园",
+        "campTypeZhHans": "中型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "涌背营地位于八仙岭之东麓 ， 景色怡人的船湾淡水湖尽在眼帘 。 营地树木蔽天 ， 百鸟争鸣 ， 十分宁静和怡人 。 设施有厕所 、 晾衫架及大型烧烤场 ， 也有清澈的溪水 。 邻近有八仙岭及新娘潭自然教育径 ， 亦有龙珠潭 、 新娘潭及照镜潭等瀑布 ， 各具特色 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴 、 晾衫架及凉亭",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "船湾淡水湖 ﹕ 位于吐露港北岸 ， 原是一个名为 「 船湾 」 的大海湾 。 建造工程以堤坝把大海湾围起 ， 然后把海水抽出 ， 再注入淡水 。 长达 2.1 公里的堤坝 ， 由多层碎石和沙筑成 ， 是全港最长的水坝 ， 亦是世界上首个在海中建成的水库 。",
+        "accessZhHans": "由大埔墟港铁站乘坐 20R 号往乌蛟腾专线小巴或假日及公众假期由大埔墟港铁站乘巴士 275R 号往新娘潭巴士 ， 在涌背烧烤场下车或由大埔墟港铁站乘巴士 75K 号往大美督巴士总站再沿新娘潭道步行前往涌背烧烤场 。 专线小巴查询电话 ： 2873 6808",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_03_ChungPui.html"
+      }
     },
     {
       "id": "84049169",
@@ -48,7 +87,20 @@
       "y": 840981.32940366,
       "lat": 22.508446543,
       "lng": 114.271620984,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "三桠涌 ， 船湾郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "三桠涌营地位于三桠湾南面水溪旁的一个小山岗上 ， 优美宁静 ， 景色怡人 ， 印洲塘尽收眼帘 。 水面波平如镜的印洲塘被往湾洲 、 娥眉洲和吉澳环抱著 ， 其他大小岛屿各具特色 。 其中的 「 印塘三宝 」 ─ ─ 笔架 、 神笔和玉玺更令人赞叹心醉 。 营地前的三桠湾蕴含著五花八门的鱼类和七彩斑烂的珊瑚 ， 品种之多实令人目不暇给 ， 而沿岸的红石也美不胜收 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "荔枝窝 ﹕ 是一条超过三百多年历史的客家围村 ， 甚具特色 。 村内建有一座协天宫供奉关帝 ， 祈求村民平安及团结 。 在村前的红树林长有难得一见的巨型白花鱼藤 、 通心树和 「 五指樟 」 等 。 乌蛟腾 ﹕ 是大埔区其中一条最古老的村落 ， 超过四百多年历史 。 「 乌蛟腾 」 旧称 「 乌蛟田 」 所指并非单一村庄 ， 而是地区名称 ， 由数村组成 ， 包括老围 、 河背 ， 岭背 ， 新屋家 、 田心及三家村等 。 吊灯笼 ： 高 416 公尺 ， 是船湾郊野公园最高的山峰 ， 虽然高度不及八仙岭 ， 但却是欣赏整个印洲塘最理想之位置 。 在此处可眺望整个印塘海 、 沙头角 、 深圳盐田港等 ， 在天朗气清的日子更可远眺东平州 、 马鞍山 、 八仙岭等 。",
+        "accessZhHans": "由大埔墟港铁站乘坐 20R 号往乌蛟腾专线小巴或由大埔墟港铁站乘巴士 75K 号往大美督巴士总站或假日及公众假期由大埔墟港铁站乘巴士 275R 号往新娘潭巴士总站 ， 再沿新娘潭道步行往乌蛟腾 ， 沿乌蛟腾郊游径步行至三桠村 ， 约需 1 小时 ， 便可抵达营地 。 专线小巴查询电话 ： 2873 6808",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_04_SamAChung.html"
+      }
     },
     {
       "id": "84049187",
@@ -60,7 +112,20 @@
       "y": 844613.29840646,
       "lat": 22.541055446,
       "lng": 114.441085766,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "东平洲 （ 更楼石 ） ， 船湾郊野公园扩展部份",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "东平洲岛形如新月 ， 是香港最东的一个海岛 。 营地位于独特的 「 更楼石 」 旁 ， 三面环海 ， 仿如一处隔世桃源 。 营地除树木成荫外 ， 还被多种海滩植物包围 ， 鸟语花香 ， 海涛如醉 ， 别有一番风味 。 营地旁更有一幅瀚大的海蚀平台 ， 躺卧在石面上赏月或于更楼石上观日出是多么写意啊 ！",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴 、 晾衫架及凉亭",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "更楼石 ： 是东平洲地标之一 ， 由两块楼高两层的巨石互峙 ， 由于形如古时的更楼 ， 遂被称为 「 更楼石 」 。 龙落水 ﹕ 是东平洲另一个出名的地标 。 位于中部西岸 ， 龙落水是长长的一条石脉 ， 由燧石所形成 ， 仿似龙脊 ， 由高处插入水中 ， 气势磅礡 ， 龙脊岩质坚硬及具抗蚀力 ， 因此得以保存 「 龙落水 」 地标 。",
+        "accessZhHans": "由马料水码头乘坐渡轮往东平洲 ， 在王爷角码头下船后 ， 向沙头村方向前行 ， 步行约 20 分钟 ， 便可抵达营地 。 船期 ： 逢星期六 、 日上午九时或逢星期六下午三时三十分于马料水码头开出 。 回程 ： 逢星期六 、 日下午五时十五分于东平洲王爷角码头开出 。 翠华船务查询电话 ： 2272 2022",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_05_TungPingChau.html"
+      }
     },
     {
       "id": "84049191",
@@ -72,7 +137,20 @@
       "y": 835802,
       "lat": 22.461618288,
       "lng": 114.342131015,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "湾仔半岛南 ， 西贡西郊野公园 （ 湾仔扩建部分 ）",
+        "campTypeZhHans": "大型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "营地处于西贡西郊野公园内风景优美的湾仔半岛南部 ， 邻近大滩海 ， 是远眺整个大滩海的最佳观景点之一 。 营地空旷广阔 ， 宁静优雅 ， 风景如画 ， 晚上天空繁星点点 ， 是一处露营好地方 。",
+        "facilitiesZhHans": "凉亭 、 烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "大型浴室及洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "湾仔半岛在八十年代初原为采泥区 ， 表层泥土被挖走作马鞍山新市镇及大埔工业邨发展工程之用 。 游人亦可以沿从以前采泥时期留下的小型车路环绕湾仔半岛一周 ， 远眺塔门及高流湾等 。",
+        "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在海下村总站下车 。 由海下村步行前往 ， 沿大滩郊游径 ， 约需时 45 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_06_WanTsaiS.html"
+      }
     },
     {
       "id": "84049193",
@@ -84,7 +162,20 @@
       "y": 836185,
       "lat": 22.465081011,
       "lng": 114.338102959,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "湾仔半岛西 ， 西贡西郊野公园 （ 湾仔扩建部分 ）",
+        "campTypeZhHans": "大型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "营地处于西贡西郊野公园内风景优美的湾仔半岛西南部 ， 邻近海下湾海岸公园 ， 是远眺整个海下湾美丽景色的最佳观景点之一 。 此营地空旷广阔 ， 宁静优雅 ， 风景如画 ， 晚上天空繁星点点 ， 是一处露营好地方 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "大型浴室及洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "海下湾海岸公园 : 是香港首个设立的海岸公园 ， 设立于一九九六年七月 ， 海岸公园海域面积约占 260 公顷 ， 海岸生长著多种红树 ， 水底下生长著繁茂的珊瑚群落 ， 并录得超过 60 种石珊瑚品种及 120 种珊瑚礁鱼类 ， 此外还可找到各式各样的海洋生物 ， 包括海星及水母等 。",
+        "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在海下村总站下车 。 由海下村步行前往 ， 沿大滩郊游径 ， 约需时 45 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_07_WanTsaiW.html"
+      }
     },
     {
       "id": "84049125",
@@ -96,7 +187,20 @@
       "y": 832129.66225754,
       "lat": 22.428485351,
       "lng": 114.309803108,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "嶂上 ， 西贡西郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "营地位于西贡嶂上高原之上 ， 营地四周树木成荫 ，环境恬静，可远眺西贡最高的石屋山山峰。 附近有一间士多 ， 每逢假期及远足季节 ， 都会十分热闹 。",
+        "facilitiesZhHans": "台 、櫈",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "嶂上高原 ： 于五六十年代盛极一时 ， 拥有多条村落 ， 并设有学校 ， 七十年代经济起飞后村民开始他迁 ， 目前仍有一间士多在假日经营 ， 现在士多门外仍保留学校的游乐场设施 。 由于嶂上四通八达 ， 因此成为一处远足训练的理想地方 。",
+        "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在嶂上郊游径起步点下车 。 沿嶂上郊游径上行 ， 沿途均设有指示牌 ， 步行约 1 小时 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_08_CheungSheung.html"
+      }
     },
     {
       "id": "84049129",
@@ -108,7 +212,20 @@
       "y": 833576.71921032,
       "lat": 22.44153761,
       "lng": 114.327253887,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "猴塘溪 （ 海下路 ）， 西贡西郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "猴塘溪营地位于海下路旁 ， 地面平坦 ， 树木成荫 。 营地旁是一个大型烧烤场 ， 适合团体活动 ， 场内种植了各式各样的树木 ， 小桥流水 ， 景色怡人 ， 每逢假日都有很多旅行人士前往 。 离营地不远处有一条石涧 ， 山水由石屋山而下 ， 流水不断 ， 水声潺潺 ， 使人心旷神怡 ， 是摄影及郊游的好地方 。",
+        "facilitiesZhHans": "凉亭 、 烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "白沙澳青年旅舍 ： 旅舍于 1975 年 9 月启用 ， 前身是一所荒废了的乡村小学 ， 于 80 年代初重建 。 这旅舍的设计荣获 1986 年香港建筑师学会会长奖 。",
+        "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在猴塘溪下车 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_09_HauTongKai.html"
+      }
     },
     {
       "id": "84049179",
@@ -120,7 +237,20 @@
       "y": 833133.39236811,
       "lat": 22.437528293,
       "lng": 114.333440399,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "大滩 ， 西贡西郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "大滩营地位于北潭路旁 ， 大滩烧烤场内 ， 交通方便 ， 游人于大滩巴士站下车后 ， 便可见路旁的大滩烧烤场入口 ， 步行穿过烧烤场 ， 便是大滩营地 。 营地内最大的特色是建有一座具欧陆特色的避雨亭 。",
+        "facilitiesZhHans": "凉亭 、 烧烤炉 、 台 、櫈",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "大滩树木研习径 ： 路径全长 230 米 ， 介绍沿途 18 种树木植物 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士 ， 在大滩下车 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_10_TaiTan.html"
+      }
     },
     {
       "id": "84049195",
@@ -132,7 +262,20 @@
       "y": 832852.01913815,
       "lat": 22.434984452,
       "lng": 114.336419452,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "黄石 ， 西贡东郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "黄石营地位于黄石巴士总站对上 ， 交通甚为方便 ， 在营地可远望高流湾 、 塔门 、 东心淇及大滩海沿岸景物 。 在假日期间海面五光十色的风帆飘来荡往 ， 衬托著蓝天碧海 ， 令人感到身心舒畅 。 晚上月亮在东北方渐渐升起 ， 满天繁星伴月 ， 这种美景在繁嚣的城市中根本无从欣赏 。 而在营地对出的码头 ， 可以一面垂钓 ， 一面细赏对岸渔港风光 ， 优悠自在 。",
+        "facilitiesZhHans": "凉亭 、 烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "黄石码头 ： 黄石码头是往来大滩海的主要码头 ， 有街渡往来塔门 、 赤径 、 湾仔营地 。 码头侧建有由康文署管辖的水上活动中心 ， 在黄石码头可一睹大滩海的景色 ， 亦可远眺高流湾的风貌 ， 景色怡人 ， 可在码头及沿岸海湾垂钓 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士 ， 在总站下车 。 下车后沿巴士站旁跟随指示牌上行 ， 步行约 5 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_11_WongShek.html"
+      }
     },
     {
       "id": "84049161",
@@ -144,7 +287,20 @@
       "y": 831517,
       "lat": 22.422929202,
       "lng": 114.335839645,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "北潭凹 （ 牛湖墩 ） ， 西贡东郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "北潭凹营地位于西贡东郊野公园 。 营地地型成梯田状 ， 树林成荫 ， 很多雀鸟在这里栖息 。 离营地不远便是牛湖墩 ， 是一些摄影朋友常到取景的地方 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "北潭凹 ： 是热门的远足活动起步点 ， 亦是麦理浩径第三段起步点 ， 旁有北潭凹村 ， 北潭凹亦是一处野外定向训练的理想场地 。 赤径 ﹕ 是西贡历史悠久的古村之一 ， 超过二百多年历史 ， 位于大滩海峡内 ， 湾内风平浪静 。 村内现已经很少人居住 ， 村内有士多 、 码头 、 青年旅舍 ， 亦有渡轮往返黄石码头及塔门等地 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号巴士或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭凹下车 。 沿著麦理浩径第二段往赤径方向前行 ， 约 10 分钟便见营地入口 ， 再右上沿石级上行 10 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_12_PakTamAu.html"
+      }
     },
     {
       "id": "84049167",
@@ -156,7 +312,20 @@
       "y": 828913,
       "lat": 22.399376908,
       "lng": 114.369793313,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "西湾 （ 大浪西湾 ）， 西贡东郊野公园",
+        "campTypeZhHans": "大型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "营地在西贡东部风景最优美的景点 「 大浪四湾 」 之一的大浪西湾北面沙滩， 位于麦理浩径第二段路旁 。 游人在此露营 ， 可细意欣赏水清沙幼的西湾沙滩 ， 更可远眺附近离岸岛屿的海光山色 。 在清晨时分 ， 一睹朝阳从水平线缓缓升起 。 注意 : 由于该营地位于沙滩海岸边 ， 露营人士必需特别小心潮水上涨 。 西湾南面的沙滩 （近士多）并非露营地点。",
+        "facilitiesZhHans": "/",
+        "sanitaryFacilitiesZhHans": "标准厕所",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "大浪西湾 ： 曾是渔船避风之地 。 后来万宜水库工程展开 ， 令官门水道捷径堵塞 ， 交通顿由水路变成陆路 。 西湾村由于是麦理浩径第二段必经之地 ， 亦是热门的远足路线 ， 所以有多间士多在此经营 ， 亦成为行山人士的一个补给点 。",
+        "accessZhHans": "由西贡墟乘 29R 号往西湾亭专线小巴 ， 在西湾亭下车 。 从西湾亭出发 ， 沿西湾村小径 ， 依照指示牌 ， 步行约 1 小时 ， 便可抵西湾村 ， 再沿麦理浩径前行 5 分钟至北面的沙滩 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_13_SaiWan.html"
+      }
     },
     {
       "id": "84049143",
@@ -168,7 +337,20 @@
       "y": 826026,
       "lat": 22.373299358,
       "lng": 114.375204468,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "浪茄湾 （ 浪茄沙滩 ）， 西贡东郊野公园",
+        "campTypeZhHans": "",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "营地位于西贡东郊野公园内风景优美的浪茄湾 ， 沙幼水清 ， 四周风光如画 ， 是都市人抛开一切烦忧 ， 洗涤心灵的好地方 。 海风轻吹 ， 令人心旷神怡 。 往营地途中风光明媚 ， 整个万宜水库的景色都尽入眼帘 。",
+        "facilitiesZhHans": "/",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "浪茄湾 ： 除了水清沙幼的沙滩外 ， 还有一所 「 基督教互爱团契浪茄训练中心 」 。 中心在一九八一年一月成立 ， 提供戒毒服务 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌出发 ， 沿麦理浩径第一段车路 ， 经万宜路向万宜水库方向前行 ， 经万宜水库西坝及东坝 ， 再转入往浪茄湾的小径 ， 步行约 3 小时 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_14_LongKeWan.html"
+      }
     },
     {
       "id": "84049159",
@@ -180,7 +362,20 @@
       "y": 824468,
       "lat": 22.359241967,
       "lng": 114.365038977,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "白腊 （ 万宜水库万宜路 ）， 西贡东郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "营地在万宜路旁 ， 邻近万宜水库东坝及白腊村 。 游人前往此处露营 ， 沿途可尽情游览万宜水库的湖光山色 ， 亦可远眺西贡东半岛的离岸景色 。 于清晨时 ， 更可在附近的东坝观赏水平线上的旭日初升 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "流动厕所",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "白腊湾及白腊村 ： 白腊湾内的白腊村是一条已有三百年历史的客家村庄 ， 村内有所玄坛宫 ， 是村民祈福的地方 ， 沙滩水清沙幼 。 破边洲 ﹕ 矗立在万宜水库东坝对开 ， 它原本是西贡大陆的一部份 ， 经过千万年来的海浪冲击及侵蚀分裂出来 。 「 破边洲 」 由火山溶岩组成 ， 海浪浸蚀的部份有排列得整整有条呈六角形的石柱 ， 石柱组成了特有的自然奇观 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴或 9 号往麦理浩夫人度假村专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌出发 ， 沿麦理浩径第一段车路 ， 经万宜路向万宜水库前行 ， 经万宜水库西坝 ， 步行约 2 小时 ， 便可抵达营地 。",
+        "remarksZhHans": "地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_15_PakLap.html"
+      }
     },
     {
       "id": "84049199",
@@ -192,7 +387,20 @@
       "y": 826553,
       "lat": 22.378105681,
       "lng": 114.331943508,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "元五坟 ( 南风湾 ) ， 西贡东郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "元五坟 ( 南风湾 ) 营地邻近西贡万宜路 ， 位于南风湾山丘上 。 营地面对南风湾及万宜水库西坝 ， 环境优美 ， 湖光山色尽收眼底 。 在此亦可远眺滘西洲及大头洲各岛屿景色 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "创兴水上活动中心 ： 位于西贡万宜水库西坝 ， 中心的活动在人工湖进行 ， 活动分别有风帆 、 滑浪风帆 、 舢板 、 独木舟及划艇等 ， 是水上活动的理想地方 。 万宜水库 ﹕ 位于西贡东郊野公园内 ， 曾选为香港十大杰出工程项目之一 。 当时兴建水塘最大的挑战 ， 就是将粮船湾洲的官门海峡两端封合 ， 然后建筑两道堤坝连接粮船湾洲和西贡半岛东部海峡的东西两端 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌出发 ， 沿麦理浩径第一段 ， 经万宜路往万宜水库前行 ， 步行约 45 分钟便可抵上窰郊游径接万宜路出口 （ 近万宜水库之西坝副坝 ） ， 游人此时便依照路标指示转入上窰郊游径 ， 步行约 15 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_16_YuenNgFan.html"
+      }
     },
     {
       "id": "84049163",
@@ -204,7 +412,20 @@
       "y": 827006,
       "lat": 22.382201239,
       "lng": 114.326918115,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "曝罟湾 ， 西贡东郊野公园 （ 曝罟湾 ）",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "此营地在曝罟湾山丘高处 ， 位于上窰郊游径旁 。 营地环境宁静优美 ， 四周林木茂盛 ， 在此可眺望盐田仔及滘西洲等西贡内海之风光 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "上窰民俗文物馆 ： 位于风景优美的西贡郊野公园内 ， 是一座建于十九世纪末的客家村庄 。 上窰村和邻近的一座石灰窰于 1981 年被列为法定古迹 ， 重修后于 1984 年开放为博物馆 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌复兴桥起步 ， 沿北潭涌自然教育径前行 。 到达上窰民俗博物馆后 ， 依照路标指示 ， 转往上窰郊游径起步点 ， 向万宜水库方向前行 ， 步行约 45 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_17_PoKwuWan.html"
+      }
     },
     {
       "id": "84049197",
@@ -216,7 +437,20 @@
       "y": 829670,
       "lat": 22.406260027,
       "lng": 114.32522492,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "怡庭 （ 北潭路近鲫鱼湖 ）， 西贡西郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "游人进入场内时须经过一道十分别致的拱形石墙 ， 营地一片绿茵草地 ， 六角形的石台颇有特色 。 左面有一条小路直引上营地另一处小山丘 ， 视野广阔 ， 可以远望附近的群山景色 。 四周环境清幽 ， 令人顿觉心情开朗 。",
+        "facilitiesZhHans": "凉亭 、 烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "北潭涌家乐径 ： 从北潭涌停车场起步 ， 全长 1.4 公里 ， 途中的树木皆是巿民于大众植树计划期间种植 ， 沿途亦设有烧烤和郊游地点 ， 适合初次远足及家庭郊游 。",
+        "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭路下车 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_18_YeeTing.html"
+      }
     },
     {
       "id": "84049175",
@@ -228,7 +462,20 @@
       "y": 829276,
       "lat": 22.402740203,
       "lng": 114.275186352,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "水浪窝 ， 马鞍山郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "营地内绿草如茵 ， 亦设有烧烤炉 、 厕所等基本设施 ， 场地呈梯田状 ， 比较有特色的莫如场内由大石组合成的台 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈",
+        "sanitaryFacilitiesZhHans": "旱厕及流动厕所",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "马鞍山 ： 高 702 米 ， 山势险峻 ， 马鞍山脉由吊手岩 、 牛押山 (674 米 ) 及马鞍山所组成 。 「 马鞍山 」 之由来 ， 从沙田眺望牛押及马鞍两山 ， 其间相连山脊弯如马鞍因而得名 「 马鞍山 」 。",
+        "accessZhHans": "由西贡市巴士总站中心或沙田市中心乘 299X 号巴士 ， 在水浪窝下车 。 沿旁前行 ， 经麦理浩径第四段起点行约 20 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_19_ShuiLongWo.html"
+      }
     },
     {
       "id": "84052103",
@@ -240,7 +487,20 @@
       "y": 828123.19714394,
       "lat": 22.392342727,
       "lng": 114.250979528,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "昂平 ， 马鞍山郊野公园",
+        "campTypeZhHans": "中型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "营地所之马鞍山郊野公园昂平地区 ， 是香港少数的高山草原之一 （ 高约 400 米 ） ， 地形辽阔 ， 风景秀丽 。 营地附近有一荒废的村落 「 昂平村 」 ， 绝大部份村屋皆已倒塌 ， 但周遭的风水林树木茂盛 ， 保存完整 ； 这样的自然环境 ， 吸引了不少野生动物及雀鸟栖身其中 ， 细心观察更可发现它们的踪迹呢 ﹗",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "昂平观景台 ： 俯瞰西贡市和西贡内海 ， 天朗气清时可远眺西贡海景色 。 大金钟 ： 高 536 米 ， 在昂平高原上如金字塔般拔地而起 。",
+        "accessZhHans": "由西贡市乘 3 号小巴 。 在菠萝 𪨶 下车 。 沿北港凹车路上行约 10 分钟至大水井村 ， 再沿马鞍山郊游径步行约 1 小时前往 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_20_NgongPing.html"
+      }
     },
     {
       "id": "84049185",
@@ -252,7 +512,20 @@
       "y": 812971,
       "lat": 22.255482805,
       "lng": 114.29593179,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "东龙洲 ， 东龙洲炮台特别地区",
+        "campTypeZhHans": "中型 （备注）",
+        "suitableForZhHans": "",
+        "introZhHans": "此营地位于东龙洲的东北部 ， 风景优美 ， 从东龙洲佛堂门公众码头步行约 1 0 分钟或从东龙洲公众码头步行约 2 0 分钟便可到达 。 每逢星期六 、 日及公众假期皆有船由西湾河及三家村来往东龙洲 。 占地共约三公顷的营区及清代炮台遗址已在 1979 年划为东龙洲特别地区 。",
+        "facilitiesZhHans": "烧烤炉 、 台椅 、 资讯板 、 垃圾桶 、 凉亭 。",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "东龙洲炮台 ： 根据纪录显示 ， 此炮台于康熙年间 (1662 年至 1722 年 ) 建造 ， 作为防御海盗之用 。 东龙石刻 ： 是古代的摩崖石刻 ， 位于面临大海的东北岸 。 此石刻高 180 厘米 ， 长 240 厘米 ， 是现时香港境内所知最大的石刻 。 石刻的纹饰颇为复杂 ， 整个图案状似龙形 。",
+        "accessZhHans": "可于鲤鱼门三家村公众码头及西湾河筲箕湾避风塘十号梯台乘搭街渡 (只在星期六 、 日及公众假期提供服务 )。 本网页所提供的交通资讯只供参考 ， 前往目的地前请查阅运输署及相关公营交通机构的网页获取最新的交通资讯 。 香港出行易网页 ︰ http://hkemobility.gov.hk/",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_21_TungLungChau.html"
+      }
     },
     {
       "id": "84049139",
@@ -264,7 +537,20 @@
       "y": 830223,
       "lat": 22.411320876,
       "lng": 114.157789636,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "铅矿坳 ， 城门郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初体验露营人士",
+        "introZhHans": "此营地位于铅矿坳场地附近 ， 邻近麦理浩径第八段入口及卫奕信径第七段 。 营友可选择由城门菠萝坝或大埔元墩下前往 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴 、 凉亭等",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "位于麦理浩径第八段入口及卫奕信径第七段 ， 四通八达 ， 是前往大帽山及大埔必经之路 ， 步行半小时可达草山山顶 ， 在草山顶可远眺北区风景 。 附近有一带天然丛林 ， 丛林内孕育了不少野生动物及雀鸟 ， 鸟语花香 ， 别有一番风味 。",
+        "accessZhHans": "从城门菠萝坝出发 ﹕ 在荃湾兆和街乘专线小巴 82 号前往城门水塘或乘途经可风中学 ( 城门路口 ) 的 32 、 40X 、 46P 、 46X 、 47X 、 48X 、 73X 、 278X 巴士 ， 于可风中学下车 ， 下车后沿城门道直上约廿分钟便可到达城门水塘小巴总站 。 沿菠萝坝自然教育径步行约廿分钟到达教育径尾后转右 ， 沿林道步行往铅矿坳方向 ， 依指示牌前行便可抵达营地 ， 全程约需 1 小时 30 分钟 。 从大埔元墩下出发 ﹕ 从大埔墟港铁站乘专线小巴 23K 前往新屋家 ， 步行约十五分钟便到达元墩下 。 沿卫奕信径拾级而上 ， 到达营地约需 1 小时 30 分钟 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_22_LeadMinePass.html"
+      }
     },
     {
       "id": "84049165",
@@ -276,7 +562,20 @@
       "y": 829533,
       "lat": 22.405075037,
       "lng": 114.105093691,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "扶轮公园 ， 大帽山郊野公园",
+        "campTypeZhHans": "",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "此营地位于大帽山郊野公园扶轮公园烧烤区内 ， 邻近荃锦公路 ， 交通便捷 。 每个营位均由散发芳香的植物围绕 ， 如米仔兰 、 桂花 、 含笑等 。 营地旁的烧烤场地方广阔 ， 适合大型团体活动 。 附近的扶轮公园设有观景台 ， 可以在此饱览荃湾及青衣一带景色 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈及污水穴等",
+        "sanitaryFacilitiesZhHans": "标准厕所",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "大帽山郊野公园游客中心设有展览廊及活动室 。 中心的展览廊共分为六个主题部份 ， 分别介绍大帽山郊野公园 、 全球及香港的气候变化 、 气候变化对本港的树林 、 生态系统以至极地的影响 。 展览廊设有多元互动的展品及游戏 ， 令大家明白爱护郊野环境以及珍惜地球资源的重要性 。",
+        "accessZhHans": "可在荃湾如心广场巴士总站或荃湾港铁站上盖巴士站乘搭 51 号往上村巴士 ， 于 「 大帽山郊野公园 」 站下车 ， 步行约 5 分钟即可到达 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎 20 至 50 ； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_23_Rotary.html"
+      }
     },
     {
       "id": "84049189",
@@ -288,7 +587,20 @@
       "y": 829725,
       "lat": 22.406808053,
       "lng": 114.103228093,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "荃锦 ， 大榄郊野公园",
+        "campTypeZhHans": "中型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "位于大榄郊野公园内的荃锦营地 ， 邻近荃锦郊野公园管理站 。 此地环境清幽 ， 林木茂盛 ， 营位自成一角 。 营友可以在此俯瞰荃湾及青马一带景色 。 荃锦营地共有37个营位，其中4个为双营位。单营位可容纳最多4人，而双营位则可容纳最多8人。 露营人士需提早于郊野营人网站 (www.camping.gov.hk) 预约。",
+        "facilitiesZhHans": "露营平台、烧烤炉、台、櫈、污水穴等",
+        "sanitaryFacilitiesZhHans": "流动厕所",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "大帽山 ： 是全港最高的山峰 ， 高 957 米 。 由于山势高耸 ， 容易被云雾浓罩 ， 能见度低 ， 所以又名 「 大雾山 」 。 山顶上装设了香港天文台天气雷达 ， 是目前全球最先进雷达系统之一 。 这个雷达系统无论在仪器及电脑软件方面 ， 均达到世界级水平 。 它不但能准确地探测雨量的多少 、 台风的强度及位置 ， 更能用立体图像显示风暴四周及内里的结构 。",
+        "accessZhHans": "可在荃湾如心广场巴士总站或荃湾港铁站上盖巴士站乘搭 51 号往上村巴士 ， 于 「 大帽山郊野公园 」 站下车 ， 步行约 5 分钟即可到达 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎 20 至 50 ； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_24_Twisk.html"
+      }
     },
     {
       "id": "84049131",
@@ -300,7 +612,20 @@
       "y": 830076,
       "lat": 22.409960322,
       "lng": 114.071700507,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "河背 ， 大榄郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "此营地位于河背烧烤场内 ， 靠近山边 ， 自成一隅 。 烧烤场四周林木成荫 ， 环境清幽 。 在此可俯瞰锦田景色 ， 八乡村落田野与三号干线及西北铁路等现代建设相映成趣 。 邻近河背水塘景色怡人 ， 湖光山色尽入眼帘 。 环绕水塘之家乐径 ， 亦是全家老幼郊游的理想地点 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 晾衣架 、 污水穴及凉亭等",
+        "sanitaryFacilitiesZhHans": "流动厕所",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "河背水塘 ： 曾获选为香港十景之一 ， 是水务署辖下面积最小的水塘 ， 现时水塘的储水主要用作灌溉新界西北地区的农田 。",
+        "accessZhHans": "由元朗泰衡街乘 71 号往石湖塘河背专线小巴 ， 于河背村总站下车 ， 从河背村步行约 30 分钟便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_25_HoPui.html"
+      }
     },
     {
       "id": "84049181",
@@ -312,7 +637,20 @@
       "y": 827876,
       "lat": 22.39008946,
       "lng": 114.066044311,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "田夫仔 ， 大榄郊野公园",
+        "campTypeZhHans": "中型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "此营地位于大榄郊野公园的中心地带 ， 四周林木茂盛 ， 环境清幽 ， 邻近田夫仔村 。 于六十年代该地点是渔护署田夫仔林务站所在 ， 是田夫仔一带的植树造林基地 。 营地旁建有木桥 「 田清桥 」 ， 横跨溪流 ， 桥面长度十四米 ， 宽度一米半 ， 高度约两米半 。 营地是元荃古道必经之路 ， 为古时来往元朗及荃湾的人士提供歇脚暂休之地 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴等",
+        "sanitaryFacilitiesZhHans": "流动厕所",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "河背水塘 ： 曾获选为香港十景之一 ， 是水务署辖下面积最小的水塘 ， 现时水塘的储水主要用作灌溉新界西北地区的农田 。 大榄涌水塘 ： 今天所见的大榄涌水塘是昔日五十年代大榄涌谷被淹没形成的 。 大榄涌谷由一条断裂以东北 – 西南走向横越大榄涌地区所形成 。 田夫仔村 ： 此村的原居民姓蔡 ， 已有三百多年的历史 ， 全盛时村民达数百人之多 ， 是八乡一带其中一条大村 ， 至今仍有村民居住 。",
+        "accessZhHans": "由深井经清快塘上行至营地 ， 约需 1.5 小时抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎 20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_26_TinFuTsai.html"
+      }
     },
     {
       "id": "84049149",
@@ -324,7 +662,20 @@
       "y": 812735,
       "lat": 22.253283425,
       "lng": 113.986203173,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "南山 ， 南大屿郊野公园",
+        "campTypeZhHans": "大型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "位于屿南道的南山营地 ， 被山谷及树木围绕 ， 营地占地广阔 ， 环境清幽 ， 设施齐备 ， 交通便捷 。",
+        "facilitiesZhHans": "凉亭 、 烧烤炉 、 台 、 櫈 、 污水穴 、 晾衫架 、 煮食炉位 、露营平台 、 浴室",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "南山烧烤地点 ： 是大屿山郊野公园最大的一个烧烤场 ， 这里绿草如茵 ， 占地广阔 ， 可以容纳百多人在此烧烤野餐 。 南山观景台 ： 在南山营地附近的一个山岗上 ， 观景台可远眺梅窝及贝澳湾景色 。",
+        "accessZhHans": "由东涌市中心乘 3M 号往梅窝巴士或由梅窝乘途经南山巴士 ， 在南山下车 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_27_NamShan.html"
+      }
     },
     {
       "id": "84049157",
@@ -336,7 +687,20 @@
       "y": 812573,
       "lat": 22.251829513,
       "lng": 113.99408257,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "白富田 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "位于凤凰径第 12 段标距柱 L132 ， 刚好在凤凰径旁边 。 白富田营地占地较小 ， 但地方清幽雅致 ， 四周为树木覆盖 ， 就算烈日当空 ， 也觉凉风习习 ， 丝毫没有闷热感觉 ， 况且内有溪流横越其中 ， 更添怡人景色 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "梅窝谷地 ： 梅窝被群山环抱 ， 中间低陷 ， 平坦如窝 ； 梅窝谷地分别有五村 ， 其位置分布如五瓣梅花 ， 因而命名为梅窝 。",
+        "accessZhHans": "由东涌市中心乘 3M 号往梅窝巴士或由梅窝乘经南山巴士 ， 在南山下车见有烧烤地点 ， 沿场地告示牌小径直上约半小时便可抵达营地 。 或由梅窝步行至南山烧烤区 ， 沿途均设有指示牌 ， 步行约 1 小时 ， 亦可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_28_PakFuTin.html"
+      }
     },
     {
       "id": "84049171",
@@ -348,7 +712,20 @@
       "y": 810941.0606,
       "lat": 22.237085437,
       "lng": 113.988290124,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "十塱 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "位于芝麻湾十塱坳 ， 入口有木牌楼 ， 刻上 「 芝麻湾郊游径 」 ， 沿左边山路前往 ， 只需 5 分钟抵达 。 营位设于路旁高地 ， 树荫蔽天 ， 溯坑而上设有蓄水位 。 因地点远离马路 ， 环境相当幽静 。",
+        "facilitiesZhHans": "烧烤炉 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "贝澳 ﹕ 贝澳在古籍上称 「 螺杯澳 」 ， 亦称 「 杯澳 」 。 分别由贝澳老围村 、 贝澳新村 、 罗屋村及咸田四村所组成 。 贝澳老围村建于清初 ， 当时曾有大盗抢劫 ， 事后乡人兴建围门及围墙 ， 据说自贝澳围建成后 ， 一直以来皆家宅太平 。",
+        "accessZhHans": "由东涌市中心乘 3M 号往梅窝巴士或由梅窝乘途经贝澳巴士 ， 在贝澳下车 ， 再沿芝麻湾道步行前往 ， 经咸田村 ， 步行约 40 分钟 ， 便可抵达营地或乘的士前往 ， 在芝麻湾道十塱旧村下车 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_29_ShapLong.html"
+      }
     },
     {
       "id": "84049141",
@@ -360,7 +737,20 @@
       "y": 808181,
       "lat": 22.212059149,
       "lng": 113.915178503,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "箩箕湾 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "位于水口村南 1.5 公里的箩箕湾畔 ， 拥有美丽的海滩 ， 这里不但风景怡人 ， 还是一个交通方便的理想营地 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "箩箕湾 ： 是一个美丽的海湾 ， 风景怡人 ， 沙滩海水清澈 ， 湾内的礁石地带最适合钓鱼活动 。",
+        "accessZhHans": "由东涌市中心乘 11 号往大澳或乘 23 号往昂坪巴士 ； 或由梅窝乘 1 号往大澳或乘 2 号往昂坪巴士 ， 在水口村站下车 。 沿凤凰径第九段 （ 往石榄洲方向 ） ， 步行约 25 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_30_LoKeiWan.html"
+      }
     },
     {
       "id": "84049173",
@@ -372,7 +762,20 @@
       "y": 808302,
       "lat": 22.213132337,
       "lng": 113.903305469,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "石榄洲 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "石榄洲营地位于石门山山麓西南方 ， 位处凤凰径第 9 段 ， 即标距柱 L092 号 。 原址曾经是耕地 ， 现在还可以看见田埂阡陌相连 。 石榄洲是个礁石满布的海湾 ， 海湾虽小 ， 但渔获甚丰 ， 有不少渔民在附近一带捕鱼作业 。",
+        "facilitiesZhHans": "烧烤炉 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "索罟群岛 ： 索罟群岛由两个岛组成 ， 附近水域是中华白海豚 、 江豚及鱼群栖身之处 ， 鱼类品种多达 20 多种 ， 当中亦有珊瑚群落生长 。",
+        "accessZhHans": "由东涌市中心乘 11 号往大澳或乘 23 号往昂坪巴士 ； 或由梅窝乘 1 号往大澳或乘 2 号往昂坪巴士 ， 在石壁警岗下车 。 再沿凤凰径第九段 ，往石榄洲方向步行约 40 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_31_ShekLamChau.html"
+      }
     },
     {
       "id": "84049177",
@@ -384,7 +787,20 @@
       "y": 808322,
       "lat": 22.213268493,
       "lng": 113.878021049,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "大浪湾 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "大浪湾营地分割成上 、 下两部份 。 上截位于山坡地 ， 下截濒临海边 ， 环境宁恬怡人 。",
+        "facilitiesZhHans": "烧烤炉 、 櫈 、 晾衫架 、 污水穴 、台",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "大浪湾村 ﹕ 约建于 1959 年 ， 当年政府为了开辟石壁水塘 ， 把原有石壁围 、 坟背 、 岗背 、 沙咀 、 涌口及坑仔等 6 村村民 ， 给迁徒到荃湾 、 梅窝及这里的大浪湾 。 现时大浪湾村有数十户人家 ， 村民以冯 、 徐两姓为主 ， 村内建有 「 冯氏宗祠 」 。 石壁水塘 ﹕ 水塘被三山环抱 ， 东面有狗牙岭 ， 西面有羗山 ， 北面有木鱼山及狮子头山 。 水塘历时七年时间建成 ， 于 1963 年竣工 。 主坝横跨石壁谷 ， 坝全长 713 米 ， 高 54 米 ， 它截存了附近三面山岭流下的涧水 ， 存水量达 2,440 万立方米 ， 是 60 年代全港最大的水塘 。",
+        "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） /23 号（ 往昂坪 ） 或由梅窝乘 1 号 （ 往大澳 ）/ 2 号（ 往昂坪 ） 巴士 ， 在沙咀站下车 。 经宏贝道 ，走进凤凰径第八段 （ 往狗岭涌方向 ） ， 步行约 30 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_32_TaiLongWan.html"
+      }
     },
     {
       "id": "84049135",
@@ -396,7 +812,20 @@
       "y": 807353,
       "lat": 22.20449095,
       "lng": 113.863725459,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "狗岭涌 ， 南大屿郊野公",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "狗岭涌营地是大屿山郊野公园其中一个最美丽的露营地点 ， 它不但邻近一个水清沙幼的海湾 ， 更有小桥流水 、 茂密树林 ， 在东面山丘上 ， 更有观景台及屿南界碑等名胜 。",
+        "facilitiesZhHans": "烧烤炉 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "屿南界碑 ： 位于狗岭涌营地旁山岗上的屿南界碑 ， 和另一处在大澳象山的屿北界碑 ， 是在一九零二年由英国海军所竖立 ， 用来标明香港中英南面分界 。 分流炮台 ﹕ 位于分流东湾南面的山岗上 ， 其位置可俯瞰来往珠江河口的航道 。 砲台的主要目的是守卫通往广州及珠江口的水道 ， 保护商船和遏止海盗侵袭 。 炮台于 1981 年正式被列为法定古迹 。",
+        "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ）/ 23 号（ 往昂坪 ） 或由梅窝乘 1 号 （ 往大澳 ）/ 2 号（ 往昂坪 ） 巴士 ， 在沙咀站下车 。 经宏贝道 ，走进凤凰径第八段 （ 往狗岭涌方向 ） ， 步行约 1 小时 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_33_KauLingChung.html"
+      }
     },
     {
       "id": "84049147",
@@ -408,7 +837,20 @@
       "y": 810249,
       "lat": 22.230648929,
       "lng": 113.866509425,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "万丈布 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "万丈布营地地处土丘顶 ， 与慈兴寺遥遥对望 。 视野广阔 ， 树林茂密 ， 既可观赏到林泉飞瀑 ， 又可聆听百鸟争鸣 。 晚间露营于此 ， 幕天席地 ， 隔岸听涛 ， 仰观星宿 ， 是多么写意啊 !",
+        "facilitiesZhHans": "烧烤炉 、 櫈 、 晾衫架 、 污水穴 、 台",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "万丈布 ： 本名 「 水涝漕 」 ， 因该溪涧潭瀑相连 ， 气势如虹 ， 远观有如银布万丈 。 慈兴寺 ： 是大屿山有名的名胜 ， 建于一九三零年 ， 是羗山一带较具规模的寺院 ， 以彩塑飞龙及有外籍和尚驻寺而驰名 。",
+        "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） 或由梅窝乘 1 号（ 往大澳 ）巴士 ， 在龙仔站下车 。 经羗山 （ 南 ）引水道 ， 走进羗山郊游径 ，步行至引水道约尽头位置 ， 沿水泥小径上行至 「 龙仔悟园 」 ， 再接回凤凰径第五段往万丈布前行 ， 步行约 1 小时 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_34_ManCheungPo.html"
+      }
     },
     {
       "id": "84049151",
@@ -420,7 +862,20 @@
       "y": 811159,
       "lat": 22.238840093,
       "lng": 113.852833365,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "牙鹰角 ， 北大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "牙鹰角营地面陲大海 ， 背靠牙鹰山 ， 风景极佳 。 放眼二澳湾畔 ， 是绵延 1.3 公里的砂石滩 ， 由数支溪流经年累月地冲积而成 。 极目远眺 ， 可以看见几个孤寂的小岛 ， 静躺于混黄海水之上 。",
+        "facilitiesZhHans": "烧烤炉 、 櫈 、 晾衫架 、 污水穴 、 台",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "大澳 ： 大澳渔港有 「 香港威尼斯 」 之称 ， 昔日盛产咸鱼 、 虾糕 。 然而它仍保留著不少水乡的传统特色 、 自然生态及独有的水上棚屋 。",
+        "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） 或由梅窝乘 1 号（ 往大澳 ）巴士 ， 在大澳总站下车 。经南涌村 ，走进凤凰径第七段 ， 步行约 40 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_35_NgaYingKok.html"
+      }
     },
     {
       "id": "84049183",
@@ -432,7 +887,20 @@
       "y": 807819,
       "lat": 22.208659428,
       "lng": 113.843679684,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "煎鱼湾 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "煎鱼湾营地是香港最西南面的营地之一 ， 在营地高处 ， 除了欣赏到大屿海峡风光外 ， 还可以在最有利位置欣赏到夕阳西下 ， 堪与凤凰观日媲美 。",
+        "facilitiesZhHans": "烧烤炉 、 櫈 、 污水穴 、 晾衫架",
+        "sanitaryFacilitiesZhHans": "旱厕",
+        "waterSourceZhHans": "溪涧 （ 季节性水源 ）",
+        "attractionsZhHans": "鸡翼角 ﹕ 又称鸡山 ， 因岛之南端凸出 ， 北面凹陷 ， 形状像鸡翼 ， 因而得名 。 又鸡翼角之名由来已久 ， 著名的分流炮台亦被称为鸡翼角炮台 。 分流西湾 ﹕ 在营地南行 500 米就是分流西湾 。 这里水清沙幼 ， 环境清幽 ， 远山近水 ， 蓝天碧海 ， 风景如画 。",
+        "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） 或由梅窝乘 1 号 （ 往大澳 ） 巴士 ， 在大澳总站下车 。经南涌村 ， 走进凤凰径第七段 ， 步行约 2 小时 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_36_TsinYueWan.html"
+      }
     },
     {
       "id": "84052101",
@@ -444,7 +912,20 @@
       "y": 812925.6,
       "lat": 22.254904284,
       "lng": 113.914218075,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "昂坪 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "位于凤凰山与弥勒山之间 ， 被山谷围绕 ， 营地占地广阔 ， 环境清幽 ， 设施齐备 ， 交通便捷 。",
+        "facilitiesZhHans": "櫈 、 煮食炉位 、 台 、 露营平台",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施 (距离约 100 米 )",
+        "waterSourceZhHans": "标准洗手间 (距离约 100 米 )",
+        "attractionsZhHans": "观景远眺昂坪风貌 ， 山坡绿草如茵 ， 同时邻近心经简林 。",
+        "accessZhHans": "从东涌市中心乘 23 号 、 梅窝乘 2 号或大澳乘 21 号巴士到昂坪总站下车 ，或从东涌市中心乘昂坪 360 吊车至昂坪 ， 沿心经简林路牌指示行走 ， 沿旁边小径途经茶园而至东山法门便可到达 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_37_NgongPing.html"
+      }
     },
     {
       "id": "990103269",
@@ -456,7 +937,20 @@
       "y": 841659.8,
       "lat": 22.51459188,
       "lng": 114.231851049,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "降下坳 ， 八仙岭郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "降下坳营地位于新娘潭路旁 ， 占地虽少 ， 但设施齐备 。 邻近有多条适合不同郊游人士的远足径 ， 如乌蛟腾郊游径 、 凤坑家乐径 ， 各具特色 。",
+        "facilitiesZhHans": "烧烤炉 、 台 、 櫈 、晾衫架、污水穴",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施 ( 距离约 50 米 )",
+        "waterSourceZhHans": "标准洗手间设施 ( 距离约 50 米 )",
+        "attractionsZhHans": "营地附近的凤坑家乐径小山岗上 ， 可远眺鹿颈及沙头角的风光 。",
+        "accessZhHans": "由大埔墟港铁站乘坐 20R 号专线小巴往乌蛟腾 ， 于抗日英烈纪念碑下车或于假日及公众假期由大埔墟港铁站乘巴士 275R 号往新娘潭巴士站 ， 再沿新娘潭路步行约 15 分钟前往降下坳营地。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ： 小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_38_KongHaAu.html"
+      }
     },
     {
       "id": "990103271",
@@ -468,7 +962,20 @@
       "y": 810047.2,
       "lat": 22.228869513,
       "lng": 113.889909817,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "石壁 ， 南大屿郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "石壁营地占地广阔 ， 设施齐备 ， 交通便捷 。",
+        "facilitiesZhHans": "烧烤炉 、露营平台 、煮食炉位 、櫈 、 晾衫架 、台",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施 (距离约 100 米 - 宏贝道路口)",
+        "waterSourceZhHans": "标准洗手间 (距离约 100 米 - 宏贝道路口)",
+        "attractionsZhHans": "大浪湾村 ﹕ 约建于 1959 年 ， 当年政府为了开辟石壁水塘 ， 把原有石壁围 、 坟背 、 岗背 、 沙咀 、 涌口及坑仔等 6 村村民 ， 给迁徒到荃湾 、 梅窝及这里的大浪湾 。 现时大浪湾村有数十户人家 ， 村民以冯 、 徐两姓为主 ， 村内建有 「 冯氏宗祠 」 。石壁水塘 ﹕ 水塘被三山环抱 ， 东面有狗牙岭 ， 西面有羗山 ， 北面有木鱼山及狮子头山 。 水塘历时七年时间建成 ， 于 1963 年竣工 。 主坝横跨石壁谷 ， 坝全长 713 米 ， 高 54 米 ， 它截存了附近三面山岭流下的涧水 ， 存水量达 2,440 万立方米 ， 是 60 年代全港最大的水塘 。",
+        "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） /23 号（ 往昂坪 ） 或由梅窝乘 1 号 （ 往大澳 ）/ 2 号（ 往昂坪 ） 巴士 ， 在沙咀站下车 。沿羗山道 （ 往大澳方向 ）步行约 3 分钟 ， 便可抵达营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_39_ShekPik.html"
+      }
     },
     {
       "id": "990103273",
@@ -480,7 +987,20 @@
       "y": 830018.16004816,
       "lat": 22.409350566,
       "lng": 114.37512308,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "咸田湾 ， 西贡东郊野公园",
+        "campTypeZhHans": "大型 （备注）",
+        "suitableForZhHans": "有经验之远足及露营人士",
+        "introZhHans": "营地位于西贡东郊野公园内的咸田湾 ， 水清沙幼 ， 环境宁静优美 ， 能细赏海岸景色之余 ， 更可远眺奇拔尖削的蚺蛇尖 。",
+        "facilitiesZhHans": "/",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施 ( 距离营地约 200 米 )",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "咸田湾 ﹕ 与毗邻的西湾 、 大湾及东湾合称为大浪四湾 ， 被公认为香港最美海岸景点之一 。 蚺蛇尖 ﹕ 主要由火山岩形成的蚺蛇尖 ， 山高 468 米 ， 因其山势陡峭 ， 山形尖削突出 ， 成为西贡东郊野公园最显而易见的地标 。",
+        "accessZhHans": "由西贡市巴士总站乘 94 号或在钻石山巴士总站乘 96R 号往黄石码头巴士 ( 只在假日行驶 ) 或由西贡市巴士总站乘 7号往海下专线小巴 ， 在北潭凹下车 。 沿著麦理浩径第二段往赤径方向 ， 经过赤径 、 大浪坳 ， 步行约 2 小时 ， 便可抵达咸田湾营地 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_40_HamTinWan.html"
+      }
     },
     {
       "id": "990107243",
@@ -492,7 +1012,20 @@
       "y": 827373.1,
       "lat": 22.385532985,
       "lng": 114.307749218,
-      "faciType": "CAMPSITE"
+      "faciType": "CAMPSITE",
+      "detailsZhHans": {
+        "campLocationZhHans": "大网仔一号营地 ， 西贡西郊野公园",
+        "campTypeZhHans": "小型 （备注）",
+        "suitableForZhHans": "初次体验露营人士",
+        "introZhHans": "营地位于西贡西郊野公园 ， 邻近大网仔 ， 交通方便易达 ， 适合初次体验露营的人士 。 营地开扬宽广 ， 树木环抱 ， 有凉亭 、 烧烤炉 、 台 、 櫈等设施 ， 恬静舒适 。 营友亦可前往附近的北潭涌和上窰游览 。",
+        "facilitiesZhHans": "凉亭 、 烧烤炉 、 台 、 櫈 、 晾衣架",
+        "sanitaryFacilitiesZhHans": "标准洗手间设施 ( 距离营地约 170 米 )",
+        "waterSourceZhHans": "水喉",
+        "attractionsZhHans": "长山 : 营地对面有远足径登上长山 ， 在此的视野非常广阔 ， 可远眺滘西洲 、 桥咀 、 盐田仔和西贡海 ， 风景优美怡人 。",
+        "accessZhHans": "方法一 ： 由西贡市巴士总站乘 9 4 号或假日及公众假期由钻石山巴士总站乘 9 6 R 号往黄石码头巴士 ， 在西贡户外训练营站下车 。 沿大网仔路向北潭涌方向步行约 5 分钟 ， 到烈士碑园再沿路旁小路步行 5 分钟 。 方法二 ： 由西贡市巴士总站乘 9 号往麦理浩夫人渡假村专线小巴 ， 在烈士碑园下车 。 沿烈士碑园旁小路步行 5 分钟 。",
+        "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
+        "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_41_TaiMongTsai1.html"
+      }
     }
   ],
   "failed": []

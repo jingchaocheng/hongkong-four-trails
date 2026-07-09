@@ -1,5 +1,19 @@
 import mapGovData from "../data/mapGovPoints.json";
 
+export interface CampsiteDetailsZhHans {
+  campLocationZhHans: string
+  campTypeZhHans: string
+  suitableForZhHans: string
+  introZhHans: string
+  facilitiesZhHans: string
+  sanitaryFacilitiesZhHans: string
+  waterSourceZhHans: string
+  attractionsZhHans: string
+  accessZhHans: string
+  remarksZhHans: string
+  sourceUrl: string
+}
+
 export interface Campsite {
   id: string;
   trailId: string;
@@ -9,6 +23,7 @@ export interface Campsite {
   lat: number;
   lng: number;
   faciType: string;
+  detailsZhHans?: CampsiteDetailsZhHans;
 }
 
 // 政府地图未收录、无设施编号的补充露营点

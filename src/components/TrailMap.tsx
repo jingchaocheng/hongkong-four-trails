@@ -5,6 +5,7 @@ import { Trail } from '../data/trails'
 import { GPXWaypoint, waypointsToMarkers } from '../utils/gpxParser'
 import { DayPath } from './ItineraryPlanner'
 import { SelectedCampsite, getAllCampsites, Campsite } from '../utils/campsites'
+import CampsitePopup from './CampsitePopup'
 import 'leaflet/dist/leaflet.css'
 
 const campsiteIcon = L.divIcon({
@@ -316,17 +317,8 @@ function TrailMap({
               zIndexOffset={selected ? 2500 : 1500}
               riseOnHover
             >
-              <Popup>
-                <div>
-                  <strong>⛺ {point.name}</strong>
-                  {selected && (
-                    <p className="mt-1 text-sm font-semibold" style={{ color: selected.color }}>
-                      第 {selected.day} 天宿营地
-                    </p>
-                  )}
-                  {point.nameEn && <p className="mt-1 text-sm text-gray-600">{point.nameEn}</p>}
-                  {point.address && <p className="mt-1 text-sm">{point.address}</p>}
-                </div>
+              <Popup className="campsite-popup-wrapper" maxWidth={480} minWidth={380}>
+                <CampsitePopup campsite={point} selected={selected} />
               </Popup>
             </Marker>
           )

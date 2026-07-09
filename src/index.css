@@ -458,3 +458,67 @@ select option {
   display: none !important;
 }
 
+.campsite-popup-wrapper .leaflet-popup-content {
+  margin: 14px 16px;
+}
+
+.campsite-popup {
+  max-width: 440px;
+  max-height: 520px;
+  overflow-y: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.campsite-popup-header {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 8px;
+}
+
+.campsite-popup-details {
+  margin: 0;
+}
+
+.campsite-popup-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 8px 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.campsite-popup-row:last-of-type {
+  border-bottom: none;
+}
+
+.campsite-popup-row dt {
+  margin: 0;
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 0.8125rem;
+}
+
+.campsite-popup-row dd {
+  margin: 0;
+  color: #1f2937;
+  white-space: pre-wrap;
+}
+
+.campsite-popup-source {
+  margin: 10px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.75rem;
+}
+
+.campsite-popup-source a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.campsite-popup-source a:hover {
+  text-decoration: underline;
+}
+
