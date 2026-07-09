@@ -1,3 +1,5 @@
+import { toZhHans } from './toZhHans'
+
 export interface PlanDaySummary {
   day: number
   startLabel: string
@@ -63,9 +65,9 @@ export function formatPlanTemplate(input: PlanTemplateInput): string {
     lines.push(`⛰️ 爬升：${Math.round(day.elevation)} 米`)
     lines.push(`📍 途经：${day.markerCount} 个标记点`)
     if (day.campsiteName) {
-      lines.push(`⛺ 当晚露营：${day.campsiteName}`)
+      lines.push(`⛺ 当晚露营：${toZhHans(day.campsiteName)}`)
       if (day.campsiteAddress) {
-        lines.push(`📌 营地位置：${day.campsiteAddress}`)
+        lines.push(`📌 营地位置：${toZhHans(day.campsiteAddress)}`)
       }
     }
     lines.push('')

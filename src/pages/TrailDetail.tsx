@@ -1,15 +1,26 @@
-import { useParams, Link } from "react-router-dom";
-import { useState, useEffect, useMemo } from "react";
+import { useParams, Link, useSearchParams } from "react-router-dom";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { getTrailById } from "../data/trails";
 import TrailMap from "../components/TrailMap";
 import ItineraryPlanner, { DayPath } from "../components/ItineraryPlanner";
 import { SelectedCampsite } from "../utils/campsites";
 import { GPXWaypoint } from "../utils/gpxParser";
 import { gpxToTrackPoints, hasTrailGpx, loadTrailGpx, loadTrailElevations } from "../utils/trailGpx";
+import {
+  encodePlanToSearchParams,
+  PlannerState,
+  resolveInitialPlan,
+  savePlanToStorage,
+  decodePlanFromSearchParams,
+} from "../utils/planState";
 
 function TrailDetail() {
   const { trailId } = useParams<{ trailId: string }>();
+  const [searchParams, setSearchParams] = useSearchParams();
   const trail = trailId ? getTrailById(trailId) : undefined;
+  const initialPlanRef = useRef(
+    trailId ? resolveInitialPlan(trailId, searchParams) : null
+  );
   const [gpxTrack, setGpxTrack] = useState<Array<[number, number]>>([]);
   const [trackElevations, setTrackElevations] = useState<number[]>([]);
   const [gpxWaypoints, setGpxWaypoints] = useState<GPXWaypoint[]>([]);
@@ -24,6 +35,28 @@ function TrailDetail() {
       bottomRight: [showPlannerDrawer ? 460 : 48, 48] as [number, number],
     }),
     [showPlannerDrawer]
+  );
+
+  const handlePlanChange = useCallback(
+    (state: PlannerState) => {
+      if (!trailId) return;
+      savePlanToStorage(trailId, state);
+      const nextParams = encodePlanToSearchParams(state);
+      const current = decodePlanFromSearchParams(searchParams);
+      if (
+        current &&
+        current.numDays === state.numDays &&
+        current.startMarker === state.startMarker &&
+        current.reverse === state.reverse &&
+        current.isLoop === state.isLoop &&
+        current.splitIndices.join(',') === state.splitIndices.join(',') &&
+        JSON.stringify(current.dayCampsites) === JSON.stringify(state.dayCampsites)
+      ) {
+        return;
+      }
+      setSearchParams(nextParams, { replace: true });
+    },
+    [trailId, setSearchParams, searchParams]
   );
 
   // 加载GPX文件
@@ -231,6 +264,8 @@ function TrailDetail() {
               trackElevations={trackElevations.length > 0 ? trackElevations : undefined}
               trailName={trail.name}
               trailNameEn={trail.nameEn}
+              initialPlan={initialPlanRef.current}
+              onPlanChange={handlePlanChange}
               onPathsChange={setDayPaths}
               onCampsitesChange={setSelectedCampsites}
             />

@@ -522,3 +522,58 @@ select option {
   text-decoration: underline;
 }
 
+.map-overlays {
+  position: absolute;
+  z-index: 1000;
+  left: 12px;
+  bottom: 12px;
+  max-width: calc(100% - 24px);
+}
+
+.map-legend {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.75rem;
+}
+
+.map-legend-title {
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.map-legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.map-legend-label {
+  color: #1f2937;
+  font-weight: 600;
+  min-width: 48px;
+}
+
+.map-legend-meta {
+  color: #6b7280;
+}
+

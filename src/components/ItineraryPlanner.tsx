@@ -1,7 +1,10 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { GPXWaypoint, TrailMarker, waypointsToMarkers } from '../utils/gpxParser'
 import { Campsite, getAllCampsites, SelectedCampsite } from '../utils/campsites'
 import { formatPlanTemplate } from '../utils/planTemplate'
+import { PlannerState } from '../utils/planState'
+import { computeDistanceBalancedSplits } from '../utils/splitRoute'
+import { toZhHans } from '../utils/toZhHans'
 import ElevationChart from './ElevationChart'
 
 const MAX_DAYS = 10
@@ -19,6 +22,8 @@ interface ItineraryPlannerProps {
   trackElevations?: number[] // 与 gpxTrack 顺序对齐的逐点海拔
   trailName?: string
   trailNameEn?: string
+  initialPlan?: PlannerState | null
+  onPlanChange?: (state: PlannerState) => void
   onPathsChange?: (paths: DayPath[]) => void
   onCampsitesChange?: (campsites: SelectedCampsite[]) => void
   className?: string
@@ -132,7 +137,10 @@ function segmentElevationGain(markers: TrailMarker[]): number {
   return total
 }
 
-function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, onPathsChange, onCampsitesChange, className }: ItineraryPlannerProps) {
+function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, className }: ItineraryPlannerProps) {
+  const restoredPlanRef = useRef(initialPlan ?? null)
+  const skipAutoSplitRef = useRef(!!initialPlan)
+
   const orderedMarkers = useMemo(
     () => (gpxWaypoints && gpxWaypoints.length > 0 ? waypointsToMarkers(gpxWaypoints) : []),
     [gpxWaypoints]
@@ -170,12 +178,16 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     })
   }, [orderedMarkers, gpxTrack, hasTrack])
 
-  const [numDays, setNumDays] = useState<number | null>(null)
-  const [startMarker, setStartMarker] = useState(0) // 起点标记索引
-  const [isLoop, setIsLoop] = useState(false) // 环线模式（走完整圈回到起点）
-  const [reverse, setReverse] = useState(false) // 反向：由终点方向走回起点
-  // 分界点：路线序列中的位置（0..N-1），长度为 numDays-1
-  const [splitIndices, setSplitIndices] = useState<number[]>([])
+  const [numDays, setNumDays] = useState<number | null>(() => initialPlan?.numDays ?? null)
+  const [startMarker, setStartMarker] = useState(() => initialPlan?.startMarker ?? 0)
+  const [isLoop, setIsLoop] = useState(() => initialPlan?.isLoop ?? false)
+  const [reverse, setReverse] = useState(() => initialPlan?.reverse ?? false)
+  const [splitIndices, setSplitIndices] = useState<number[]>(() => initialPlan?.splitIndices ?? [])
+  const [dayCampsites, setDayCampsites] = useState<Record<number, string>>(
+    () => initialPlan?.dayCampsites ?? {}
+  )
+
+  const canSyncPlan = markerCount >= 2 || numDays === null
 
   const loopMode = isLoop && isLoopTrail
 
@@ -221,23 +233,45 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     }
   }, [loopMode, reverse, markerCount, startMarker])
 
+  // 从 URL / localStorage 恢复的规划：等标记点就绪后写入，并覆盖上面的自动收敛
+  useEffect(() => {
+    const plan = restoredPlanRef.current
+    if (!plan || markerCount < 2) return
+
+    restoredPlanRef.current = null
+    skipAutoSplitRef.current = true
+    setStartMarker(plan.startMarker)
+    setReverse(plan.reverse)
+    setIsLoop(plan.isLoop)
+    setNumDays(plan.numDays)
+    setSplitIndices(plan.splitIndices)
+    setDayCampsites(plan.dayCampsites)
+  }, [markerCount])
+
   // 路线序列或天数变化时，重新按均分初始化分界点
   useEffect(() => {
-    if (routeLen < 2 || numDays === null) {
+    if (numDays === null) {
       setSplitIndices([])
       return
     }
+    // GPX 未加载时保留已恢复的分界点，不要清空
+    if (routeLen < 2) return
+
     const days = Math.min(numDays, maxDays)
     if (days !== numDays) {
       setNumDays(days)
       return
+    }
+    if (skipAutoSplitRef.current) {
+      skipAutoSplitRef.current = false
+      if (splitIndices.length === days - 1) return
     }
     const splits: number[] = []
     for (let i = 1; i < days; i++) {
       splits.push(Math.round(((routeLen - 1) * i) / days))
     }
     setSplitIndices(splits)
-  }, [numDays, routeLen, maxDays])
+  }, [numDays, routeLen, maxDays, splitIndices.length])
 
   // 构建整条走行路线的轨迹点/海拔，并记录每个序列节点在其中的偏移
   const routeGeometry = useMemo(() => {
@@ -294,6 +328,18 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
 
     return { positions, elevations, nodeOffset }
   }, [routeSeq, routeLen, hasTrack, hasTrackEle, markerTrackIndex, gpxTrack, trackElevations, orderedMarkers])
+
+  // 路线序列各节点的累计距离（公里）
+  const nodeCumulativeKm = useMemo(() => {
+    const { positions, nodeOffset } = routeGeometry
+    if (routeLen < 1) return []
+    const cum: number[] = [0]
+    for (let k = 1; k < routeLen; k++) {
+      const segPositions = positions.slice(nodeOffset[k - 1], nodeOffset[k] + 1)
+      cum.push(cum[k - 1] + pathDistance(segPositions))
+    }
+    return cum
+  }, [routeGeometry, routeLen])
 
   // 由分界点推导出每天的分段（基于路线序列位置）
   const daySummaries = useMemo(() => {
@@ -365,8 +411,8 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     setExpandedDays((prev) => ({ ...prev, [day]: !prev[day] }))
 
   // 每天选择的露营点（day -> campsiteId，'' 表示未选）
-  const [dayCampsites, setDayCampsites] = useState<Record<number, string>>({})
   const [planCopied, setPlanCopied] = useState(false)
+  const [linkCopied, setLinkCopied] = useState(false)
 
   // 选中的露营点（供地图高亮）
   const selectedCampsites = useMemo((): SelectedCampsite[] => {
@@ -378,6 +424,19 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
   useEffect(() => {
     onCampsitesChange?.(selectedCampsites)
   }, [selectedCampsites, onCampsitesChange])
+
+  // 同步规划状态到 URL / localStorage（等标记点就绪后再同步，避免覆盖分享链接）
+  useEffect(() => {
+    if (!canSyncPlan) return
+    onPlanChange?.({
+      startMarker,
+      reverse,
+      isLoop,
+      numDays,
+      splitIndices,
+      dayCampsites,
+    })
+  }, [canSyncPlan, startMarker, reverse, isLoop, numDays, splitIndices, dayCampsites, onPlanChange])
 
   // 更新某个分界点（路线序列位置），并保持分界点严格递增
   const updateSplit = (boundaryPos: number, seqPos: number) => {
@@ -405,7 +464,15 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
 
   const markerLabel = (idx: number) => {
     const m = orderedMarkers[idx]
-    return m ? m.name || m.id : ''
+    return m ? toZhHans(m.name || m.id) : ''
+  }
+
+  const balanceSplitsByDistance = () => {
+    if (numDays === null || routeLen < 2) return
+    const splits = computeDistanceBalancedSplits(numDays, routeLen, nodeCumulativeKm)
+    if (splits.length === numDays - 1) {
+      setSplitIndices(splits)
+    }
   }
 
   // 起点下拉可选索引（反向时倒序展示）
@@ -463,6 +530,16 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     orderedMarkers,
   ])
 
+  const copyShareLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      setLinkCopied(true)
+      window.setTimeout(() => setLinkCopied(false), 2000)
+    } catch {
+      // ignore
+    }
+  }
+
   const copyPlanText = async () => {
     if (!planText) return
     try {
@@ -509,7 +586,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                   const m = orderedMarkers[idx]
                   return (
                     <option key={idx} value={idx} className="text-gray-900">
-                      {m.name || m.id}
+                      {toZhHans(m.name || m.id)}
                       {idx === 0 ? '（原起点）' : ''}
                       {idx === markerCount - 1 ? '（原终点）' : ''}
                     </option>
@@ -572,7 +649,16 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
             {/* 每天分段 */}
             {numDays !== null && (
             <div className="space-y-3">
-              <label className="text-sm font-semibold text-gray-700 block">每日路段</label>
+              <div className="flex items-center justify-between gap-2">
+                <label className="text-sm font-semibold text-gray-700">每日路段</label>
+                <button
+                  type="button"
+                  onClick={balanceSplitsByDistance}
+                  className="shrink-0 rounded-md border border-gray-300 bg-white px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  按距离均衡
+                </button>
+              </div>
               {daySummaries.map((seg, i) => {
                 const isLast = i === daySummaries.length - 1
                 const distance = seg.distance
@@ -660,7 +746,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                             </option>
                             {nearbyCampsites.map(({ c, dist }) => (
                               <option key={c.id} value={c.id} className="text-gray-900">
-                                {c.name}（约 {dist.toFixed(1)}km）
+                                {toZhHans(c.name)}（约 {dist.toFixed(1)}km）
                               </option>
                             ))}
                           </select>
@@ -726,13 +812,23 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
               <div className="border border-gray-200 rounded-lg p-3">
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <h3 className="text-sm font-semibold text-gray-800">文字版计划</h3>
-                  <button
-                    type="button"
-                    onClick={copyPlanText}
-                    className="shrink-0 rounded-md border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100"
-                  >
-                    {planCopied ? '已复制' : '复制计划'}
-                  </button>
+                  <div className="flex shrink-0 gap-1.5">
+                    <button
+                      type="button"
+                      onClick={copyShareLink}
+                      disabled={!canSyncPlan}
+                      className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                    >
+                      {linkCopied ? '已复制链接' : '复制分享链接'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={copyPlanText}
+                      className="rounded-md border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100"
+                    >
+                      {planCopied ? '已复制' : '复制计划'}
+                    </button>
+                  </div>
                 </div>
                 <textarea
                   readOnly

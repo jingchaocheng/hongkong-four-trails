@@ -1,4 +1,5 @@
 import { Campsite, CampsiteDetailsZhHans, SelectedCampsite } from '../utils/campsites'
+import { toZhHans } from '../utils/toZhHans'
 
 const DETAIL_ROWS: { key: keyof CampsiteDetailsZhHans; label: string }[] = [
   { key: 'campLocationZhHans', label: '营地地点' },
@@ -24,7 +25,7 @@ export default function CampsitePopup({ campsite, selected }: CampsitePopupProps
   return (
     <div className="campsite-popup">
       <div className="campsite-popup-header">
-        <strong className="text-base text-gray-900">⛺ {campsite.name}</strong>
+        <strong className="text-base text-gray-900">⛺ {toZhHans(campsite.name)}</strong>
         {selected && (
           <p className="mt-1 text-sm font-semibold" style={{ color: selected.color }}>
             第 {selected.day} 天宿营地
@@ -54,7 +55,7 @@ export default function CampsitePopup({ campsite, selected }: CampsitePopupProps
           )}
         </dl>
       ) : (
-        campsite.address && <p className="mt-2 text-sm text-gray-600">{campsite.address}</p>
+        campsite.address && <p className="mt-2 text-sm text-gray-600">{toZhHans(campsite.address)}</p>
       )}
     </div>
   )

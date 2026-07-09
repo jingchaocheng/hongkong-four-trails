@@ -5,7 +5,9 @@ import { Trail } from '../data/trails'
 import { GPXWaypoint, waypointsToMarkers } from '../utils/gpxParser'
 import { DayPath } from './ItineraryPlanner'
 import { SelectedCampsite, getAllCampsites, Campsite } from '../utils/campsites'
+import { toZhHans } from '../utils/toZhHans'
 import CampsitePopup from './CampsitePopup'
+import { DayPathLegend } from './MapLegend'
 import 'leaflet/dist/leaflet.css'
 
 const campsiteIcon = L.divIcon({
@@ -257,6 +259,11 @@ function TrailMap({
 
   return (
     <div className="w-full h-full absolute inset-0">
+      {dayPaths && dayPaths.length > 0 && (
+        <div className="map-overlays pointer-events-none">
+          <DayPathLegend dayPaths={dayPaths} />
+        </div>
+      )}
       <MapContainer
         key={trail.id}
         center={[22.3, 114.2]}
@@ -299,7 +306,7 @@ function TrailMap({
           <Marker key={marker.id} position={[marker.lat, marker.lng]} icon={waypointIcon}>
             <Popup>
               <div>
-                <strong>{marker.id} - {marker.name}</strong>
+                <strong>{marker.id} - {toZhHans(marker.name)}</strong>
                 {showElevation && (
                   <p className="mt-1">海拔: {marker.elevation}米</p>
                 )}
