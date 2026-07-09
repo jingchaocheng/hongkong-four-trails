@@ -1,23 +1,11 @@
-import { useMemo } from 'react'
-import { MapContainer, TileLayer, Polyline, Marker, Popup } from 'react-leaflet'
+import { useEffect, useMemo } from 'react'
+import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import { Trail } from '../data/trails'
 import { GPXWaypoint, waypointsToMarkers } from '../utils/gpxParser'
 import { DayPath } from './ItineraryPlanner'
-import { SelectedCampsite } from '../utils/campsites'
-import mapGovData from '../data/mapGovPoints.json'
+import { SelectedCampsite, getAllCampsites, Campsite } from '../utils/campsites'
 import 'leaflet/dist/leaflet.css'
-
-interface MapGovPoint {
-  id: string
-  trailId: string
-  name: string
-  nameEn: string
-  address: string
-  lat: number
-  lng: number
-  faciType: string
-}
 
 const campsiteIcon = L.divIcon({
   className: 'campsite-marker',
@@ -31,9 +19,9 @@ const campsiteIcon = L.divIcon({
       </svg>
     </div>
   `,
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
+  iconSize: [36, 36],
+  iconAnchor: [18, 36],
+  popupAnchor: [0, -36],
 })
 
 // 选中（当天宿营）的露营点：更大、用当天颜色、带天数徽标
@@ -76,6 +64,11 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 })
 
+interface MapFitPadding {
+  topLeft: [number, number]
+  bottomRight: [number, number]
+}
+
 interface TrailMapProps {
   trail: Trail
   selectedMarkers?: string[]
@@ -84,16 +77,94 @@ interface TrailMapProps {
   gpxWaypoints?: GPXWaypoint[] // GPX标注点
   dayPaths?: DayPath[] // 多天路径数据
   selectedCampsites?: SelectedCampsite[] // 每天选定的宿营点
+  fitPadding?: MapFitPadding
 }
 
-const allCampsitePoints = mapGovData.points as MapGovPoint[]
+const DEFAULT_FIT_PADDING: MapFitPadding = {
+  topLeft: [72, 72],
+  bottomRight: [48, 48],
+}
 
-function TrailMap({ trail, selectedMarkers, showElevation = false, gpxTrack, gpxWaypoints, dayPaths, selectedCampsites }: TrailMapProps) {
+function HideZoomControl() {
+  const map = useMap()
+
+  useEffect(() => {
+    if (map.zoomControl) {
+      map.removeControl(map.zoomControl)
+    }
+  }, [map])
+
+  return null
+}
+
+function FitMapBounds({
+  positions,
+  padding,
+}: {
+  positions: Array<[number, number]>
+  padding: MapFitPadding
+}) {
+  const map = useMap()
+
+  useEffect(() => {
+    if (positions.length === 0) return
+
+    let cancelled = false
+    const timers: number[] = []
+
+    const fit = () => {
+      if (cancelled) return
+
+      map.invalidateSize({ animate: false })
+
+      if (positions.length === 1) {
+        map.setView(positions[0], 14, { animate: false })
+        return
+      }
+
+      map.fitBounds(L.latLngBounds(positions), {
+        paddingTopLeft: L.point(padding.topLeft[0], padding.topLeft[1]),
+        paddingBottomRight: L.point(padding.bottomRight[0], padding.bottomRight[1]),
+        maxZoom: 14,
+        animate: false,
+      })
+    }
+
+    const scheduleFit = () => {
+      fit()
+      requestAnimationFrame(fit)
+      timers.push(window.setTimeout(fit, 150), window.setTimeout(fit, 400))
+    }
+
+    map.whenReady(scheduleFit)
+    map.on('resize', fit)
+
+    return () => {
+      cancelled = true
+      timers.forEach(clearTimeout)
+      map.off('resize', fit)
+    }
+  }, [map, positions, padding])
+
+  return null
+}
+
+function TrailMap({
+  trail,
+  selectedMarkers,
+  showElevation = false,
+  gpxTrack,
+  gpxWaypoints,
+  dayPaths,
+  selectedCampsites,
+  fitPadding = DEFAULT_FIT_PADDING,
+}: TrailMapProps) {
   const selectedCampsiteMap = useMemo(() => {
     const map = new Map<string, SelectedCampsite>()
     ;(selectedCampsites ?? []).forEach((c) => map.set(c.id, c))
     return map
   }, [selectedCampsites])
+  const mapCampsites = useMemo((): Campsite[] => getAllCampsites(), [])
   const allMarkers = useMemo(
     () => (gpxWaypoints && gpxWaypoints.length > 0 ? waypointsToMarkers(gpxWaypoints) : []),
     [gpxWaypoints]
@@ -172,40 +243,29 @@ function TrailMap({ trail, selectedMarkers, showElevation = false, gpxTrack, gpx
       : allMarkers
     return markers.map((m) => [m.lat, m.lng] as [number, number])
   }, [gpxTrack, allMarkers, selectedMarkers])
-  
-  // 计算地图中心点
-  const center: [number, number] = useMemo(() => {
-    // 收集所有需要显示的点
-    const allPositions: Array<[number, number]> = []
-    
-    // 如果有dayPaths，添加所有天的路径点
-    if (dayPaths && dayPaths.length > 0) {
-      dayPaths.forEach(path => {
-        allPositions.push(...path.positions)
-      })
-    }
-    
-    // 添加完整轨迹的点（用于计算中心）
-    if (fullTrackPositions.length > 0) {
-      allPositions.push(...fullTrackPositions)
-    } else if (defaultDisplayPositions.length > 0) {
-      allPositions.push(...defaultDisplayPositions)
-    }
 
-    if (allPositions.length === 0) return [22.3, 114.2]
-    const avgLat = allPositions.reduce((sum, pos) => sum + pos[0], 0) / allPositions.length
-    const avgLng = allPositions.reduce((sum, pos) => sum + pos[1], 0) / allPositions.length
-    return [avgLat, avgLng]
+  const boundsPositions = useMemo(() => {
+    if (dayPaths && dayPaths.length > 0) {
+      return dayPaths.flatMap((path) => path.positions)
+    }
+    if (fullTrackPositions.length > 0) {
+      return fullTrackPositions
+    }
+    return defaultDisplayPositions
   }, [dayPaths, fullTrackPositions, defaultDisplayPositions])
 
   return (
     <div className="w-full h-full absolute inset-0">
       <MapContainer
-        center={center}
-        zoom={13}
+        key={trail.id}
+        center={[22.3, 114.2]}
+        zoom={10}
+        zoomControl={false}
         style={{ height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
         scrollWheelZoom={true}
       >
+        <HideZoomControl />
+        <FitMapBounds positions={boundsPositions} padding={fitPadding} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -246,14 +306,15 @@ function TrailMap({ trail, selectedMarkers, showElevation = false, gpxTrack, gpx
             </Popup>
           </Marker>
         ))}
-        {allCampsitePoints.map((point) => {
+        {mapCampsites.map((point) => {
           const selected = selectedCampsiteMap.get(point.id)
           return (
             <Marker
               key={`campsite-${point.id}`}
               position={[point.lat, point.lng]}
               icon={selected ? makeSelectedCampsiteIcon(selected.color, selected.day) : campsiteIcon}
-              zIndexOffset={selected ? 2000 : 1000}
+              zIndexOffset={selected ? 2500 : 1500}
+              riseOnHover
             >
               <Popup>
                 <div>

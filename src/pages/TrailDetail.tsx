@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { getTrailById } from "../data/trails";
 import TrailMap from "../components/TrailMap";
 import ItineraryPlanner, { DayPath } from "../components/ItineraryPlanner";
@@ -18,6 +18,13 @@ function TrailDetail() {
   const [selectedCampsites, setSelectedCampsites] = useState<SelectedCampsite[]>([]);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showPlannerDrawer, setShowPlannerDrawer] = useState(true);
+  const mapFitPadding = useMemo(
+    () => ({
+      topLeft: [72, 72] as [number, number],
+      bottomRight: [showPlannerDrawer ? 460 : 48, 48] as [number, number],
+    }),
+    [showPlannerDrawer]
+  );
 
   // 加载GPX文件
   useEffect(() => {
@@ -195,24 +202,25 @@ function TrailDetail() {
 
       {/* 全屏地图 */}
       <div className="absolute inset-0 w-full h-full">
+        <TrailMap
+          trail={trail}
+          gpxTrack={gpxTrack.length > 0 ? gpxTrack : undefined}
+          gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
+          dayPaths={dayPaths.length > 0 ? dayPaths : undefined}
+          selectedCampsites={selectedCampsites.length > 0 ? selectedCampsites : undefined}
+          fitPadding={mapFitPadding}
+        />
         {loading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-[500]">
+          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-[500] pointer-events-none">
             <div className="text-center text-gray-500">
               <div className="text-lg mb-2">正在加载轨迹数据...</div>
             </div>
           </div>
         )}
-          <TrailMap
-            trail={trail}
-            gpxTrack={gpxTrack.length > 0 ? gpxTrack : undefined}
-            gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
-            dayPaths={dayPaths.length > 0 ? dayPaths : undefined}
-            selectedCampsites={selectedCampsites.length > 0 ? selectedCampsites : undefined}
-          />
 
         {/* 右侧抽屉式行程规划 */}
         <div
-          className={`absolute top-0 right-0 z-[1000] h-full w-full max-w-md pointer-events-auto transition-transform duration-300 ${
+          className={`absolute top-0 right-0 z-[1000] h-full w-full max-w-md pointer-events-auto overflow-hidden transition-transform duration-300 ${
             showPlannerDrawer ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -221,30 +229,41 @@ function TrailDetail() {
               gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
               gpxTrack={gpxTrack.length > 0 ? gpxTrack : undefined}
               trackElevations={trackElevations.length > 0 ? trackElevations : undefined}
-              trailId={trail.id}
+              trailName={trail.name}
+              trailNameEn={trail.nameEn}
               onPathsChange={setDayPaths}
               onCampsitesChange={setSelectedCampsites}
             />
-          <button
-            type="button"
-            onClick={() => setShowPlannerDrawer(false)}
-            className="absolute top-4 -left-12 bg-white border border-gray-300 rounded-l-md rounded-r-none px-3 py-2 text-sm text-gray-700 shadow hover:bg-gray-50"
-            title="收起行程规划"
-          >
-            收起
-          </button>
         </div>
 
-        {!showPlannerDrawer && (
-          <button
-            type="button"
-            onClick={() => setShowPlannerDrawer(true)}
-            className="absolute top-4 right-4 z-[1001] bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 shadow hover:bg-gray-50 pointer-events-auto"
-            title="展开行程规划"
+        <button
+          type="button"
+          onClick={() => setShowPlannerDrawer((open) => !open)}
+          className={`absolute top-4 z-[1001] flex items-center justify-center bg-white border border-gray-300 p-2 text-gray-700 shadow hover:bg-gray-50 pointer-events-auto transition-all duration-300 ${
+            showPlannerDrawer
+              ? "left-[calc(100%-min(28rem,100%))] right-auto -translate-x-full rounded-l-md rounded-r-none border-r-0"
+              : "right-4 left-auto translate-x-0 rounded-md"
+          }`}
+          aria-label={showPlannerDrawer ? "收起行程规划" : "展开行程规划"}
+          title={showPlannerDrawer ? "收起行程规划" : "展开行程规划"}
+        >
+          <svg
+            className={`w-5 h-5 transition-transform duration-300 ${
+              showPlannerDrawer ? "rotate-0" : "rotate-180"
+            }`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
           >
-            打开规划
-          </button>
-        )}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );

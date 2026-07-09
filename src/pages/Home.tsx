@@ -50,6 +50,7 @@ function RouteTrackThumbnail({ trail, trackPoints }: { trail: Trail; trackPoints
 
 function Home() {
   const [gpxTracks, setGpxTracks] = useState<Record<string, LatLng[]>>({})
+  const [hoveredTrailId, setHoveredTrailId] = useState<string | null>(null)
 
   useEffect(() => {
     const loadGpxTracks = async () => {
@@ -89,12 +90,24 @@ function Home() {
         <p className="text-sm md:text-lg text-slate-300">Hong Kong Four Trails</p>
       </div>
 
-      <div className="route-accordion route-accordion-fullscreen main-content">
-        {trails.map((trail, index) => (
+      <div
+        className="route-accordion route-accordion-fullscreen main-content"
+        onMouseLeave={() => setHoveredTrailId(null)}
+      >
+        {trails.map((trail, index) => {
+          const isActive = hoveredTrailId === trail.id
+          const isSibling = hoveredTrailId !== null && hoveredTrailId !== trail.id
+
+          return (
             <Link
               key={trail.id}
               to={`/trail/${trail.id}`}
-              className={`route-accordion-item route-theme-${trail.id} cinema-panel rounded-2xl overflow-hidden`}
+              onMouseEnter={() => setHoveredTrailId(trail.id)}
+              className={[
+                `route-accordion-item route-theme-${trail.id} cinema-panel rounded-2xl overflow-hidden`,
+                isActive ? 'is-active' : '',
+                isSibling ? 'is-sibling' : '',
+              ].join(' ')}
             >
               <div className="route-accordion-inner route-accordion-content p-6 md:p-8 h-full flex flex-col justify-between">
                 <div>
@@ -123,7 +136,8 @@ function Home() {
                 </div>
               </div>
             </Link>
-          ))}
+          )
+        })}
       </div>
     </div>
   )

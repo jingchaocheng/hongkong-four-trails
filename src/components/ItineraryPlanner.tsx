@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { GPXWaypoint, TrailMarker, waypointsToMarkers } from '../utils/gpxParser'
-import { Campsite, getCampsitesByTrail, SelectedCampsite } from '../utils/campsites'
+import { Campsite, getAllCampsites, SelectedCampsite } from '../utils/campsites'
+import { formatPlanTemplate } from '../utils/planTemplate'
 import ElevationChart from './ElevationChart'
 
 const MAX_DAYS = 10
@@ -16,7 +17,8 @@ interface ItineraryPlannerProps {
   gpxWaypoints?: GPXWaypoint[]
   gpxTrack?: Array<[number, number]>
   trackElevations?: number[] // 与 gpxTrack 顺序对齐的逐点海拔
-  trailId?: string // 用于加载该路线的露营点
+  trailName?: string
+  trailNameEn?: string
   onPathsChange?: (paths: DayPath[]) => void
   onCampsitesChange?: (campsites: SelectedCampsite[]) => void
   className?: string
@@ -25,9 +27,36 @@ interface ItineraryPlannerProps {
 // 计算累计爬升的阈值（米）：过滤 DEM 噪声，避免高估
 const GAIN_THRESHOLD = 5
 
-// 露营点就近筛选：只展示距当天终点这个范围内的露营点
+// 露营点就近筛选：优先展示距当天终点 5km 内的；不足时再取最近的若干个
 const CAMP_NEAR_KM = 5
 const CAMP_MAX_OPTIONS = 6
+
+function pickNearbyCampsites(
+  endMarker: TrailMarker | undefined,
+  campsites: Campsite[],
+  selCampId?: string
+): Array<{ c: Campsite; dist: number }> {
+  if (!endMarker || campsites.length === 0) return []
+
+  const withDist = campsites
+    .map((c) => ({
+      c,
+      dist: haversine([endMarker.lat, endMarker.lng], [c.lat, c.lng]),
+    }))
+    .sort((a, b) => a.dist - b.dist)
+
+  let list = withDist.filter((x) => x.dist <= CAMP_NEAR_KM).slice(0, CAMP_MAX_OPTIONS)
+  if (list.length === 0) {
+    list = withDist.slice(0, CAMP_MAX_OPTIONS)
+  }
+
+  if (selCampId && !list.some((x) => x.c.id === selCampId)) {
+    const sel = withDist.find((x) => x.c.id === selCampId)
+    if (sel) list.push(sel)
+  }
+
+  return list
+}
 
 // 将海拔序列下采样到约 maxPoints 个点（用于绘图）
 function downsample(ele: number[], maxPoints: number): number[] {
@@ -103,7 +132,7 @@ function segmentElevationGain(markers: TrailMarker[]): number {
   return total
 }
 
-function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, onPathsChange, onCampsitesChange, className }: ItineraryPlannerProps) {
+function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, onPathsChange, onCampsitesChange, className }: ItineraryPlannerProps) {
   const orderedMarkers = useMemo(
     () => (gpxWaypoints && gpxWaypoints.length > 0 ? waypointsToMarkers(gpxWaypoints) : []),
     [gpxWaypoints]
@@ -111,10 +140,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
   const markerCount = orderedMarkers.length
 
   // 该路线的露营点
-  const campsites = useMemo(
-    () => (trailId ? getCampsitesByTrail(trailId) : []),
-    [trailId]
-  )
+  const campsites = useMemo(() => getAllCampsites(), [])
 
   const hasTrack = !!(gpxTrack && gpxTrack.length > 0)
   const hasTrackEle = !!(trackElevations && gpxTrack && trackElevations.length === gpxTrack.length)
@@ -144,7 +170,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
     })
   }, [orderedMarkers, gpxTrack, hasTrack])
 
-  const [numDays, setNumDays] = useState(2)
+  const [numDays, setNumDays] = useState<number | null>(null)
   const [startMarker, setStartMarker] = useState(0) // 起点标记索引
   const [isLoop, setIsLoop] = useState(false) // 环线模式（走完整圈回到起点）
   const [reverse, setReverse] = useState(false) // 反向：由终点方向走回起点
@@ -173,8 +199,12 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
         // 起点 → 终点（M_last）
         for (let i = startMarker; i <= last; i++) seq.push(i)
       } else {
-        // 起点 → M001（反向走到头）
-        for (let i = startMarker; i >= 0; i--) seq.push(i)
+        // 反向：从起点朝 M001 方向走；若起点已是 M001，则整段从原终点反向走回 M001
+        if (startMarker === 0) {
+          for (let i = last; i >= 0; i--) seq.push(i)
+        } else {
+          for (let i = startMarker; i >= 0; i--) seq.push(i)
+        }
       }
     }
     return seq
@@ -185,17 +215,15 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
 
   // 起点/方向变化时，若线性路线剩余段数不足，收敛起点
   useEffect(() => {
-    if (loopMode || markerCount < 2) return
-    if (!reverse && startMarker > markerCount - 2) {
+    if (loopMode || markerCount < 2 || reverse) return
+    if (startMarker > markerCount - 2) {
       setStartMarker(markerCount - 2)
-    } else if (reverse && startMarker < 1) {
-      setStartMarker(1)
     }
   }, [loopMode, reverse, markerCount, startMarker])
 
   // 路线序列或天数变化时，重新按均分初始化分界点
   useEffect(() => {
-    if (routeLen < 2) {
+    if (routeLen < 2 || numDays === null) {
       setSplitIndices([])
       return
     }
@@ -269,7 +297,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
 
   // 由分界点推导出每天的分段（基于路线序列位置）
   const daySummaries = useMemo(() => {
-    if (routeLen < 2) return []
+    if (routeLen < 2 || numDays === null) return []
     const bounds = [0, ...splitIndices, routeLen - 1]
     const { positions, elevations, nodeOffset } = routeGeometry
     const useEle = hasTrackEle || !hasTrack
@@ -310,7 +338,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
       })
     }
     return out
-  }, [routeLen, splitIndices, routeGeometry, routeSeq, orderedMarkers, hasTrack, hasTrackEle])
+  }, [routeLen, splitIndices, routeGeometry, routeSeq, orderedMarkers, hasTrack, hasTrackEle, numDays])
 
   // 供地图使用的路径
   const dayPaths = useMemo(
@@ -338,6 +366,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
 
   // 每天选择的露营点（day -> campsiteId，'' 表示未选）
   const [dayCampsites, setDayCampsites] = useState<Record<number, string>>({})
+  const [planCopied, setPlanCopied] = useState(false)
 
   // 选中的露营点（供地图高亮）
   const selectedCampsites = useMemo((): SelectedCampsite[] => {
@@ -383,11 +412,76 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
   const startMarkerOptions = useMemo(() => {
     const indices = Array.from({ length: markerCount }, (_, i) => i).filter((idx) => {
       if (!loopMode && !reverse && idx > markerCount - 2) return false
-      if (!loopMode && reverse && idx < 1) return false
       return true
     })
     return reverse ? indices.reverse() : indices
   }, [markerCount, loopMode, reverse])
+
+  const routeDescription = loopMode
+    ? `环线：${markerLabel(routeSeq[0])} 出发绕行全程返回`
+    : `从 ${markerLabel(routeSeq[0])} 走到 ${markerLabel(routeSeq[routeLen - 1])}`
+
+  const planText = useMemo(() => {
+    if (numDays === null || daySummaries.length === 0) return ''
+
+    return formatPlanTemplate({
+      trailName: trailName ?? '徒步路线',
+      trailNameEn: trailNameEn,
+      routeDescription,
+      reverse,
+      loopMode,
+      numDays,
+      totalDistance,
+      totalElevation,
+      days: daySummaries.map((seg, i) => {
+        const campId = dayCampsites[seg.day]
+        const campsite = campId ? campsites.find((c) => c.id === campId) : undefined
+        return {
+          day: seg.day,
+          startLabel: markerLabel(seg.startNode),
+          endLabel: markerLabel(seg.endNode),
+          distance: seg.distance,
+          elevation: seg.gain,
+          markerCount: seg.markers.length,
+          campsiteName: i < daySummaries.length - 1 ? campsite?.name : undefined,
+          campsiteAddress: i < daySummaries.length - 1 ? campsite?.address : undefined,
+        }
+      }),
+    })
+  }, [
+    numDays,
+    daySummaries,
+    trailName,
+    trailNameEn,
+    routeDescription,
+    reverse,
+    loopMode,
+    totalDistance,
+    totalElevation,
+    dayCampsites,
+    campsites,
+    orderedMarkers,
+  ])
+
+  const copyPlanText = async () => {
+    if (!planText) return
+    try {
+      await navigator.clipboard.writeText(planText)
+      setPlanCopied(true)
+      window.setTimeout(() => setPlanCopied(false), 2000)
+    } catch {
+      const textarea = document.createElement('textarea')
+      textarea.value = planText
+      textarea.style.position = 'fixed'
+      textarea.style.opacity = '0'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+      setPlanCopied(true)
+      window.setTimeout(() => setPlanCopied(false), 2000)
+    }
+  }
 
   return (
     <div className={`bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden h-full flex flex-col ${className ?? ''}`}>
@@ -449,9 +543,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
               </div>
 
               <p className="mt-1.5 text-xs text-gray-400">
-                {loopMode
-                  ? `环线：${markerLabel(routeSeq[0])} 出发绕行全程返回`
-                  : `从 ${markerLabel(routeSeq[0])} 走到 ${markerLabel(routeSeq[routeLen - 1])}`}
+                {routeDescription}
               </p>
             </div>
 
@@ -459,19 +551,26 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
             <div>
               <label className="text-sm font-semibold text-gray-700 mb-2 block">几天走完？</label>
               <select
-                value={numDays}
-                onChange={(e) => setNumDays(Number(e.target.value))}
+                value={numDays ?? ''}
+                onChange={(e) => setNumDays(e.target.value === '' ? null : Number(e.target.value))}
                 className="w-full border border-gray-300 rounded px-3 py-2 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
+                <option value="" className="text-gray-500">
+                  请选择天数
+                </option>
                 {Array.from({ length: maxDays }, (_, i) => i + 1).map((n) => (
                   <option key={n} value={n} className="text-gray-900">
                     {n} 天走完
                   </option>
                 ))}
               </select>
+              {numDays === null && (
+                <p className="mt-1.5 text-xs text-gray-400">选择天数后可规划每日路段与露营点</p>
+              )}
             </div>
 
             {/* 每天分段 */}
+            {numDays !== null && (
             <div className="space-y-3">
               <label className="text-sm font-semibold text-gray-700 block">每日路段</label>
               {daySummaries.map((seg, i) => {
@@ -487,23 +586,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
                 // 当天终点附近的露营点（就近筛选，前后最近的若干个）
                 const endMarker = orderedMarkers[seg.endNode]
                 const selCampId = dayCampsites[seg.day]
-                const nearbyCampsites = (() => {
-                  if (!endMarker || campsites.length === 0) return [] as Array<{ c: Campsite; dist: number }>
-                  const withDist = campsites.map((c) => ({
-                    c,
-                    dist: haversine([endMarker.lat, endMarker.lng], [c.lat, c.lng]),
-                  }))
-                  const list = withDist
-                    .filter((x) => x.dist <= CAMP_NEAR_KM)
-                    .sort((a, b) => a.dist - b.dist)
-                    .slice(0, CAMP_MAX_OPTIONS)
-                  // 已选中的露营点即使超出范围也保留在列表中，避免显示丢失
-                  if (selCampId && !list.some((x) => x.c.id === selCampId)) {
-                    const sel = withDist.find((x) => x.c.id === selCampId)
-                    if (sel) list.push(sel)
-                  }
-                  return list
-                })()
+                const nearbyCampsites = pickNearbyCampsites(endMarker, campsites, selCampId)
 
                 return (
                   <div key={seg.day} className="border border-gray-200 rounded-lg p-3">
@@ -557,8 +640,8 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
                       {seg.markers.length} 个标记点 · 距离 ~{distance.toFixed(1)} 公里 · 爬升 {elevation} 米
                     </div>
 
-                    {/* 当晚露营点选择（仅展示当天终点附近的） */}
-                    {campsites.length > 0 && (
+                    {/* 当晚露营点（最后一天到达终点，无需露营） */}
+                    {!isLast && campsites.length > 0 && (
                       <div className="mt-2">
                         <div className="text-xs text-gray-400 mb-1">
                           当晚露营点
@@ -582,9 +665,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
                             ))}
                           </select>
                         ) : (
-                          <p className="text-xs text-gray-400">
-                            终点 {CAMP_NEAR_KM} 公里内暂无露营点
-                          </p>
+                          <p className="text-xs text-gray-400">附近暂无露营点数据</p>
                         )}
                         {selCampId && nearbyCampsites.length > 0 && (
                           <div className="mt-1 flex items-center gap-1.5 text-xs text-gray-600">
@@ -631,6 +712,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
                 )
               })}
             </div>
+            )}
 
             {/* 总计 */}
             <div className="bg-blue-50 rounded-lg p-3 text-sm text-gray-700">
@@ -638,6 +720,30 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailId, on
               <p>总距离: ~{totalDistance.toFixed(1)} 公里</p>
               <p>总爬升: {Math.round(totalElevation)} 米</p>
             </div>
+
+            {/* 文字版计划 */}
+            {numDays !== null && daySummaries.length > 0 && (
+              <div className="border border-gray-200 rounded-lg p-3">
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="text-sm font-semibold text-gray-800">文字版计划</h3>
+                  <button
+                    type="button"
+                    onClick={copyPlanText}
+                    className="shrink-0 rounded-md border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100"
+                  >
+                    {planCopied ? '已复制' : '复制计划'}
+                  </button>
+                </div>
+                <textarea
+                  readOnly
+                  value={planText}
+                  rows={12}
+                  onFocus={(e) => e.currentTarget.select()}
+                  className="w-full resize-y rounded border border-gray-200 bg-gray-50 px-3 py-2 text-xs leading-relaxed text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <p className="mt-1.5 text-xs text-gray-400">点击文本框可全选，或直接点「复制计划」保存到备忘录</p>
+              </div>
+            )}
 
             {/* 爬升图 */}
             {orderedMarkers.length > 1 && (
