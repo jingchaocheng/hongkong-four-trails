@@ -73,6 +73,8 @@ export const uiMessages = {
     selectDaysHint: "选择天数后可规划每日路段与露营点",
     dailySegments: "每日路段",
     balanceByDistance: "按距离均衡",
+    focusDayHint: "点击天数标题可在地图高亮该段",
+    dayFocused: "地图高亮中",
     start: "起点",
     end: "终点",
     markersMeta:

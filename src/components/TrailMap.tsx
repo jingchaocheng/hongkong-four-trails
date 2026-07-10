@@ -71,6 +71,7 @@ interface TrailMapProps {
   showAllCampsites?: boolean
   onShowAllCampsitesChange?: (value: boolean) => void
   focusCampsite?: FocusCampsiteRequest | null
+  focusedDay?: number | null
   fitPadding?: MapFitPadding
 }
 
@@ -176,6 +177,43 @@ function FitMapBounds({
   return null
 }
 
+function FocusDayBounds({
+  dayPaths,
+  focusedDay,
+  padding,
+}: {
+  dayPaths?: DayPath[]
+  focusedDay?: number | null
+  padding: MapFitPadding
+}) {
+  const map = useMap()
+  const paddingRef = useRef(padding)
+  paddingRef.current = padding
+
+  useEffect(() => {
+    if (focusedDay == null || !dayPaths?.length) return
+    const path = dayPaths.find((p) => p.day === focusedDay)
+    if (!path || path.positions.length === 0) return
+
+    const pad = paddingRef.current
+    const pos = path.positions
+
+    if (pos.length === 1) {
+      map.flyTo(pos[0], 14, { duration: 0.6 })
+      return
+    }
+
+    map.flyToBounds(L.latLngBounds(pos), {
+      paddingTopLeft: L.point(pad.topLeft[0], pad.topLeft[1]),
+      paddingBottomRight: L.point(pad.bottomRight[0], pad.bottomRight[1]),
+      maxZoom: 14,
+      duration: 0.6,
+    })
+  }, [map, focusedDay, dayPaths])
+
+  return null
+}
+
 function HideZoomControl() {
   const map = useMap()
 
@@ -243,6 +281,7 @@ function TrailMap({
   showAllCampsites = false,
   onShowAllCampsitesChange,
   focusCampsite,
+  focusedDay = null,
   fitPadding = DEFAULT_FIT_PADDING,
 }: TrailMapProps) {
   const { t } = useLocale()
@@ -366,6 +405,8 @@ function TrailMap({
     return defaultDisplayPositions
   }, [dayPaths, fullTrackPositions, defaultDisplayPositions])
 
+  const hasDayFocus = focusedDay != null
+
   return (
     <div className="w-full h-full absolute inset-0">
       {onShowAllCampsitesChange && (
@@ -385,6 +426,7 @@ function TrailMap({
       >
         <HideZoomControl />
         <FitMapBounds positions={boundsPositions} padding={fitPadding} />
+        <FocusDayBounds dayPaths={dayPaths} focusedDay={focusedDay} padding={fitPadding} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -393,18 +435,30 @@ function TrailMap({
         {fullTrackPositions.length > 0 && (
           <Polyline
             positions={fullTrackPositions}
-            pathOptions={{ color: trail.color, weight: 3, opacity: 0.5 }}
+            pathOptions={{
+              color: trail.color,
+              weight: 3,
+              opacity: hasDayFocus ? 0.2 : 0.5,
+            }}
           />
         )}
         {/* 如果有dayPaths，显示多天路径；否则显示默认路径 */}
         {dayPaths && dayPaths.length > 0 ? (
-          dayPaths.map(path => (
-            <Polyline
-              key={path.day}
-              positions={path.positions}
-              pathOptions={{ color: path.color, weight: 5 }}
-            />
-          ))
+          dayPaths.map((path) => {
+            const isFocused = hasDayFocus && path.day === focusedDay
+            const isDimmed = hasDayFocus && path.day !== focusedDay
+            return (
+              <Polyline
+                key={path.day}
+                positions={path.positions}
+                pathOptions={{
+                  color: isDimmed ? '#9ca3af' : path.color,
+                  weight: isFocused ? 7 : isDimmed ? 4 : 5,
+                  opacity: isDimmed ? 0.35 : 1,
+                }}
+              />
+            )
+          })
         ) : (
           defaultDisplayPositions.length > 0 && (
             <Polyline

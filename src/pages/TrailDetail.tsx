@@ -32,6 +32,7 @@ function TrailDetail() {
   const [selectedCampsites, setSelectedCampsites] = useState<SelectedCampsite[]>([]);
   const [showAllCampsites, setShowAllCampsites] = useState(false);
   const [focusCampsite, setFocusCampsite] = useState<FocusCampsiteRequest | null>(null);
+  const [focusedDay, setFocusedDay] = useState<number | null>(null);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showPlannerDrawer, setShowPlannerDrawer] = useState(true);
   const mapFitPadding = useMemo(
@@ -257,6 +258,7 @@ function TrailDetail() {
           showAllCampsites={showAllCampsites}
           onShowAllCampsitesChange={setShowAllCampsites}
           focusCampsite={focusCampsite}
+          focusedDay={focusedDay}
           fitPadding={mapFitPadding}
         />
         {loading && (
@@ -285,6 +287,8 @@ function TrailDetail() {
               onPathsChange={setDayPaths}
               onCampsitesChange={setSelectedCampsites}
               onFocusCampsite={handleFocusCampsite}
+              focusedDay={focusedDay}
+              onFocusedDayChange={setFocusedDay}
             />
         </div>
 

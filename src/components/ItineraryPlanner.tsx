@@ -27,6 +27,8 @@ interface ItineraryPlannerProps {
   onPathsChange?: (paths: DayPath[]) => void
   onCampsitesChange?: (campsites: SelectedCampsite[]) => void
   onFocusCampsite?: (campsiteId: string) => void
+  focusedDay?: number | null
+  onFocusedDayChange?: (day: number | null) => void
   className?: string
 }
 
@@ -138,7 +140,7 @@ function segmentElevationGain(markers: TrailMarker[]): number {
   return total
 }
 
-function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, onFocusCampsite, className }: ItineraryPlannerProps) {
+function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, onFocusCampsite, focusedDay = null, onFocusedDayChange, className }: ItineraryPlannerProps) {
   const { locale, t } = useLocale()
   const lc = useLocalizedContent()
   const restoredPlanRef = useRef(initialPlan ?? null)
@@ -275,6 +277,10 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     }
     setSplitIndices(splits)
   }, [numDays, routeLen, maxDays, splitIndices.length])
+
+  useEffect(() => {
+    onFocusedDayChange?.(null)
+  }, [numDays, onFocusedDayChange])
 
   // 构建整条走行路线的轨迹点/海拔，并记录每个序列节点在其中的偏移
   const routeGeometry = useMemo(() => {
@@ -660,7 +666,10 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
             {numDays !== null && (
             <div className="space-y-3">
               <div className="flex items-center justify-between gap-2">
-                <label className="text-sm font-semibold text-gray-700">{t('planner.dailySegments')}</label>
+                <div>
+                  <label className="text-sm font-semibold text-gray-700">{t('planner.dailySegments')}</label>
+                  <p className="text-xs text-gray-400 mt-0.5">{t('planner.focusDayHint')}</p>
+                </div>
                 <button
                   type="button"
                   onClick={balanceSplitsByDistance}
@@ -685,14 +694,34 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                 const nearbyCampsites = pickNearbyCampsites(endMarker, campsites, selCampId)
 
                 return (
-                  <div key={seg.day} className="border border-gray-200 rounded-lg p-3">
-                    <div className="flex items-center mb-2">
+                  <div
+                    key={seg.day}
+                    className={`border rounded-lg p-3 transition-shadow ${
+                      focusedDay === seg.day
+                        ? 'border-blue-400 ring-2 ring-blue-200 shadow-sm'
+                        : 'border-gray-200'
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() =>
+                        onFocusedDayChange?.(focusedDay === seg.day ? null : seg.day)
+                      }
+                      className="flex items-center mb-2 w-full text-left rounded-md hover:bg-gray-50 px-1 py-0.5 -mx-1"
+                    >
                       <span
                         className="w-3 h-3 rounded-full mr-2 flex-shrink-0"
                         style={{ backgroundColor: color }}
                       />
-                      <span className="font-semibold text-sm text-gray-800">{t('common.dayN', { n: seg.day })}</span>
-                    </div>
+                      <span className="font-semibold text-sm text-gray-800">
+                        {t('common.dayN', { n: seg.day })}
+                      </span>
+                      {focusedDay === seg.day && (
+                        <span className="ml-2 text-xs text-blue-600 font-medium">
+                          {t('planner.dayFocused')}
+                        </span>
+                      )}
+                    </button>
 
                     <div className="flex items-center gap-2 text-sm">
                       <div className="flex-1">
@@ -788,7 +817,10 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                       <div className="mt-2 border-t border-gray-100 pt-2">
                         <button
                           type="button"
-                          onClick={() => toggleDay(seg.day)}
+                          onClick={() => {
+                            toggleDay(seg.day)
+                            onFocusedDayChange?.(seg.day)
+                          }}
                           className="flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700"
                         >
                           <svg
