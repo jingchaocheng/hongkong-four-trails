@@ -85,7 +85,6 @@ interface TrailMapProps {
   gpxWaypoints?: GPXWaypoint[]
   dayPaths?: DayPath[]
   selectedCampsites?: SelectedCampsite[]
-  numDays?: number | null
   showAllCampsites?: boolean
   onShowAllCampsitesChange?: (value: boolean) => void
   focusCampsite?: FocusCampsiteRequest | null
@@ -209,7 +208,6 @@ function TrailMap({
   gpxWaypoints,
   dayPaths,
   selectedCampsites,
-  numDays = null,
   showAllCampsites = false,
   onShowAllCampsitesChange,
   focusCampsite,

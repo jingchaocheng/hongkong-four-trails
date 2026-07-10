@@ -28,9 +28,6 @@ function TrailDetail() {
   const [loading, setLoading] = useState(false);
   const [dayPaths, setDayPaths] = useState<DayPath[]>([]);
   const [selectedCampsites, setSelectedCampsites] = useState<SelectedCampsite[]>([]);
-  const [plannerNumDays, setPlannerNumDays] = useState<number | null>(
-    initialPlanRef.current?.numDays ?? null
-  );
   const [showAllCampsites, setShowAllCampsites] = useState(false);
   const [focusCampsite, setFocusCampsite] = useState<FocusCampsiteRequest | null>(null);
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -46,7 +43,6 @@ function TrailDetail() {
   const handlePlanChange = useCallback(
     (state: PlannerState) => {
       if (!trailId) return;
-      setPlannerNumDays(state.numDays);
       savePlanToStorage(trailId, state);
       const nextParams = encodePlanToSearchParams(state);
       const current = decodePlanFromSearchParams(searchParams);
@@ -253,7 +249,6 @@ function TrailDetail() {
           gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
           dayPaths={dayPaths.length > 0 ? dayPaths : undefined}
           selectedCampsites={selectedCampsites.length > 0 ? selectedCampsites : undefined}
-          numDays={plannerNumDays}
           showAllCampsites={showAllCampsites}
           onShowAllCampsitesChange={setShowAllCampsites}
           focusCampsite={focusCampsite}
