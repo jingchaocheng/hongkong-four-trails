@@ -53,6 +53,10 @@ export const uiMessages = {
   map: {
     showAllCampsites: "显示全部露营点（42）",
     dayPaths: "每日路段",
+    basemap: "底图",
+    basemapOsm: "OpenStreetMap",
+    basemapEsri: "ArcGIS 街道",
+    basemapHint: "默认 OpenStreetMap；加载失败时自动切换 ArcGIS",
     elevation: "海拔",
     elevationM: "{n}米",
     campsite: "露营点",

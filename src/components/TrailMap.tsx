@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import { Trail } from '../data/trails'
@@ -8,6 +8,15 @@ import { SelectedCampsite, getAllCampsites, getCampsitesByTrail, Campsite } from
 import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import CampsitePopup from './CampsitePopup'
 import { MapControls } from './MapControls'
+import {
+  BasemapId,
+  FALLBACK_BASEMAP_ID,
+  getBasemapById,
+  getStoredBasemapId,
+  OSM_LOAD_TIMEOUT_MS,
+  OSM_TILE_ERROR_THRESHOLD,
+  setStoredBasemapId,
+} from '../utils/mapBasemaps'
 import 'leaflet/dist/leaflet.css'
 
 export interface FocusCampsiteRequest {
@@ -226,6 +235,69 @@ function HideZoomControl() {
   return null
 }
 
+/** 渲染底图瓦片；OSM 加载失败时通知上层切换备用底图 */
+function BasemapTileLayers({
+  basemapId,
+  onOsmUnavailable,
+}: {
+  basemapId: BasemapId
+  onOsmUnavailable: () => void
+}) {
+  const basemap = useMemo(() => getBasemapById(basemapId), [basemapId])
+  const failCount = useRef(0)
+  const successCount = useRef(0)
+  const fellBack = useRef(false)
+
+  useEffect(() => {
+    failCount.current = 0
+    successCount.current = 0
+    fellBack.current = false
+  }, [basemapId])
+
+  useEffect(() => {
+    if (basemapId !== 'osm') return
+    const timer = window.setTimeout(() => {
+      if (successCount.current === 0 && !fellBack.current) {
+        fellBack.current = true
+        onOsmUnavailable()
+      }
+    }, OSM_LOAD_TIMEOUT_MS)
+    return () => window.clearTimeout(timer)
+  }, [basemapId, onOsmUnavailable])
+
+  const handleTileError = useCallback(() => {
+    if (basemapId !== 'osm' || fellBack.current) return
+    failCount.current += 1
+    if (failCount.current >= OSM_TILE_ERROR_THRESHOLD && successCount.current === 0) {
+      fellBack.current = true
+      onOsmUnavailable()
+    }
+  }, [basemapId, onOsmUnavailable])
+
+  const handleTileLoad = useCallback(() => {
+    successCount.current += 1
+  }, [])
+
+  return (
+    <>
+      {basemap.layers.map((layer, index) => (
+        <TileLayer
+          key={`${basemapId}-${index}`}
+          url={layer.url}
+          {...(layer.attribution ? { attribution: layer.attribution } : {})}
+          {...(layer.subdomains != null ? { subdomains: layer.subdomains } : {})}
+          {...(layer.maxZoom != null ? { maxZoom: layer.maxZoom } : {})}
+          eventHandlers={
+            basemapId === 'osm'
+              ? { tileerror: handleTileError, tileload: handleTileLoad }
+              : undefined
+          }
+        />
+      ))}
+    </>
+  )
+}
+
 function CampsiteMapMarker({
   point,
   selected,
@@ -286,6 +358,17 @@ function TrailMap({
 }: TrailMapProps) {
   const { t } = useLocale()
   const lc = useLocalizedContent()
+  const [basemapId, setBasemapId] = useState<BasemapId>(() => getStoredBasemapId())
+
+  const handleBasemapChange = useCallback((id: BasemapId) => {
+    setBasemapId(id)
+    setStoredBasemapId(id)
+  }, [])
+
+  const handleOsmUnavailable = useCallback(() => {
+    setBasemapId(FALLBACK_BASEMAP_ID)
+    setStoredBasemapId(FALLBACK_BASEMAP_ID)
+  }, [])
 
   const campsiteIconMemo = useMemo(
     () =>
@@ -409,13 +492,13 @@ function TrailMap({
 
   return (
     <div className="w-full h-full absolute inset-0">
-      {onShowAllCampsitesChange && (
-        <MapControls
-          dayPaths={dayPaths}
-          showAllCampsites={showAllCampsites}
-          onShowAllCampsitesChange={onShowAllCampsitesChange}
-        />
-      )}
+      <MapControls
+        dayPaths={dayPaths}
+        basemapId={basemapId}
+        onBasemapChange={handleBasemapChange}
+        showAllCampsites={showAllCampsites}
+        onShowAllCampsitesChange={onShowAllCampsitesChange}
+      />
       <MapContainer
         key={trail.id}
         center={[22.3, 114.2]}
@@ -427,10 +510,7 @@ function TrailMap({
         <HideZoomControl />
         <FitMapBounds positions={boundsPositions} padding={fitPadding} />
         <FocusDayBounds dayPaths={dayPaths} focusedDay={focusedDay} padding={fitPadding} />
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        <BasemapTileLayers basemapId={basemapId} onOsmUnavailable={handleOsmUnavailable} />
         {/* 始终显示完整的原始轨迹作为背景 */}
         {fullTrackPositions.length > 0 && (
           <Polyline
