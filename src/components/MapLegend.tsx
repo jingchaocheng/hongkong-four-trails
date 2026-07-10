@@ -1,4 +1,5 @@
 import { DayPath } from './ItineraryPlanner'
+import { useLocale } from '../i18n/LocaleContext'
 
 function pathDistance(positions: Array<[number, number]>): number {
   const R = 6371
@@ -22,18 +23,20 @@ interface DayPathLegendProps {
 }
 
 export function DayPathLegend({ dayPaths }: DayPathLegendProps) {
+  const { t } = useLocale()
+
   if (dayPaths.length === 0) return null
 
   return (
     <div className="map-legend pointer-events-auto">
-      <div className="map-legend-title">每日路段</div>
+      <div className="map-legend-title">{t('map.dayPaths')}</div>
       <ul className="map-legend-list">
         {dayPaths.map((path) => {
           const dist = pathDistance(path.positions)
           return (
             <li key={path.day} className="map-legend-item">
               <span className="map-legend-swatch" style={{ backgroundColor: path.color }} />
-              <span className="map-legend-label">第 {path.day} 天</span>
+              <span className="map-legend-label">{t('common.dayN', { n: path.day })}</span>
               <span className="map-legend-meta">~{dist.toFixed(1)} km</span>
             </li>
           )

@@ -14,6 +14,8 @@ import {
   decodePlanFromSearchParams,
 } from "../utils/planState";
 import TrailMarkerGuidePanel from "../components/TrailMarkerGuidePanel";
+import { useLocale } from "../i18n/LocaleContext";
+import { localizeTrail } from "../i18n/trailLocale";
 
 function TrailDetail() {
   const { trailId } = useParams<{ trailId: string }>();
@@ -39,6 +41,9 @@ function TrailDetail() {
     }),
     [showPlannerDrawer]
   );
+
+  const { locale, t } = useLocale();
+  const displayTrail = trail ? localizeTrail(trail, locale) : undefined;
 
   const handlePlanChange = useCallback(
     (state: PlannerState) => {
@@ -112,10 +117,10 @@ function TrailDetail() {
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-800 mb-4">
-            未找到该径道
+            {t('trail.notFound')}
           </h1>
           <Link to="/" className="text-blue-600 hover:underline">
-            返回首页
+            {t('common.backHome')}
           </Link>
         </div>
       </div>
@@ -143,14 +148,14 @@ function TrailDetail() {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          返回
+          {t('common.back')}
         </Link>
         <div className="h-6 w-px bg-gray-300"></div>
-        <h1 className="text-lg font-bold text-gray-800">{trail.name}</h1>
+        <h1 className="text-lg font-bold text-gray-800">{displayTrail!.name}</h1>
         <button
           onClick={() => setShowInfoModal(true)}
           className="inline-flex items-center justify-center w-7 h-7 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
-          title="查看径道信息"
+          title={t('trail.trailInfo')}
         >
           <svg
             className="w-4 h-4"
@@ -179,7 +184,7 @@ function TrailDetail() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">{trail.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-800">{displayTrail!.name}</h2>
               <button
                 onClick={() => setShowInfoModal(false)}
                 className="text-gray-500 hover:text-gray-700 transition-colors"
@@ -206,33 +211,33 @@ function TrailDetail() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <div className="bg-gray-50 rounded-lg p-4">
                   <span className="text-sm text-gray-500 block mb-1">
-                    总长度
+                    {t('trail.totalLength')}
                   </span>
                   <p className="text-xl font-semibold text-gray-800">
-                    {trail.length} 公里
+                    {trail.length} {t('common.km')}
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
                   <span className="text-sm text-gray-500 block mb-1">
-                    段落数
+                    {t('trail.sectionCount')}
                   </span>
                   <p className="text-xl font-semibold text-gray-800">
-                    {trail.sections} 段
+                    {trail.sections} {t('common.section')}
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <span className="text-sm text-gray-500 block mb-1">位置</span>
+                  <span className="text-sm text-gray-500 block mb-1">{t('trail.location')}</span>
                   <p className="text-xl font-semibold text-gray-800">
-                    {trail.location}
+                    {displayTrail!.location}
                   </p>
                 </div>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  简介
+                  {t('trail.intro')}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {trail.description}
+                  {displayTrail!.description}
                 </p>
               </div>
               <TrailMarkerGuidePanel trailId={trail.id} />
@@ -257,7 +262,7 @@ function TrailDetail() {
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-[500] pointer-events-none">
             <div className="text-center text-gray-500">
-              <div className="text-lg mb-2">正在加载轨迹数据...</div>
+              <div className="text-lg mb-2">{t('common.loadingTrack')}</div>
             </div>
           </div>
         )}
@@ -273,7 +278,7 @@ function TrailDetail() {
               gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
               gpxTrack={gpxTrack.length > 0 ? gpxTrack : undefined}
               trackElevations={trackElevations.length > 0 ? trackElevations : undefined}
-              trailName={trail.name}
+              trailName={displayTrail!.name}
               trailNameEn={trail.nameEn}
               initialPlan={initialPlanRef.current}
               onPlanChange={handlePlanChange}
@@ -291,8 +296,8 @@ function TrailDetail() {
               ? "left-[calc(100%-min(28rem,100%))] right-auto -translate-x-full rounded-l-md rounded-r-none border-r-0"
               : "right-4 left-auto translate-x-0 rounded-md"
           }`}
-          aria-label={showPlannerDrawer ? "收起行程规划" : "展开行程规划"}
-          title={showPlannerDrawer ? "收起行程规划" : "展开行程规划"}
+          aria-label={showPlannerDrawer ? t('trail.collapsePlanner') : t('trail.expandPlanner')}
+          title={showPlannerDrawer ? t('trail.collapsePlanner') : t('trail.expandPlanner')}
         >
           <svg
             className={`w-5 h-5 transition-transform duration-300 ${

@@ -1,18 +1,5 @@
 import { Campsite, CampsiteDetailsZhHans, SelectedCampsite } from '../utils/campsites'
-import { toZhHans } from '../utils/toZhHans'
-
-const DETAIL_ROWS: { key: keyof CampsiteDetailsZhHans; label: string }[] = [
-  { key: 'campLocationZhHans', label: '营地地点' },
-  { key: 'campTypeZhHans', label: '营地类型' },
-  { key: 'suitableForZhHans', label: '适合对象' },
-  { key: 'introZhHans', label: '简介' },
-  { key: 'facilitiesZhHans', label: '设施' },
-  { key: 'sanitaryFacilitiesZhHans', label: '卫生设施' },
-  { key: 'waterSourceZhHans', label: '水源' },
-  { key: 'attractionsZhHans', label: '营地景点' },
-  { key: 'accessZhHans', label: '前往方法' },
-  { key: 'remarksZhHans', label: '备注' },
-]
+import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 
 interface CampsitePopupProps {
   campsite: Campsite
@@ -20,15 +7,32 @@ interface CampsitePopupProps {
 }
 
 export default function CampsitePopup({ campsite, selected }: CampsitePopupProps) {
+  const { t } = useLocale()
+  const lc = useLocalizedContent()
   const details = campsite.detailsZhHans
+
+  const detailRows: { key: keyof CampsiteDetailsZhHans; label: string }[] = [
+    { key: 'campLocationZhHans', label: t('campsite.location') },
+    { key: 'campTypeZhHans', label: t('campsite.type') },
+    { key: 'suitableForZhHans', label: t('campsite.suitable') },
+    { key: 'introZhHans', label: t('campsite.intro') },
+    { key: 'facilitiesZhHans', label: t('campsite.facilities') },
+    { key: 'sanitaryFacilitiesZhHans', label: t('campsite.sanitary') },
+    { key: 'waterSourceZhHans', label: t('campsite.water') },
+    { key: 'attractionsZhHans', label: t('campsite.attractions') },
+    { key: 'accessZhHans', label: t('campsite.access') },
+    { key: 'remarksZhHans', label: t('campsite.remarks') },
+  ]
 
   return (
     <div className="campsite-popup">
       <div className="campsite-popup-header">
-        <strong className="text-base text-gray-900">⛺ {toZhHans(campsite.name)}</strong>
+        <strong className="text-base text-gray-900">
+          ⛺ {lc(campsite.name, 'traditional')}
+        </strong>
         {selected && (
           <p className="mt-1 text-sm font-semibold" style={{ color: selected.color }}>
-            第 {selected.day} 天宿营地
+            {t('campsite.dayCamp', { n: selected.day })}
           </p>
         )}
         {campsite.nameEn && <p className="mt-0.5 text-xs text-gray-500">{campsite.nameEn}</p>}
@@ -36,26 +40,30 @@ export default function CampsitePopup({ campsite, selected }: CampsitePopupProps
 
       {details ? (
         <dl className="campsite-popup-details">
-          {DETAIL_ROWS.map(({ key, label }) => {
+          {detailRows.map(({ key, label }) => {
             const value = details[key]
             if (!value || key === 'sourceUrl') return null
             return (
               <div key={key} className="campsite-popup-row">
                 <dt>{label}</dt>
-                <dd>{value}</dd>
+                <dd>{lc(value, 'simplified')}</dd>
               </div>
             )
           })}
           {details.sourceUrl && (
             <p className="campsite-popup-source">
               <a href={details.sourceUrl} target="_blank" rel="noopener noreferrer">
-                查看渔农自然护理署原文
+                {t('campsite.sourceLink')}
               </a>
             </p>
           )}
         </dl>
       ) : (
-        campsite.address && <p className="mt-2 text-sm text-gray-600">{toZhHans(campsite.address)}</p>
+        campsite.address && (
+          <p className="mt-2 text-sm text-gray-600">
+            {lc(campsite.address, 'traditional')}
+          </p>
+        )
       )}
     </div>
   )

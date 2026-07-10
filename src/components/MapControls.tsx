@@ -1,5 +1,6 @@
 import { DayPath } from './ItineraryPlanner'
 import { DayPathLegend } from './MapLegend'
+import { useLocale } from '../i18n/LocaleContext'
 
 interface MapControlsProps {
   dayPaths?: DayPath[]
@@ -12,6 +13,8 @@ export function MapControls({
   showAllCampsites,
   onShowAllCampsitesChange,
 }: MapControlsProps) {
+  const { t } = useLocale()
+
   return (
     <div className="map-overlays pointer-events-none">
       {dayPaths && dayPaths.length > 0 && <DayPathLegend dayPaths={dayPaths} />}
@@ -22,7 +25,7 @@ export function MapControls({
             checked={showAllCampsites}
             onChange={(e) => onShowAllCampsitesChange(e.target.checked)}
           />
-          <span>显示全部露营点（42）</span>
+          <span>{t('map.showAllCampsites')}</span>
         </label>
       </div>
     </div>

@@ -31,6 +31,20 @@ export function waypointsToMarkers(waypoints: GPXWaypoint[]): TrailMarker[] {
   }))
 }
 
+/** 标距柱展示：编号与地名相同时只显示编号，避免 M123 - M123 */
+export function formatMarkerLabel(
+  marker: Pick<TrailMarker, 'id' | 'name'>,
+  localize?: (text: string) => string
+): string {
+  const id = marker.id.trim()
+  const rawName = marker.name.trim()
+  const name = localize && rawName ? localize(rawName) : rawName
+  if (!name || name.toUpperCase() === id.toUpperCase()) {
+    return id
+  }
+  return `${id} - ${name}`
+}
+
 export interface GPXTrack {
   name?: string
   points: GPXPoint[]

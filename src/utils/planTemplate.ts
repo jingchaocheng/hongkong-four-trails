@@ -1,4 +1,6 @@
-import { toZhHans } from './toZhHans'
+import type { Locale } from '../i18n/LocaleContext'
+import { getMessages } from '../i18n/LocaleContext'
+import { localizeContent } from '../i18n/localeText'
 
 export interface PlanDaySummary {
   day: number
@@ -31,60 +33,98 @@ function formatDate(): string {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
 }
 
-export function formatPlanTemplate(input: PlanTemplateInput): string {
+function t(
+  locale: Locale,
+  path: string,
+  params?: Record<string, string | number>
+): string {
+  const messages = getMessages(locale)
+  const raw = path.split('.').reduce<unknown>((acc, key) => {
+    if (acc && typeof acc === 'object' && key in acc) {
+      return (acc as Record<string, unknown>)[key]
+    }
+    return undefined
+  }, messages)
+  if (typeof raw !== 'string') return path
+  if (!params) return raw
+  return raw.replace(/\{(\w+)\}/g, (_, key: string) =>
+    params[key] !== undefined ? String(params[key]) : `{${key}}`
+  )
+}
+
+export function formatPlanTemplate(
+  input: PlanTemplateInput,
+  locale: Locale = 'zh-Hans'
+): string {
   const title = input.trailNameEn
     ? `${input.trailName} ${input.trailNameEn}`
     : input.trailName
 
   const directionLabel = input.loopMode
-    ? '🔄 环线'
+    ? t(locale, 'plan.dirLoop')
     : input.reverse
-      ? '⬅️ 反向'
-      : '➡️ 正向'
+      ? t(locale, 'plan.dirReverse')
+      : t(locale, 'plan.dirForward')
 
   const lines: string[] = [
     '══════════════════════════════════════',
-    `  🏔️ ${title} · 行程计划`,
-    `  📅 生成于 ${formatDate()}`,
+    `  🏔️ ${t(locale, 'plan.title', { name: title })}`,
+    `  📅 ${t(locale, 'plan.generated', { date: formatDate() })}`,
     '══════════════════════════════════════',
     '',
-    '📋 【概况】',
-    `🗺️ 路线：${input.routeDescription}`,
-    `🧭 方向：${directionLabel}`,
-    `📆 天数：${input.numDays} 天`,
-    `📏 总距离：~${input.totalDistance.toFixed(1)} 公里`,
-    `⛰️ 总爬升：${Math.round(input.totalElevation)} 米`,
+    `📋 ${t(locale, 'plan.overview')}`,
+    `🗺️ ${t(locale, 'plan.route', { desc: input.routeDescription })}`,
+    `🧭 ${t(locale, 'plan.direction', { dir: directionLabel })}`,
+    `📆 ${t(locale, 'plan.days', { n: input.numDays })}`,
+    `📏 ${t(locale, 'plan.totalDistance', { n: input.totalDistance.toFixed(1) })}`,
+    `⛰️ ${t(locale, 'plan.totalElevation', { n: Math.round(input.totalElevation) })}`,
     '',
   ]
 
   input.days.forEach((day) => {
     lines.push('──────────────────────────────────────')
-    lines.push(`🌤️ 第 ${day.day} 天`)
+    lines.push(`🌤️ ${t(locale, 'plan.dayHeader', { n: day.day })}`)
     lines.push('──────────────────────────────────────')
-    lines.push(`🚩 起点：${day.startLabel}`)
-    lines.push(`🏁 终点：${day.endLabel}`)
-    lines.push(`📏 距离：~${day.distance.toFixed(1)} 公里`)
-    lines.push(`⛰️ 爬升：${Math.round(day.elevation)} 米`)
-    lines.push(`📍 途经：${day.markerCount} 个标记点`)
+    lines.push(`🚩 ${t(locale, 'plan.start', { label: day.startLabel })}`)
+    lines.push(`🏁 ${t(locale, 'plan.end', { label: day.endLabel })}`)
+    lines.push(`📏 ${t(locale, 'plan.distance', { n: day.distance.toFixed(1) })}`)
+    lines.push(`⛰️ ${t(locale, 'plan.elevation', { n: Math.round(day.elevation) })}`)
+    lines.push(`📍 ${t(locale, 'plan.markers', { n: day.markerCount })}`)
     if (day.campsiteName) {
-      lines.push(`⛺ 当晚露营：${toZhHans(day.campsiteName)}`)
+      lines.push(
+        `⛺ ${t(locale, 'plan.campsite', {
+          name: localizeContent(day.campsiteName, locale, 'traditional'),
+        })}`
+      )
       if (day.campsiteAddress) {
-        lines.push(`📌 营地位置：${toZhHans(day.campsiteAddress)}`)
+        lines.push(
+          `📌 ${t(locale, 'plan.campsiteLocation', {
+            addr: localizeContent(day.campsiteAddress, locale, 'traditional'),
+          })}`
+        )
       }
       if (day.campsiteWaterSource) {
-        lines.push(`💧 水源：${day.campsiteWaterSource}`)
+        lines.push(
+          `💧 ${t(locale, 'plan.water', {
+            text: localizeContent(day.campsiteWaterSource, locale, 'simplified'),
+          })}`
+        )
       }
       if (day.campsiteSanitary) {
-        lines.push(`🚻 卫生设施：${day.campsiteSanitary}`)
+        lines.push(
+          `🚻 ${t(locale, 'plan.sanitary', {
+            text: localizeContent(day.campsiteSanitary, locale, 'simplified'),
+          })}`
+        )
       }
     }
     lines.push('')
   })
 
   lines.push('──────────────────────────────────────')
-  lines.push('🥾 祝徒步愉快！')
-  lines.push('⚠️ 安全第一：量力而行，注意天气与补水，结伴而行更安心。')
-  lines.push('🌿 无痕山野：只留脚印，不留垃圾，尊重自然与野生动物。')
+  lines.push(`🥾 ${t(locale, 'plan.footerWish')}`)
+  lines.push(`⚠️ ${t(locale, 'plan.footerSafety')}`)
+  lines.push(`🌿 ${t(locale, 'plan.footerLeaveNoTrace')}`)
   lines.push('')
 
   return lines.join('\n')

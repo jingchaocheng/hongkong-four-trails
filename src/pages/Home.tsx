@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Trail, trails } from '../data/trails'
+import { trails } from '../data/trails'
 import { gpxToTrackPoints, loadTrailGpx, TRAIL_GPX_IDS } from '../utils/trailGpx'
+import { useLocale } from '../i18n/LocaleContext'
+import { localizeTrail } from '../i18n/trailLocale'
+import LocaleToggle from '../components/LocaleToggle'
 
 type LatLng = [number, number]
 
@@ -34,21 +37,35 @@ function buildTrackPath(points: LatLng[]): string {
     .join(' ')
 }
 
-function RouteTrackThumbnail({ trail, trackPoints }: { trail: Trail; trackPoints?: LatLng[] }) {
+function RouteTrackThumbnail({
+  trackPoints,
+  noTrackLabel,
+  thumbLabel,
+}: {
+  trackPoints?: LatLng[]
+  noTrackLabel: string
+  thumbLabel: string
+}) {
   const path = trackPoints && trackPoints.length > 1 ? buildTrackPath(trackPoints) : ''
 
   if (!path) {
-    return <div className="route-thumbnail-fallback">暂无轨迹</div>
+    return <div className="route-thumbnail-fallback">{noTrackLabel}</div>
   }
 
   return (
-    <svg viewBox="0 0 100 100" className="route-track-svg" preserveAspectRatio="xMidYMid meet" aria-label={`${trail.name} 轨迹缩略图`}>
+    <svg
+      viewBox="0 0 100 100"
+      className="route-track-svg"
+      preserveAspectRatio="xMidYMid meet"
+      aria-label={thumbLabel}
+    >
       <path d={path} className="route-track-line" />
     </svg>
   )
 }
 
 function Home() {
+  const { locale, t } = useLocale()
   const [gpxTracks, setGpxTracks] = useState<Record<string, LatLng[]>>({})
   const [hoveredTrailId, setHoveredTrailId] = useState<string | null>(null)
 
@@ -84,9 +101,12 @@ function Home() {
 
   return (
     <div className="cinema-page cinema-grain home-serif-font h-screen w-screen overflow-hidden flex flex-col">
-      <div className="z-20 text-center px-4 pt-8 pb-4 shrink-0">
+      <div className="z-20 text-center px-4 pt-8 pb-4 shrink-0 relative">
+        <div className="absolute right-4 top-8">
+          <LocaleToggle />
+        </div>
         <p className="uppercase tracking-[0.35em] text-xs text-amber-300/80 mb-3">A HONG KONG ENDURANCE CHRONICLE</p>
-        <h1 className="text-4xl md:text-6xl font-black text-amber-50 mb-2">香港四径</h1>
+        <h1 className="text-4xl md:text-6xl font-black text-amber-50 mb-2">{t('home.title')}</h1>
         <p className="text-sm md:text-lg text-slate-300">Hong Kong Four Trails</p>
       </div>
 
@@ -95,6 +115,7 @@ function Home() {
         onMouseLeave={() => setHoveredTrailId(null)}
       >
         {trails.map((trail, index) => {
+          const display = localizeTrail(trail, locale)
           const isActive = hoveredTrailId === trail.id
           const isSibling = hoveredTrailId !== null && hoveredTrailId !== trail.id
 
@@ -112,23 +133,27 @@ function Home() {
               <div className="route-accordion-inner route-accordion-content p-6 md:p-8 h-full flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="route-title text-3xl md:text-4xl font-black text-amber-50 drop-shadow-xl tracking-wide">{trail.name}</h3>
+                    <h3 className="route-title text-3xl md:text-4xl font-black text-amber-50 drop-shadow-xl tracking-wide">{display.name}</h3>
                     <span className="route-reveal route-reveal-inline whitespace-nowrap text-sm font-semibold text-amber-200 bg-amber-400/10 border border-amber-200/40 px-3 py-1 rounded-full">
-                    {trail.length}公里
+                    {trail.length}{t('common.km')}
                     </span>
                   </div>
                   <p className="route-reveal route-reveal-inline text-amber-50/85 text-sm md:text-base mb-2">{trail.nameEn}</p>
-                  <p className="route-reveal route-reveal-inline route-description text-slate-200/90 mb-4 max-w-xl">{trail.description}</p>
+                  <p className="route-reveal route-reveal-inline route-description text-slate-200/90 mb-4 max-w-xl">{display.description}</p>
                   <div className="route-reveal route-reveal-inline route-thumbnail-wrap mb-4">
                     <div className="route-thumbnail" aria-hidden="true">
-                      <RouteTrackThumbnail trail={trail} trackPoints={gpxTracks[trail.id]} />
+                      <RouteTrackThumbnail
+                        trackPoints={gpxTracks[trail.id]}
+                        noTrackLabel={t('home.noTrack')}
+                        thumbLabel={t('home.trackThumb', { name: display.name })}
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="route-reveal route-reveal-flex flex items-end justify-between">
                   <div className="flex items-center text-sm md:text-base text-slate-100/95">
-                    <span className="mr-4">📍 {trail.location}</span>
-                    <span>🏔️ {trail.sections}段</span>
+                    <span className="mr-4">📍 {display.location}</span>
+                    <span>🏔️ {trail.sections}{t('common.section')}</span>
                   </div>
                   <span className="text-6xl md:text-8xl font-black text-white/10 leading-none">
                     0{index + 1}
@@ -144,4 +169,3 @@ function Home() {
 }
 
 export default Home
-

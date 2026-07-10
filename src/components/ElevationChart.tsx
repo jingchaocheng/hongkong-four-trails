@@ -1,4 +1,5 @@
 import { TrailMarker } from "../utils/gpxParser";
+import { useLocale } from "../i18n/LocaleContext";
 
 interface ElevationChartProps {
   markers: TrailMarker[];
@@ -49,10 +50,12 @@ function ElevationChart({
   profile,
   elevationGain,
 }: ElevationChartProps) {
+  const { t } = useLocale();
+
   if (markers.length < 2) {
     return (
       <p className="text-gray-500 text-center py-8">
-        需要至少两个标记点才能显示高度图
+        {t('elevation.needTwoMarkers')}
       </p>
     );
   }
@@ -161,16 +164,16 @@ function ElevationChart({
 
       <div className="mt-4 flex justify-between text-xs text-gray-600">
         <div>
-          <p className="font-semibold">最低点</p>
-          <p>{minElevation} 米</p>
+          <p className="font-semibold">{t('elevation.min')}</p>
+          <p>{minElevation} {t('elevation.meters')}</p>
         </div>
         <div className="text-center">
-          <p className="font-semibold">最高点</p>
-          <p>{maxElevation} 米</p>
+          <p className="font-semibold">{t('elevation.max')}</p>
+          <p>{maxElevation} {t('elevation.meters')}</p>
         </div>
         <div className="text-right">
-          <p className="font-semibold">总爬升</p>
-          <p>{Math.round(displayGain)} 米</p>
+          <p className="font-semibold">{t('elevation.gain')}</p>
+          <p>{Math.round(displayGain)} {t('elevation.meters')}</p>
         </div>
       </div>
 

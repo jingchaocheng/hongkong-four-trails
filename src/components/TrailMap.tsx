@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import { Trail } from '../data/trails'
-import { GPXWaypoint, waypointsToMarkers } from '../utils/gpxParser'
+import { GPXWaypoint, waypointsToMarkers, formatMarkerLabel } from '../utils/gpxParser'
 import { DayPath } from './ItineraryPlanner'
 import { SelectedCampsite, getAllCampsites, getCampsitesByTrail, Campsite } from '../utils/campsites'
-import { toZhHans } from '../utils/toZhHans'
+import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import CampsitePopup from './CampsitePopup'
 import { MapControls } from './MapControls'
 import 'leaflet/dist/leaflet.css'
@@ -15,29 +15,12 @@ export interface FocusCampsiteRequest {
   seq: number
 }
 
-const campsiteIcon = L.divIcon({
-  className: 'campsite-marker',
-  html: `
-    <div class="campsite-marker-inner" title="露营点">
-      <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
-        <path d="M4 20h16L12 4 4 20z" fill="#dc2626" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
-        <path d="M12 4v16" stroke="#ffffff" stroke-width="2"/>
-        <path d="M12 4v16" stroke="#991b1b" stroke-width="1.2"/>
-        <circle cx="12" cy="9.5" r="1.8" fill="#fde047" stroke="#ffffff" stroke-width="0.8"/>
-      </svg>
-    </div>
-  `,
-  iconSize: [36, 36],
-  iconAnchor: [18, 36],
-  popupAnchor: [0, -36],
-})
-
 // 选中（当天宿营）的露营点：更大、用当天颜色、带天数徽标
-function makeSelectedCampsiteIcon(color: string, day: number) {
+function makeSelectedCampsiteIcon(color: string, day: number, title: string) {
   return L.divIcon({
     className: 'campsite-marker',
     html: `
-      <div class="campsite-marker-inner campsite-marker-selected" title="第${day}天宿营">
+      <div class="campsite-marker-inner campsite-marker-selected" title="${title}">
         <svg viewBox="0 0 24 24" width="39" height="39" aria-hidden="true">
           <path d="M4 20h16L12 4 4 20z" fill="${color}" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
           <path d="M12 4v16" stroke="#ffffff" stroke-width="2"/>
@@ -96,6 +79,103 @@ const DEFAULT_FIT_PADDING: MapFitPadding = {
   bottomRight: [48, 48],
 }
 
+/** 与 TrailDetail 侧边栏 transition-duration-300 对齐 */
+const DRAWER_TRANSITION_MS = 320
+
+function FitMapBounds({
+  positions,
+  padding,
+}: {
+  positions: Array<[number, number]>
+  padding: MapFitPadding
+}) {
+  const map = useMap()
+  const positionsRef = useRef(positions)
+  positionsRef.current = positions
+  const paddingRef = useRef(padding)
+  paddingRef.current = padding
+  const fittedPositionsKey = useRef('')
+
+  const fit = useCallback(() => {
+    const pos = positionsRef.current
+    const pad = paddingRef.current
+    if (pos.length === 0) return
+
+    map.invalidateSize({ animate: false })
+
+    if (pos.length === 1) {
+      map.setView(pos[0], 14, { animate: false })
+      return
+    }
+
+    map.fitBounds(L.latLngBounds(pos), {
+      paddingTopLeft: L.point(pad.topLeft[0], pad.topLeft[1]),
+      paddingBottomRight: L.point(pad.bottomRight[0], pad.bottomRight[1]),
+      maxZoom: 14,
+      animate: false,
+    })
+  }, [map])
+
+  // 轨迹数据就绪时适配视野（GPX 加载等）
+  useEffect(() => {
+    if (positions.length === 0) return
+
+    const key = `${positions.length}:${positions[0][0]},${positions[0][1]}:${positions[positions.length - 1][0]},${positions[positions.length - 1][1]}`
+    if (fittedPositionsKey.current === key) return
+    fittedPositionsKey.current = key
+
+    let cancelled = false
+    const timers: number[] = []
+
+    const scheduleFit = () => {
+      if (cancelled) return
+      fit()
+      requestAnimationFrame(() => {
+        if (!cancelled) fit()
+      })
+      timers.push(window.setTimeout(() => {
+        if (!cancelled) fit()
+      }, 150))
+      timers.push(window.setTimeout(() => {
+        if (!cancelled) fit()
+      }, 400))
+    }
+
+    map.whenReady(scheduleFit)
+
+    return () => {
+      cancelled = true
+      timers.forEach(clearTimeout)
+    }
+  }, [map, positions, fit])
+
+  // 侧边栏展开/收起：仅刷新地图尺寸，保持当前缩放与中心
+  const paddingKey = `${padding.topLeft.join(',')}|${padding.bottomRight.join(',')}`
+  const skipPaddingSync = useRef(true)
+  useEffect(() => {
+    if (skipPaddingSync.current) {
+      skipPaddingSync.current = false
+      return
+    }
+
+    const timer = window.setTimeout(() => {
+      map.invalidateSize({ animate: false })
+    }, DRAWER_TRANSITION_MS)
+    return () => window.clearTimeout(timer)
+  }, [map, paddingKey])
+
+  // 窗口尺寸变化：只刷新尺寸，不重置视野
+  useEffect(() => {
+    const onResize = () => map.invalidateSize({ animate: false })
+    map.on('resize', onResize)
+    return () => {
+      map.off('resize', onResize)
+    }
+  }, [map])
+
+  return null
+}
+
 function HideZoomControl() {
   const map = useMap()
 
@@ -108,66 +188,18 @@ function HideZoomControl() {
   return null
 }
 
-function FitMapBounds({
-  positions,
-  padding,
-}: {
-  positions: Array<[number, number]>
-  padding: MapFitPadding
-}) {
-  const map = useMap()
-
-  useEffect(() => {
-    if (positions.length === 0) return
-
-    let cancelled = false
-    const timers: number[] = []
-
-    const fit = () => {
-      if (cancelled) return
-
-      map.invalidateSize({ animate: false })
-
-      if (positions.length === 1) {
-        map.setView(positions[0], 14, { animate: false })
-        return
-      }
-
-      map.fitBounds(L.latLngBounds(positions), {
-        paddingTopLeft: L.point(padding.topLeft[0], padding.topLeft[1]),
-        paddingBottomRight: L.point(padding.bottomRight[0], padding.bottomRight[1]),
-        maxZoom: 14,
-        animate: false,
-      })
-    }
-
-    const scheduleFit = () => {
-      fit()
-      requestAnimationFrame(fit)
-      timers.push(window.setTimeout(fit, 150), window.setTimeout(fit, 400))
-    }
-
-    map.whenReady(scheduleFit)
-    map.on('resize', fit)
-
-    return () => {
-      cancelled = true
-      timers.forEach(clearTimeout)
-      map.off('resize', fit)
-    }
-  }, [map, positions, padding])
-
-  return null
-}
-
 function CampsiteMapMarker({
   point,
   selected,
   focusCampsite,
+  defaultIcon,
+  selectedTitle,
 }: {
   point: Campsite
   selected?: SelectedCampsite
   focusCampsite?: FocusCampsiteRequest | null
+  defaultIcon: L.DivIcon
+  selectedTitle: (day: number) => string
 }) {
   const markerRef = useRef<L.Marker>(null)
   const map = useMap()
@@ -187,8 +219,8 @@ function CampsiteMapMarker({
       position={[point.lat, point.lng]}
       icon={
         selected
-          ? makeSelectedCampsiteIcon(selected.color, selected.day)
-          : campsiteIcon
+          ? makeSelectedCampsiteIcon(selected.color, selected.day, selectedTitle(selected.day))
+          : defaultIcon
       }
       zIndexOffset={selected ? 2500 : 1500}
       riseOnHover
@@ -213,6 +245,30 @@ function TrailMap({
   focusCampsite,
   fitPadding = DEFAULT_FIT_PADDING,
 }: TrailMapProps) {
+  const { t } = useLocale()
+  const lc = useLocalizedContent()
+
+  const campsiteIconMemo = useMemo(
+    () =>
+      L.divIcon({
+        className: 'campsite-marker',
+        html: `
+    <div class="campsite-marker-inner" title="${t('map.campsite')}">
+      <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <path d="M4 20h16L12 4 4 20z" fill="#dc2626" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M12 4v16" stroke="#ffffff" stroke-width="2"/>
+        <path d="M12 4v16" stroke="#991b1b" stroke-width="1.2"/>
+        <circle cx="12" cy="9.5" r="1.8" fill="#fde047" stroke="#ffffff" stroke-width="0.8"/>
+      </svg>
+    </div>
+  `,
+        iconSize: [36, 36] as L.PointExpression,
+        iconAnchor: [18, 36] as L.PointExpression,
+        popupAnchor: [0, -36] as L.PointExpression,
+      }),
+    [t]
+  )
+
   const selectedCampsiteMap = useMemo(() => {
     const map = new Map<string, SelectedCampsite>()
     ;(selectedCampsites ?? []).forEach((c) => map.set(c.id, c))
@@ -359,11 +415,11 @@ function TrailMap({
         )}
         {displayMarkers.map((marker) => (
           <Marker key={marker.id} position={[marker.lat, marker.lng]} icon={waypointIcon}>
-            <Popup>
-              <div>
-                <strong>{marker.id} - {toZhHans(marker.name)}</strong>
+            <Popup className="waypoint-popup" minWidth={72}>
+              <div className="waypoint-popup-content">
+                <strong>{formatMarkerLabel(marker, (text) => lc(text, 'traditional'))}</strong>
                 {showElevation && (
-                  <p className="mt-1">海拔: {marker.elevation}米</p>
+                  <p className="mt-1">{t('map.elevation')}: {t('map.elevationM', { n: marker.elevation })}</p>
                 )}
               </div>
             </Popup>
@@ -377,6 +433,8 @@ function TrailMap({
               point={point}
               selected={selected}
               focusCampsite={focusCampsite}
+              defaultIcon={campsiteIconMemo}
+              selectedTitle={(day) => t('map.dayCamp', { n: day })}
             />
           )
         })}

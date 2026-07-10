@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
-import { GPXWaypoint, TrailMarker, waypointsToMarkers } from '../utils/gpxParser'
+import { GPXWaypoint, TrailMarker, waypointsToMarkers, formatMarkerLabel } from '../utils/gpxParser'
 import { Campsite, getAllCampsites, SelectedCampsite } from '../utils/campsites'
 import { formatPlanTemplate } from '../utils/planTemplate'
 import { PlannerState } from '../utils/planState'
 import { computeDistanceBalancedSplits } from '../utils/splitRoute'
-import { toZhHans } from '../utils/toZhHans'
+import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import ElevationChart from './ElevationChart'
 
 const MAX_DAYS = 10
@@ -139,6 +139,8 @@ function segmentElevationGain(markers: TrailMarker[]): number {
 }
 
 function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, onFocusCampsite, className }: ItineraryPlannerProps) {
+  const { locale, t } = useLocale()
+  const lc = useLocalizedContent()
   const restoredPlanRef = useRef(initialPlan ?? null)
   const skipAutoSplitRef = useRef(!!initialPlan)
 
@@ -465,7 +467,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
 
   const markerLabel = (idx: number) => {
     const m = orderedMarkers[idx]
-    return m ? toZhHans(m.name || m.id) : ''
+    return m ? formatMarkerLabel(m, (text) => lc(text, 'traditional')) : ''
   }
 
   const balanceSplitsByDistance = () => {
@@ -486,14 +488,17 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
   }, [markerCount, loopMode, reverse])
 
   const routeDescription = loopMode
-    ? `环线：${markerLabel(routeSeq[0])} 出发绕行全程返回`
-    : `从 ${markerLabel(routeSeq[0])} 走到 ${markerLabel(routeSeq[routeLen - 1])}`
+    ? t('planner.routeLoop', { start: markerLabel(routeSeq[0]) })
+    : t('planner.routeLinear', {
+        start: markerLabel(routeSeq[0]),
+        end: markerLabel(routeSeq[routeLen - 1]),
+      })
 
   const planText = useMemo(() => {
     if (numDays === null || daySummaries.length === 0) return ''
 
     return formatPlanTemplate({
-      trailName: trailName ?? '徒步路线',
+      trailName: trailName ?? t('planner.defaultTrailName'),
       trailNameEn: trailNameEn,
       routeDescription,
       reverse,
@@ -517,7 +522,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
           campsiteSanitary: i < daySummaries.length - 1 ? campsite?.detailsZhHans?.sanitaryFacilitiesZhHans : undefined,
         }
       }),
-    })
+    }, locale)
   }, [
     numDays,
     daySummaries,
@@ -531,6 +536,8 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     dayCampsites,
     campsites,
     orderedMarkers,
+    locale,
+    t,
   ])
 
   const copyShareLink = async () => {
@@ -566,19 +573,19 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
   return (
     <div className={`bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden h-full flex flex-col ${className ?? ''}`}>
       <div className="bg-blue-600 text-white px-4 py-3">
-        <h2 className="text-lg font-bold">行程规划</h2>
-        <p className="text-xs text-blue-100 mt-0.5">选择几天走完，并调整每天的起终点</p>
+        <h2 className="text-lg font-bold">{t('planner.title')}</h2>
+        <p className="text-xs text-blue-100 mt-0.5">{t('planner.subtitle')}</p>
       </div>
 
       <div className="flex-1 overflow-y-auto">
         {markerCount < 2 ? (
-          <div className="p-4 text-sm text-gray-500">暂无标记点数据，无法规划行程。</div>
+          <div className="p-4 text-sm text-gray-500">{t('planner.noMarkers')}</div>
         ) : (
           <div className="p-4 space-y-4">
             {/* 起点选择 */}
             <div>
               <label className="text-sm font-semibold text-gray-700 mb-2 block">
-                从哪里出发？
+                {t('planner.startFrom')}
               </label>
               <select
                 value={startMarker}
@@ -589,9 +596,9 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                   const m = orderedMarkers[idx]
                   return (
                     <option key={idx} value={idx} className="text-gray-900">
-                      {toZhHans(m.name || m.id)}
-                      {idx === 0 ? '（原起点）' : ''}
-                      {idx === markerCount - 1 ? '（原终点）' : ''}
+                      {formatMarkerLabel(m, (text) => lc(text, 'traditional'))}
+                      {idx === 0 ? t('planner.originalStart') : ''}
+                      {idx === markerCount - 1 ? t('planner.originalEnd') : ''}
                     </option>
                   )
                 })}
@@ -605,7 +612,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                     onChange={(e) => setReverse(e.target.checked)}
                     className="mr-2"
                   />
-                  <span className="text-sm text-gray-700">反向走（朝相反方向）</span>
+                  <span className="text-sm text-gray-700">{t('planner.reverse')}</span>
                 </label>
                 {isLoopTrail && (
                   <label className="flex items-center cursor-pointer">
@@ -616,7 +623,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                       className="mr-2"
                     />
                     <span className="text-sm text-gray-700">
-                      环线模式（从起点绕一整圈回到起点）
+                      {t('planner.loopMode')}
                     </span>
                   </label>
                 )}
@@ -629,23 +636,23 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
 
             {/* 天数选择 */}
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-2 block">几天走完？</label>
+              <label className="text-sm font-semibold text-gray-700 mb-2 block">{t('planner.howManyDays')}</label>
               <select
                 value={numDays ?? ''}
                 onChange={(e) => setNumDays(e.target.value === '' ? null : Number(e.target.value))}
                 className="w-full border border-gray-300 rounded px-3 py-2 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="" className="text-gray-500">
-                  请选择天数
+                  {t('planner.selectDays')}
                 </option>
                 {Array.from({ length: maxDays }, (_, i) => i + 1).map((n) => (
                   <option key={n} value={n} className="text-gray-900">
-                    {n} 天走完
+                    {t('planner.daysOption', { n })}
                   </option>
                 ))}
               </select>
               {numDays === null && (
-                <p className="mt-1.5 text-xs text-gray-400">选择天数后可规划每日路段与露营点</p>
+                <p className="mt-1.5 text-xs text-gray-400">{t('planner.selectDaysHint')}</p>
               )}
             </div>
 
@@ -653,13 +660,13 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
             {numDays !== null && (
             <div className="space-y-3">
               <div className="flex items-center justify-between gap-2">
-                <label className="text-sm font-semibold text-gray-700">每日路段</label>
+                <label className="text-sm font-semibold text-gray-700">{t('planner.dailySegments')}</label>
                 <button
                   type="button"
                   onClick={balanceSplitsByDistance}
                   className="shrink-0 rounded-md border border-gray-300 bg-white px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"
                 >
-                  按距离均衡
+                  {t('planner.balanceByDistance')}
                 </button>
               </div>
               {daySummaries.map((seg, i) => {
@@ -684,12 +691,12 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                         className="w-3 h-3 rounded-full mr-2 flex-shrink-0"
                         style={{ backgroundColor: color }}
                       />
-                      <span className="font-semibold text-sm text-gray-800">第 {seg.day} 天</span>
+                      <span className="font-semibold text-sm text-gray-800">{t('common.dayN', { n: seg.day })}</span>
                     </div>
 
                     <div className="flex items-center gap-2 text-sm">
                       <div className="flex-1">
-                        <div className="text-xs text-gray-400 mb-1">起点</div>
+                        <div className="text-xs text-gray-400 mb-1">{t('planner.start')}</div>
                         <div className="bg-gray-50 border border-gray-200 rounded px-2 py-1.5 text-gray-700">
                           {markerLabel(seg.startNode)}
                         </div>
@@ -698,7 +705,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                       <div className="pt-5 text-gray-400">→</div>
 
                       <div className="flex-1">
-                        <div className="text-xs text-gray-400 mb-1">终点</div>
+                        <div className="text-xs text-gray-400 mb-1">{t('planner.end')}</div>
                         {isLast ? (
                           <div className="bg-gray-50 border border-gray-200 rounded px-2 py-1.5 text-gray-700">
                             {markerLabel(seg.endNode)}
@@ -726,15 +733,21 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                     </div>
 
                     <div className="mt-2 text-xs text-gray-500">
-                      {seg.markers.length} 个标记点 · 距离 ~{distance.toFixed(1)} 公里 · 爬升 {elevation} 米
+                      {t('planner.markersMeta', {
+                        count: seg.markers.length,
+                        distance: distance.toFixed(1),
+                        elevation,
+                      })}
                     </div>
 
                     {/* 当晚露营点（最后一天到达终点，无需露营） */}
                     {!isLast && campsites.length > 0 && (
                       <div className="mt-2">
                         <div className="text-xs text-gray-400 mb-1">
-                          当晚露营点
-                          <span className="text-gray-300">（{markerLabel(seg.endNode)} 附近）</span>
+                          {t('planner.tonightCampsite')}
+                          <span className="text-gray-300">
+                            {t('planner.nearMarker', { name: markerLabel(seg.endNode) })}
+                          </span>
                         </div>
                         {nearbyCampsites.length > 0 ? (
                           <select
@@ -747,16 +760,16 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                             className="w-full border border-gray-300 rounded px-2 py-1.5 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                           >
                             <option value="" className="text-gray-900">
-                              不露营 / 未选择
+                              {t('planner.noCampsite')}
                             </option>
                             {nearbyCampsites.map(({ c, dist }) => (
                               <option key={c.id} value={c.id} className="text-gray-900">
-                                {toZhHans(c.name)}（约 {dist.toFixed(1)}km）
+                                {lc(c.name, 'traditional')}（{t('common.about')} {dist.toFixed(1)}km）
                               </option>
                             ))}
                           </select>
                         ) : (
-                          <p className="text-xs text-gray-400">附近暂无露营点数据</p>
+                          <p className="text-xs text-gray-400">{t('planner.noNearbyCampsite')}</p>
                         )}
                         {selCampId && nearbyCampsites.length > 0 && (
                           <div className="mt-1 flex items-center gap-1.5 text-xs text-gray-600">
@@ -764,7 +777,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                               className="inline-block w-2.5 h-2.5 rounded-full"
                               style={{ backgroundColor: color }}
                             />
-                            已标记宿营地，地图上高亮显示
+                            {t('planner.campsiteHighlighted')}
                           </div>
                         )}
                       </div>
@@ -786,7 +799,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
-                          {expandedDays[seg.day] ? '收起当天高度图' : '查看当天高度图'}
+                          {expandedDays[seg.day] ? t('planner.collapseElevation') : t('planner.expandElevation')}
                         </button>
                         {expandedDays[seg.day] && (
                           <div className="mt-2">
@@ -807,16 +820,16 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
 
             {/* 总计 */}
             <div className="bg-blue-50 rounded-lg p-3 text-sm text-gray-700">
-              <p className="font-semibold text-gray-800 mb-1">全程合计</p>
-              <p>总距离: ~{totalDistance.toFixed(1)} 公里</p>
-              <p>总爬升: {Math.round(totalElevation)} 米</p>
+              <p className="font-semibold text-gray-800 mb-1">{t('planner.totalSummary')}</p>
+              <p>{t('planner.totalDistance', { n: totalDistance.toFixed(1) })}</p>
+              <p>{t('planner.totalElevation', { n: Math.round(totalElevation) })}</p>
             </div>
 
             {/* 文字版计划 */}
             {numDays !== null && daySummaries.length > 0 && (
               <div className="border border-gray-200 rounded-lg p-3">
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <h3 className="text-sm font-semibold text-gray-800">文字版计划</h3>
+                  <h3 className="text-sm font-semibold text-gray-800">{t('planner.textPlan')}</h3>
                   <div className="flex shrink-0 gap-1.5">
                     <button
                       type="button"
@@ -824,14 +837,14 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                       disabled={!canSyncPlan}
                       className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
                     >
-                      {linkCopied ? '已复制链接' : '复制分享链接'}
+                      {linkCopied ? t('planner.linkCopied') : t('planner.copyLink')}
                     </button>
                     <button
                       type="button"
                       onClick={copyPlanText}
                       className="rounded-md border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100"
                     >
-                      {planCopied ? '已复制' : '复制计划'}
+                      {planCopied ? t('planner.planCopied') : t('planner.copyPlan')}
                     </button>
                   </div>
                 </div>
@@ -842,14 +855,14 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                   onFocus={(e) => e.currentTarget.select()}
                   className="w-full resize-y rounded border border-gray-200 bg-gray-50 px-3 py-2 text-xs leading-relaxed text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <p className="mt-1.5 text-xs text-gray-400">点击文本框可全选，或直接点「复制计划」保存到备忘录</p>
+                <p className="mt-1.5 text-xs text-gray-400">{t('planner.planHint')}</p>
               </div>
             )}
 
             {/* 爬升图 */}
             {orderedMarkers.length > 1 && (
               <div className="bg-gray-50 rounded-lg p-4">
-                <h3 className="text-sm font-semibold text-gray-800 mb-3">全程爬升高度图</h3>
+                <h3 className="text-sm font-semibold text-gray-800 mb-3">{t('planner.fullElevation')}</h3>
                 <ElevationChart
                   markers={orderedMarkers}
                   profile={profileForChart}

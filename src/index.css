@@ -462,6 +462,25 @@ select option {
   margin: 14px 16px;
 }
 
+.waypoint-popup .leaflet-popup-content {
+  margin: 10px 14px;
+  min-width: 0;
+  text-align: center;
+}
+
+.waypoint-popup-content {
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #1f2937;
+}
+
+.waypoint-popup-content p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+
 .campsite-popup {
   max-width: 440px;
   max-height: 520px;
