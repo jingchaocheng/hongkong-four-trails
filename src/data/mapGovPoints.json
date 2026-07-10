@@ -4,7 +4,6 @@
   "points": [
     {
       "id": "84049137",
-      "trailId": "maclehose",
       "name": "流水響營地",
       "nameEn": "Lau Shui Heung Campsite",
       "address": "流水響",
@@ -25,11 +24,13 @@
         "accessZhHans": "在粉岭港铁站乘坐 52B 号往鹤薮专线小巴 ， 于流水响道坳顶回旋处下车 。 沿流水响水塘道 ， 途经流水响水塘 ， 接流水响郊游径 ， 步行约 30 分钟 ， 便可抵达营地 。 专线小巴查询电话 ﹕ 2669 0737",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_01_LauShuiHeung.html"
-      }
+      },
+      "trailIds": [
+        "wilson"
+      ]
     },
     {
       "id": "84049133",
-      "trailId": "maclehose",
       "name": "鶴藪營地",
       "nameEn": "Hok Tau Campsite",
       "address": "鶴藪",
@@ -50,11 +51,13 @@
         "accessZhHans": "在粉岭港铁站乘坐 52B 号往鹤薮专线小巴 ， 于鹤薮村总站下车 。 沿鹤薮道往鹤薮水塘前行 ， 步行约 15 分钟 ， 便可抵达营地 。 专线小巴查询电话 ﹕ 2669 0737",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_02_HokTau.html"
-      }
+      },
+      "trailIds": [
+        "wilson"
+      ]
     },
     {
       "id": "84049127",
-      "trailId": "maclehose",
       "name": "涌背營地",
       "nameEn": "Chung Pui Campsite",
       "address": "涌背",
@@ -75,11 +78,13 @@
         "accessZhHans": "由大埔墟港铁站乘坐 20R 号往乌蛟腾专线小巴或假日及公众假期由大埔墟港铁站乘巴士 275R 号往新娘潭巴士 ， 在涌背烧烤场下车或由大埔墟港铁站乘巴士 75K 号往大美督巴士总站再沿新娘潭道步行前往涌背烧烤场 。 专线小巴查询电话 ： 2873 6808",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_03_ChungPui.html"
-      }
+      },
+      "trailIds": [
+        "wilson"
+      ]
     },
     {
       "id": "84049169",
-      "trailId": "maclehose",
       "name": "三椏涌營地",
       "nameEn": "Sam A Chung Campsite",
       "address": "三椏涌",
@@ -100,11 +105,13 @@
         "accessZhHans": "由大埔墟港铁站乘坐 20R 号往乌蛟腾专线小巴或由大埔墟港铁站乘巴士 75K 号往大美督巴士总站或假日及公众假期由大埔墟港铁站乘巴士 275R 号往新娘潭巴士总站 ， 再沿新娘潭道步行往乌蛟腾 ， 沿乌蛟腾郊游径步行至三桠村 ， 约需 1 小时 ， 便可抵达营地 。 专线小巴查询电话 ： 2873 6808",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_04_SamAChung.html"
-      }
+      },
+      "trailIds": [
+        "wilson"
+      ]
     },
     {
       "id": "84049187",
-      "trailId": "maclehose",
       "name": "東平洲營地",
       "nameEn": "Tung Ping Chau Campsite",
       "address": "東平洲",
@@ -125,11 +132,11 @@
         "accessZhHans": "由马料水码头乘坐渡轮往东平洲 ， 在王爷角码头下船后 ， 向沙头村方向前行 ， 步行约 20 分钟 ， 便可抵达营地 。 船期 ： 逢星期六 、 日上午九时或逢星期六下午三时三十分于马料水码头开出 。 回程 ： 逢星期六 、 日下午五时十五分于东平洲王爷角码头开出 。 翠华船务查询电话 ： 2272 2022",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_05_TungPingChau.html"
-      }
+      },
+      "trailIds": []
     },
     {
       "id": "84049191",
-      "trailId": "maclehose",
       "name": "灣仔南營地",
       "nameEn": "Wan Tsai South Campsite",
       "address": "灣仔南",
@@ -150,11 +157,13 @@
         "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在海下村总站下车 。 由海下村步行前往 ， 沿大滩郊游径 ， 约需时 45 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_06_WanTsaiS.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049193",
-      "trailId": "maclehose",
       "name": "灣仔西營地",
       "nameEn": "Wan Tsai West Campsite",
       "address": "灣仔西",
@@ -175,11 +184,13 @@
         "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在海下村总站下车 。 由海下村步行前往 ， 沿大滩郊游径 ， 约需时 45 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_07_WanTsaiW.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049125",
-      "trailId": "maclehose",
       "name": "嶂上營地",
       "nameEn": "Cheung Sheung Campsite",
       "address": "嶂上",
@@ -200,11 +211,13 @@
         "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在嶂上郊游径起步点下车 。 沿嶂上郊游径上行 ， 沿途均设有指示牌 ， 步行约 1 小时 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_08_CheungSheung.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049129",
-      "trailId": "maclehose",
       "name": "猴塘溪營地",
       "nameEn": "Hau Tong Kai Campsite",
       "address": "猴塘溪",
@@ -225,11 +238,13 @@
         "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在猴塘溪下车 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_09_HauTongKai.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049179",
-      "trailId": "maclehose",
       "name": "大灘營地",
       "nameEn": "Tai Tan Campsite",
       "address": "大灘",
@@ -250,11 +265,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士 ， 在大滩下车 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_10_TaiTan.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049195",
-      "trailId": "maclehose",
       "name": "黃石營地",
       "nameEn": "Wong Shek Campsite",
       "address": "黃石",
@@ -275,11 +292,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士 ， 在总站下车 。 下车后沿巴士站旁跟随指示牌上行 ， 步行约 5 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_11_WongShek.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049161",
-      "trailId": "maclehose",
       "name": "北潭凹營地",
       "nameEn": "Pak Tam Au Campsite",
       "address": "北潭凹",
@@ -300,11 +319,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号巴士或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭凹下车 。 沿著麦理浩径第二段往赤径方向前行 ， 约 10 分钟便见营地入口 ， 再右上沿石级上行 10 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_12_PakTamAu.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049167",
-      "trailId": "maclehose",
       "name": "西灣營地",
       "nameEn": "Sai Wan Campsite",
       "address": "西灣",
@@ -325,11 +346,13 @@
         "accessZhHans": "由西贡墟乘 29R 号往西湾亭专线小巴 ， 在西湾亭下车 。 从西湾亭出发 ， 沿西湾村小径 ， 依照指示牌 ， 步行约 1 小时 ， 便可抵西湾村 ， 再沿麦理浩径前行 5 分钟至北面的沙滩 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_13_SaiWan.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049143",
-      "trailId": "maclehose",
       "name": "浪茄灣營地",
       "nameEn": "Long Ke Wan Campsite",
       "address": "浪茄灣",
@@ -350,11 +373,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌出发 ， 沿麦理浩径第一段车路 ， 经万宜路向万宜水库方向前行 ， 经万宜水库西坝及东坝 ， 再转入往浪茄湾的小径 ， 步行约 3 小时 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_14_LongKeWan.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049159",
-      "trailId": "maclehose",
       "name": "白腊營地",
       "nameEn": "Pak Lap Campsite",
       "address": "白腊",
@@ -375,11 +400,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴或 9 号往麦理浩夫人度假村专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌出发 ， 沿麦理浩径第一段车路 ， 经万宜路向万宜水库前行 ， 经万宜水库西坝 ， 步行约 2 小时 ， 便可抵达营地 。",
         "remarksZhHans": "地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_15_PakLap.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049199",
-      "trailId": "maclehose",
       "name": "元五墳營地",
       "nameEn": "Yuen Ng Fan Campsite",
       "address": "元五墳",
@@ -400,11 +427,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌出发 ， 沿麦理浩径第一段 ， 经万宜路往万宜水库前行 ， 步行约 45 分钟便可抵上窰郊游径接万宜路出口 （ 近万宜水库之西坝副坝 ） ， 游人此时便依照路标指示转入上窰郊游径 ， 步行约 15 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_16_YuenNgFan.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049163",
-      "trailId": "maclehose",
       "name": "曝罟灣營地",
       "nameEn": "Po Kwu Wan Campsite",
       "address": "曝罟灣",
@@ -425,11 +454,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号或假日及公众假期由钻石山巴士总站乘 96R 号往黄石码头巴士或由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭涌巴士站下车 。 从北潭涌复兴桥起步 ， 沿北潭涌自然教育径前行 。 到达上窰民俗博物馆后 ， 依照路标指示 ， 转往上窰郊游径起步点 ， 向万宜水库方向前行 ， 步行约 45 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_17_PoKwuWan.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049197",
-      "trailId": "maclehose",
       "name": "怡庭營地",
       "nameEn": "Yee Ting Campsite",
       "address": "北潭路",
@@ -450,11 +481,13 @@
         "accessZhHans": "由西贡市巴士总站乘 7 号往海下专线小巴 ， 在北潭路下车 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_18_YeeTing.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049175",
-      "trailId": "maclehose",
       "name": "水浪窩營地",
       "nameEn": "Shui Long Wo Campsite",
       "address": "水浪窩",
@@ -475,11 +508,13 @@
         "accessZhHans": "由西贡市巴士总站中心或沙田市中心乘 299X 号巴士 ， 在水浪窝下车 。 沿旁前行 ， 经麦理浩径第四段起点行约 20 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_19_ShuiLongWo.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84052103",
-      "trailId": "maclehose",
       "name": "昂平營地",
       "nameEn": "Ngong Ping Campsite",
       "address": "昂平 (馬鞍山)",
@@ -500,11 +535,14 @@
         "accessZhHans": "由西贡市乘 3 号小巴 。 在菠萝 𪨶 下车 。 沿北港凹车路上行约 10 分钟至大水井村 ， 再沿马鞍山郊游径步行约 1 小时前往 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_20_NgongPing.html"
-      }
+      },
+      "trailIds": [
+        "maclehose",
+        "wilson"
+      ]
     },
     {
       "id": "84049185",
-      "trailId": "maclehose",
       "name": "東龍洲營地",
       "nameEn": "Tung Lung Chau Campsite",
       "address": "東龍洲",
@@ -525,11 +563,13 @@
         "accessZhHans": "可于鲤鱼门三家村公众码头及西湾河筲箕湾避风塘十号梯台乘搭街渡 (只在星期六 、 日及公众假期提供服务 )。 本网页所提供的交通资讯只供参考 ， 前往目的地前请查阅运输署及相关公营交通机构的网页获取最新的交通资讯 。 香港出行易网页 ︰ http://hkemobility.gov.hk/",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_21_TungLungChau.html"
-      }
+      },
+      "trailIds": [
+        "wilson"
+      ]
     },
     {
       "id": "84049139",
-      "trailId": "maclehose",
       "name": "鉛礦坳營地",
       "nameEn": "Lead Mine Pass Campsite",
       "address": "鉛礦坳",
@@ -550,11 +590,14 @@
         "accessZhHans": "从城门菠萝坝出发 ﹕ 在荃湾兆和街乘专线小巴 82 号前往城门水塘或乘途经可风中学 ( 城门路口 ) 的 32 、 40X 、 46P 、 46X 、 47X 、 48X 、 73X 、 278X 巴士 ， 于可风中学下车 ， 下车后沿城门道直上约廿分钟便可到达城门水塘小巴总站 。 沿菠萝坝自然教育径步行约廿分钟到达教育径尾后转右 ， 沿林道步行往铅矿坳方向 ， 依指示牌前行便可抵达营地 ， 全程约需 1 小时 30 分钟 。 从大埔元墩下出发 ﹕ 从大埔墟港铁站乘专线小巴 23K 前往新屋家 ， 步行约十五分钟便到达元墩下 。 沿卫奕信径拾级而上 ， 到达营地约需 1 小时 30 分钟 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_22_LeadMinePass.html"
-      }
+      },
+      "trailIds": [
+        "maclehose",
+        "wilson"
+      ]
     },
     {
       "id": "84049165",
-      "trailId": "maclehose",
       "name": "扶輪公園營地",
       "nameEn": "Rotary Park Campsite",
       "address": "荃錦坳",
@@ -575,11 +618,14 @@
         "accessZhHans": "可在荃湾如心广场巴士总站或荃湾港铁站上盖巴士站乘搭 51 号往上村巴士 ， 于 「 大帽山郊野公园 」 站下车 ， 步行约 5 分钟即可到达 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎 20 至 50 ； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_23_Rotary.html"
-      }
+      },
+      "trailIds": [
+        "maclehose",
+        "wilson"
+      ]
     },
     {
       "id": "84049189",
-      "trailId": "maclehose",
       "name": "荃錦營地",
       "nameEn": "Twisk Campsite",
       "address": "荃錦",
@@ -600,11 +646,14 @@
         "accessZhHans": "可在荃湾如心广场巴士总站或荃湾港铁站上盖巴士站乘搭 51 号往上村巴士 ， 于 「 大帽山郊野公园 」 站下车 ， 步行约 5 分钟即可到达 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎 20 至 50 ； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_24_Twisk.html"
-      }
+      },
+      "trailIds": [
+        "maclehose",
+        "wilson"
+      ]
     },
     {
       "id": "84049131",
-      "trailId": "maclehose",
       "name": "河背營地",
       "nameEn": "Ho Pui Campsite",
       "address": "河背",
@@ -625,11 +674,13 @@
         "accessZhHans": "由元朗泰衡街乘 71 号往石湖塘河背专线小巴 ， 于河背村总站下车 ， 从河背村步行约 30 分钟便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_25_HoPui.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049181",
-      "trailId": "maclehose",
       "name": "田夫仔營地",
       "nameEn": "Tin Fu Tsai Campsite",
       "address": "田夫仔",
@@ -650,11 +701,13 @@
         "accessZhHans": "由深井经清快塘上行至营地 ， 约需 1.5 小时抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎 20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_26_TinFuTsai.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "84049149",
-      "trailId": "maclehose",
       "name": "南山營地",
       "nameEn": "Nam Shan Campsite",
       "address": "南山",
@@ -675,11 +728,13 @@
         "accessZhHans": "由东涌市中心乘 3M 号往梅窝巴士或由梅窝乘途经南山巴士 ， 在南山下车 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_27_NamShan.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049157",
-      "trailId": "maclehose",
       "name": "白富田營地",
       "nameEn": "Pak Fu Tin Campsite",
       "address": "白富田",
@@ -700,11 +755,13 @@
         "accessZhHans": "由东涌市中心乘 3M 号往梅窝巴士或由梅窝乘经南山巴士 ， 在南山下车见有烧烤地点 ， 沿场地告示牌小径直上约半小时便可抵达营地 。 或由梅窝步行至南山烧烤区 ， 沿途均设有指示牌 ， 步行约 1 小时 ， 亦可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_28_PakFuTin.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049171",
-      "trailId": "maclehose",
       "name": "十塱營地",
       "nameEn": "Shap Long Campsite",
       "address": "十塱",
@@ -725,11 +782,13 @@
         "accessZhHans": "由东涌市中心乘 3M 号往梅窝巴士或由梅窝乘途经贝澳巴士 ， 在贝澳下车 ， 再沿芝麻湾道步行前往 ， 经咸田村 ， 步行约 40 分钟 ， 便可抵达营地或乘的士前往 ， 在芝麻湾道十塱旧村下车 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_29_ShapLong.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049141",
-      "trailId": "maclehose",
       "name": "籮箕灣營地",
       "nameEn": "Lo Kei Wan Campsite",
       "address": "籮箕灣",
@@ -750,11 +809,13 @@
         "accessZhHans": "由东涌市中心乘 11 号往大澳或乘 23 号往昂坪巴士 ； 或由梅窝乘 1 号往大澳或乘 2 号往昂坪巴士 ， 在水口村站下车 。 沿凤凰径第九段 （ 往石榄洲方向 ） ， 步行约 25 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_30_LoKeiWan.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049173",
-      "trailId": "maclehose",
       "name": "石欖洲營地",
       "nameEn": "Shek Lam Chau Campsite",
       "address": "石欖洲",
@@ -775,11 +836,13 @@
         "accessZhHans": "由东涌市中心乘 11 号往大澳或乘 23 号往昂坪巴士 ； 或由梅窝乘 1 号往大澳或乘 2 号往昂坪巴士 ， 在石壁警岗下车 。 再沿凤凰径第九段 ，往石榄洲方向步行约 40 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_31_ShekLamChau.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049177",
-      "trailId": "maclehose",
       "name": "大浪灣營地",
       "nameEn": "Tai Long Wan Campsite",
       "address": "大浪灣",
@@ -800,11 +863,13 @@
         "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） /23 号（ 往昂坪 ） 或由梅窝乘 1 号 （ 往大澳 ）/ 2 号（ 往昂坪 ） 巴士 ， 在沙咀站下车 。 经宏贝道 ，走进凤凰径第八段 （ 往狗岭涌方向 ） ， 步行约 30 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_32_TaiLongWan.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049135",
-      "trailId": "maclehose",
       "name": "狗嶺涌營地",
       "nameEn": "Kau Ling Chung Campsite",
       "address": "狗嶺涌",
@@ -825,11 +890,13 @@
         "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ）/ 23 号（ 往昂坪 ） 或由梅窝乘 1 号 （ 往大澳 ）/ 2 号（ 往昂坪 ） 巴士 ， 在沙咀站下车 。 经宏贝道 ，走进凤凰径第八段 （ 往狗岭涌方向 ） ， 步行约 1 小时 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_33_KauLingChung.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049147",
-      "trailId": "maclehose",
       "name": "萬丈布營地",
       "nameEn": "Man Cheung Po Campsite",
       "address": "萬丈布",
@@ -850,11 +917,13 @@
         "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） 或由梅窝乘 1 号（ 往大澳 ）巴士 ， 在龙仔站下车 。 经羗山 （ 南 ）引水道 ， 走进羗山郊游径 ，步行至引水道约尽头位置 ， 沿水泥小径上行至 「 龙仔悟园 」 ， 再接回凤凰径第五段往万丈布前行 ， 步行约 1 小时 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_34_ManCheungPo.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049151",
-      "trailId": "maclehose",
       "name": "牙鷹角營地",
       "nameEn": "Nga Ying Kok Campsite",
       "address": "牙鷹角",
@@ -875,11 +944,13 @@
         "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） 或由梅窝乘 1 号（ 往大澳 ）巴士 ， 在大澳总站下车 。经南涌村 ，走进凤凰径第七段 ， 步行约 40 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_35_NgaYingKok.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84049183",
-      "trailId": "maclehose",
       "name": "煎魚灣營地",
       "nameEn": "Tsin Yue Wan Campsite",
       "address": "煎魚灣",
@@ -900,11 +971,13 @@
         "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） 或由梅窝乘 1 号 （ 往大澳 ） 巴士 ， 在大澳总站下车 。经南涌村 ， 走进凤凰径第七段 ， 步行约 2 小时 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_36_TsinYueWan.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "84052101",
-      "trailId": "maclehose",
       "name": "昂坪營地",
       "nameEn": "Ngong Ping Campsite",
       "address": "昂坪(大嶼山)",
@@ -925,11 +998,13 @@
         "accessZhHans": "从东涌市中心乘 23 号 、 梅窝乘 2 号或大澳乘 21 号巴士到昂坪总站下车 ，或从东涌市中心乘昂坪 360 吊车至昂坪 ， 沿心经简林路牌指示行走 ， 沿旁边小径途经茶园而至东山法门便可到达 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_37_NgongPing.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "990103269",
-      "trailId": "maclehose",
       "name": "降下坳營地",
       "nameEn": "Kong Ha Au Campsite",
       "address": "降下坳",
@@ -950,11 +1025,13 @@
         "accessZhHans": "由大埔墟港铁站乘坐 20R 号专线小巴往乌蛟腾 ， 于抗日英烈纪念碑下车或于假日及公众假期由大埔墟港铁站乘巴士 275R 号往新娘潭巴士站 ， 再沿新娘潭路步行约 15 分钟前往降下坳营地。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ： 小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_38_KongHaAu.html"
-      }
+      },
+      "trailIds": [
+        "wilson"
+      ]
     },
     {
       "id": "990103271",
-      "trailId": "maclehose",
       "name": "石壁營地",
       "nameEn": "Shek Pik Campsite",
       "address": "石壁",
@@ -975,11 +1052,13 @@
         "accessZhHans": "由东涌市中心乘巴士 11 号 （ 往大澳 ） /23 号（ 往昂坪 ） 或由梅窝乘 1 号 （ 往大澳 ）/ 2 号（ 往昂坪 ） 巴士 ， 在沙咀站下车 。沿羗山道 （ 往大澳方向 ）步行约 3 分钟 ， 便可抵达营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_39_ShekPik.html"
-      }
+      },
+      "trailIds": [
+        "lantau"
+      ]
     },
     {
       "id": "990103273",
-      "trailId": "maclehose",
       "name": "鹹田灣營地",
       "nameEn": "Ham Tin Wan Campsite",
       "address": "鹹田灣",
@@ -1000,11 +1079,13 @@
         "accessZhHans": "由西贡市巴士总站乘 94 号或在钻石山巴士总站乘 96R 号往黄石码头巴士 ( 只在假日行驶 ) 或由西贡市巴士总站乘 7号往海下专线小巴 ， 在北潭凹下车 。 沿著麦理浩径第二段往赤径方向 ， 经过赤径 、 大浪坳 ， 步行约 2 小时 ， 便可抵达咸田湾营地 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_40_HamTinWan.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     },
     {
       "id": "990107243",
-      "trailId": "maclehose",
       "name": "大網仔營地",
       "nameEn": "Tai Mong Tsai Campsite",
       "address": "大網仔",
@@ -1025,7 +1106,10 @@
         "accessZhHans": "方法一 ： 由西贡市巴士总站乘 9 4 号或假日及公众假期由钻石山巴士总站乘 9 6 R 号往黄石码头巴士 ， 在西贡户外训练营站下车 。 沿大网仔路向北潭涌方向步行约 5 分钟 ， 到烈士碑园再沿路旁小路步行 5 分钟 。 方法二 ： 由西贡市巴士总站乘 9 号往麦理浩夫人渡假村专线小巴 ， 在烈士碑园下车 。 沿烈士碑园旁小路步行 5 分钟 。",
         "remarksZhHans": "营地的大小分类参照各营地的潜在营位数目， 该数目乃基于四人营的尺寸及所需的煮食及通道空间等作出整体估算 。 本资料仅供参考 。 营地类型 ：小型 / 中型 / 大型小型 ： 营位数目少于 20 ； 中型 ： 营位数目界乎20 至 50； 大型 ： 营位数目超过 50 。",
         "sourceUrl": "https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/cou_vis_cam_41_TaiMongTsai1.html"
-      }
+      },
+      "trailIds": [
+        "maclehose"
+      ]
     }
   ],
   "failed": []

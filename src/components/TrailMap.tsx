@@ -1,14 +1,19 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import { Trail } from '../data/trails'
 import { GPXWaypoint, waypointsToMarkers } from '../utils/gpxParser'
 import { DayPath } from './ItineraryPlanner'
-import { SelectedCampsite, getAllCampsites, Campsite } from '../utils/campsites'
+import { SelectedCampsite, getAllCampsites, getCampsitesByTrail, Campsite } from '../utils/campsites'
 import { toZhHans } from '../utils/toZhHans'
 import CampsitePopup from './CampsitePopup'
-import { DayPathLegend } from './MapLegend'
+import { MapControls } from './MapControls'
 import 'leaflet/dist/leaflet.css'
+
+export interface FocusCampsiteRequest {
+  id: string
+  seq: number
+}
 
 const campsiteIcon = L.divIcon({
   className: 'campsite-marker',
@@ -76,10 +81,14 @@ interface TrailMapProps {
   trail: Trail
   selectedMarkers?: string[]
   showElevation?: boolean
-  gpxTrack?: Array<[number, number]> // GPX轨迹点
-  gpxWaypoints?: GPXWaypoint[] // GPX标注点
-  dayPaths?: DayPath[] // 多天路径数据
-  selectedCampsites?: SelectedCampsite[] // 每天选定的宿营点
+  gpxTrack?: Array<[number, number]>
+  gpxWaypoints?: GPXWaypoint[]
+  dayPaths?: DayPath[]
+  selectedCampsites?: SelectedCampsite[]
+  numDays?: number | null
+  showAllCampsites?: boolean
+  onShowAllCampsitesChange?: (value: boolean) => void
+  focusCampsite?: FocusCampsiteRequest | null
   fitPadding?: MapFitPadding
 }
 
@@ -152,6 +161,46 @@ function FitMapBounds({
   return null
 }
 
+function CampsiteMapMarker({
+  point,
+  selected,
+  focusCampsite,
+}: {
+  point: Campsite
+  selected?: SelectedCampsite
+  focusCampsite?: FocusCampsiteRequest | null
+}) {
+  const markerRef = useRef<L.Marker>(null)
+  const map = useMap()
+
+  useEffect(() => {
+    if (!focusCampsite || focusCampsite.id !== point.id) return
+    const marker = markerRef.current
+    if (!marker) return
+    map.flyTo([point.lat, point.lng], 14, { duration: 0.8 })
+    const timer = window.setTimeout(() => marker.openPopup(), 500)
+    return () => window.clearTimeout(timer)
+  }, [focusCampsite, point.id, point.lat, point.lng, map])
+
+  return (
+    <Marker
+      ref={markerRef}
+      position={[point.lat, point.lng]}
+      icon={
+        selected
+          ? makeSelectedCampsiteIcon(selected.color, selected.day)
+          : campsiteIcon
+      }
+      zIndexOffset={selected ? 2500 : 1500}
+      riseOnHover
+    >
+      <Popup className="campsite-popup-wrapper" maxWidth={480} minWidth={380}>
+        <CampsitePopup campsite={point} selected={selected} />
+      </Popup>
+    </Marker>
+  )
+}
+
 function TrailMap({
   trail,
   selectedMarkers,
@@ -160,6 +209,10 @@ function TrailMap({
   gpxWaypoints,
   dayPaths,
   selectedCampsites,
+  numDays = null,
+  showAllCampsites = false,
+  onShowAllCampsitesChange,
+  focusCampsite,
   fitPadding = DEFAULT_FIT_PADDING,
 }: TrailMapProps) {
   const selectedCampsiteMap = useMemo(() => {
@@ -167,7 +220,9 @@ function TrailMap({
     ;(selectedCampsites ?? []).forEach((c) => map.set(c.id, c))
     return map
   }, [selectedCampsites])
-  const mapCampsites = useMemo((): Campsite[] => getAllCampsites(), [])
+  const mapCampsites = useMemo((): Campsite[] => {
+    return showAllCampsites ? getAllCampsites() : getCampsitesByTrail(trail.id)
+  }, [showAllCampsites, trail.id])
   const allMarkers = useMemo(
     () => (gpxWaypoints && gpxWaypoints.length > 0 ? waypointsToMarkers(gpxWaypoints) : []),
     [gpxWaypoints]
@@ -259,10 +314,12 @@ function TrailMap({
 
   return (
     <div className="w-full h-full absolute inset-0">
-      {dayPaths && dayPaths.length > 0 && (
-        <div className="map-overlays pointer-events-none">
-          <DayPathLegend dayPaths={dayPaths} />
-        </div>
+      {onShowAllCampsitesChange && (
+        <MapControls
+          dayPaths={dayPaths}
+          showAllCampsites={showAllCampsites}
+          onShowAllCampsitesChange={onShowAllCampsitesChange}
+        />
       )}
       <MapContainer
         key={trail.id}
@@ -317,17 +374,12 @@ function TrailMap({
         {mapCampsites.map((point) => {
           const selected = selectedCampsiteMap.get(point.id)
           return (
-            <Marker
+            <CampsiteMapMarker
               key={`campsite-${point.id}`}
-              position={[point.lat, point.lng]}
-              icon={selected ? makeSelectedCampsiteIcon(selected.color, selected.day) : campsiteIcon}
-              zIndexOffset={selected ? 2500 : 1500}
-              riseOnHover
-            >
-              <Popup className="campsite-popup-wrapper" maxWidth={480} minWidth={380}>
-                <CampsitePopup campsite={point} selected={selected} />
-              </Popup>
-            </Marker>
+              point={point}
+              selected={selected}
+              focusCampsite={focusCampsite}
+            />
           )
         })}
       </MapContainer>

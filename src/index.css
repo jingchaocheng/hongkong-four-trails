@@ -527,7 +527,40 @@ select option {
   z-index: 1000;
   left: 12px;
   bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   max-width: calc(100% - 24px);
+}
+
+.map-campsite-toggle {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.75rem;
+}
+
+.map-campsite-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.map-campsite-toggle-hint {
+  margin: 4px 0 0;
+  color: #9ca3af;
+  font-size: 0.6875rem;
+}
+
+.campsite-marker-dimmed .campsite-marker-inner {
+  opacity: 0.38;
+  filter: grayscale(0.25);
+  transform: scale(0.88);
 }
 
 .map-legend {

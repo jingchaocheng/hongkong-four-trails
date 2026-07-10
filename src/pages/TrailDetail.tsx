@@ -1,7 +1,7 @@
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { getTrailById } from "../data/trails";
-import TrailMap from "../components/TrailMap";
+import TrailMap, { FocusCampsiteRequest } from "../components/TrailMap";
 import ItineraryPlanner, { DayPath } from "../components/ItineraryPlanner";
 import { SelectedCampsite } from "../utils/campsites";
 import { GPXWaypoint } from "../utils/gpxParser";
@@ -13,6 +13,7 @@ import {
   savePlanToStorage,
   decodePlanFromSearchParams,
 } from "../utils/planState";
+import TrailMarkerGuidePanel from "../components/TrailMarkerGuidePanel";
 
 function TrailDetail() {
   const { trailId } = useParams<{ trailId: string }>();
@@ -27,6 +28,11 @@ function TrailDetail() {
   const [loading, setLoading] = useState(false);
   const [dayPaths, setDayPaths] = useState<DayPath[]>([]);
   const [selectedCampsites, setSelectedCampsites] = useState<SelectedCampsite[]>([]);
+  const [plannerNumDays, setPlannerNumDays] = useState<number | null>(
+    initialPlanRef.current?.numDays ?? null
+  );
+  const [showAllCampsites, setShowAllCampsites] = useState(false);
+  const [focusCampsite, setFocusCampsite] = useState<FocusCampsiteRequest | null>(null);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showPlannerDrawer, setShowPlannerDrawer] = useState(true);
   const mapFitPadding = useMemo(
@@ -40,6 +46,7 @@ function TrailDetail() {
   const handlePlanChange = useCallback(
     (state: PlannerState) => {
       if (!trailId) return;
+      setPlannerNumDays(state.numDays);
       savePlanToStorage(trailId, state);
       const nextParams = encodePlanToSearchParams(state);
       const current = decodePlanFromSearchParams(searchParams);
@@ -58,6 +65,10 @@ function TrailDetail() {
     },
     [trailId, setSearchParams, searchParams]
   );
+
+  const handleFocusCampsite = useCallback((campsiteId: string) => {
+    setFocusCampsite({ id: campsiteId, seq: Date.now() });
+  }, []);
 
   // 加载GPX文件
   useEffect(() => {
@@ -228,6 +239,7 @@ function TrailDetail() {
                   {trail.description}
                 </p>
               </div>
+              <TrailMarkerGuidePanel trailId={trail.id} />
             </div>
           </div>
         </div>
@@ -241,6 +253,10 @@ function TrailDetail() {
           gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
           dayPaths={dayPaths.length > 0 ? dayPaths : undefined}
           selectedCampsites={selectedCampsites.length > 0 ? selectedCampsites : undefined}
+          numDays={plannerNumDays}
+          showAllCampsites={showAllCampsites}
+          onShowAllCampsitesChange={setShowAllCampsites}
+          focusCampsite={focusCampsite}
           fitPadding={mapFitPadding}
         />
         {loading && (
@@ -268,6 +284,7 @@ function TrailDetail() {
               onPlanChange={handlePlanChange}
               onPathsChange={setDayPaths}
               onCampsitesChange={setSelectedCampsites}
+              onFocusCampsite={handleFocusCampsite}
             />
         </div>
 

@@ -26,6 +26,7 @@ interface ItineraryPlannerProps {
   onPlanChange?: (state: PlannerState) => void
   onPathsChange?: (paths: DayPath[]) => void
   onCampsitesChange?: (campsites: SelectedCampsite[]) => void
+  onFocusCampsite?: (campsiteId: string) => void
   className?: string
 }
 
@@ -137,7 +138,7 @@ function segmentElevationGain(markers: TrailMarker[]): number {
   return total
 }
 
-function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, className }: ItineraryPlannerProps) {
+function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, onFocusCampsite, className }: ItineraryPlannerProps) {
   const restoredPlanRef = useRef(initialPlan ?? null)
   const skipAutoSplitRef = useRef(!!initialPlan)
 
@@ -512,6 +513,8 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
           markerCount: seg.markers.length,
           campsiteName: i < daySummaries.length - 1 ? campsite?.name : undefined,
           campsiteAddress: i < daySummaries.length - 1 ? campsite?.address : undefined,
+          campsiteWaterSource: i < daySummaries.length - 1 ? campsite?.detailsZhHans?.waterSourceZhHans : undefined,
+          campsiteSanitary: i < daySummaries.length - 1 ? campsite?.detailsZhHans?.sanitaryFacilitiesZhHans : undefined,
         }
       }),
     })
@@ -736,9 +739,11 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                         {nearbyCampsites.length > 0 ? (
                           <select
                             value={selCampId ?? ''}
-                            onChange={(e) =>
-                              setDayCampsites((prev) => ({ ...prev, [seg.day]: e.target.value }))
-                            }
+                            onChange={(e) => {
+                              const id = e.target.value
+                              setDayCampsites((prev) => ({ ...prev, [seg.day]: id }))
+                              if (id) onFocusCampsite?.(id)
+                            }}
                             className="w-full border border-gray-300 rounded px-2 py-1.5 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                           >
                             <option value="" className="text-gray-900">

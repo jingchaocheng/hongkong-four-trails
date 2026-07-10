@@ -9,6 +9,8 @@ export interface PlanDaySummary {
   markerCount: number
   campsiteName?: string
   campsiteAddress?: string
+  campsiteWaterSource?: string
+  campsiteSanitary?: string
 }
 
 export interface PlanTemplateInput {
@@ -69,6 +71,12 @@ export function formatPlanTemplate(input: PlanTemplateInput): string {
       if (day.campsiteAddress) {
         lines.push(`📌 营地位置：${toZhHans(day.campsiteAddress)}`)
       }
+      if (day.campsiteWaterSource) {
+        lines.push(`💧 水源：${day.campsiteWaterSource}`)
+      }
+      if (day.campsiteSanitary) {
+        lines.push(`🚻 卫生设施：${day.campsiteSanitary}`)
+      }
     }
     lines.push('')
   })
@@ -76,6 +84,7 @@ export function formatPlanTemplate(input: PlanTemplateInput): string {
   lines.push('──────────────────────────────────────')
   lines.push('🥾 祝徒步愉快！')
   lines.push('⚠️ 安全第一：量力而行，注意天气与补水，结伴而行更安心。')
+  lines.push('🌿 无痕山野：只留脚印，不留垃圾，尊重自然与野生动物。')
   lines.push('')
 
   return lines.join('\n')
