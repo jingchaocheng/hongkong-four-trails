@@ -119,11 +119,57 @@ select option {
   backdrop-filter: blur(2px);
 }
 
+.data-sources {
+  width: min(1400px, calc(100vw - 3rem));
+  margin: 0 auto;
+  padding: 0.5rem 0 0.85rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 20;
+}
+
+.data-sources-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.04em;
+}
+
+.data-sources-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.data-sources-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+}
+
+.data-sources-label {
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.data-sources-links {
+  min-width: 0;
+}
+
+.data-sources-light {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  width: 100%;
+}
+
 .route-accordion-fullscreen {
   width: 100%;
   flex: 1;
   min-height: 0;
-  padding: 1rem 1rem 3rem;
+  padding: 1rem 1rem 1rem;
 }
 
 .main-content {
@@ -657,4 +703,202 @@ select option {
 .map-legend-meta {
   color: #6b7280;
 }
+
+.endpoint-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.endpoint-marker-inner {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px 999px 999px 3px;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.endpoint-marker-inner span {
+  transform: rotate(45deg);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.supply-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.supply-marker-inner {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.supply-marker-inner.is-draft {
+  outline: 2px dashed #fbbf24;
+  outline-offset: 1px;
+}
+
+.map-annotate-cursor .leaflet-container {
+  cursor: crosshair;
+}
+
+.supply-annotate-mode-row,
+.supply-export-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.supply-mode-btn {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #374151;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.supply-mode-btn.is-active {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.supply-mode-btn-danger {
+  margin-top: 6px;
+  color: #b91c1c;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.supply-annotate-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.35);
+  pointer-events: auto;
+  padding: 16px;
+}
+
+.supply-annotate-card {
+  width: min(360px, 100%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.supply-annotate-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.supply-annotate-coords {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-family: ui-monospace, monospace;
+}
+
+.supply-annotate-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4b5563;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.supply-annotate-field legend {
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.supply-type-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.supply-type-check {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+}
+
+.supply-annotate-field input[type='text'],
+.supply-annotate-field input:not([type]),
+.supply-annotate-field > input {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.supply-annotate-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.supply-annotate-btn-secondary,
+.supply-annotate-btn-primary {
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.supply-annotate-btn-secondary {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.supply-annotate-btn-primary {
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  color: #fff;
+}
+
+.supply-popup {
+  min-width: 140px;
+}
+
 

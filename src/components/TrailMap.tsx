@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import { Trail } from '../data/trails'
 import { GPXWaypoint, waypointsToMarkers, formatMarkerLabel } from '../utils/gpxParser'
@@ -7,6 +7,8 @@ import { DayPath } from './ItineraryPlanner'
 import { SelectedCampsite, getAllCampsites, getCampsitesByTrail, Campsite } from '../utils/campsites'
 import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import CampsitePopup from './CampsitePopup'
+import SupplyPointPopup from './SupplyPointPopup'
+import SupplyAnnotateForm, { SupplyAnnotateDraft } from './SupplyAnnotateForm'
 import { MapControls } from './MapControls'
 import {
   BasemapId,
@@ -17,6 +19,19 @@ import {
   OSM_TILE_ERROR_THRESHOLD,
   setStoredBasemapId,
 } from '../utils/mapBasemaps'
+import {
+  SupplyPoint,
+  SupplyType,
+  addDraftSupplyPoint,
+  clearDraftSupplyPoints,
+  copySupplyPointsJson,
+  downloadSupplyPointsJson,
+  findNearestMarkerId,
+  getAllSupplyPoints,
+  getDraftSupplyPoints,
+  removeDraftSupplyPoint,
+  supplyIconStyle,
+} from '../utils/supplyPoints'
 import 'leaflet/dist/leaflet.css'
 
 export interface FocusCampsiteRequest {
@@ -55,6 +70,53 @@ const waypointIcon = new L.Icon({
   shadowSize: [27, 27],
   shadowAnchor: [8, 27],
 })
+
+function makeSupplyIcon(types: SupplyType[], isDraft: boolean) {
+  const { bg, glyph } = supplyIconStyle(types)
+  return L.divIcon({
+    className: 'supply-marker',
+    html: `
+      <div class="supply-marker-inner ${isDraft ? 'is-draft' : ''}" style="background:${bg}" title="${glyph}">
+        <span>${glyph}</span>
+      </div>
+    `,
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
+    popupAnchor: [0, -14],
+  })
+}
+
+function makeEndpointIcon(kind: 'start' | 'end' | 'loop') {
+  const bg = kind === 'start' ? '#16a34a' : kind === 'end' ? '#dc2626' : '#7c3aed'
+  const glyph = kind === 'start' ? '起' : kind === 'end' ? '终' : '环'
+  return L.divIcon({
+    className: 'endpoint-marker',
+    html: `
+      <div class="endpoint-marker-inner" style="background:${bg}">
+        <span>${glyph}</span>
+      </div>
+    `,
+    iconSize: [22, 22],
+    iconAnchor: [11, 22],
+    popupAnchor: [0, -20],
+  })
+}
+
+function MapClickCapture({
+  enabled,
+  onClick,
+}: {
+  enabled: boolean
+  onClick: (lat: number, lng: number) => void
+}) {
+  useMapEvents({
+    click(e) {
+      if (!enabled) return
+      onClick(e.latlng.lat, e.latlng.lng)
+    },
+  })
+  return null
+}
 
 // 修复 Leaflet 默认图标问题
 delete (L.Icon.Default.prototype as any)._getIconUrl
@@ -359,6 +421,10 @@ function TrailMap({
   const { t } = useLocale()
   const lc = useLocalizedContent()
   const [basemapId, setBasemapId] = useState<BasemapId>(() => getStoredBasemapId())
+  const [annotateEnabled, setAnnotateEnabled] = useState(false)
+  const [pendingAnnotate, setPendingAnnotate] = useState<SupplyAnnotateDraft | null>(null)
+  const [supplyVersion, setSupplyVersion] = useState(0)
+  const [exportStatus, setExportStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
 
   const handleBasemapChange = useCallback((id: BasemapId) => {
     setBasemapId(id)
@@ -369,6 +435,76 @@ function TrailMap({
     setBasemapId(FALLBACK_BASEMAP_ID)
     setStoredBasemapId(FALLBACK_BASEMAP_ID)
   }, [])
+
+  const refreshSupply = useCallback(() => {
+    setSupplyVersion((v) => v + 1)
+  }, [])
+
+  const supplyPoints = useMemo(() => {
+    void supplyVersion
+    return getAllSupplyPoints().filter(
+      (p) => p.trailIds.length === 0 || p.trailIds.includes(trail.id)
+    )
+  }, [trail.id, supplyVersion])
+
+  const draftCount = useMemo(() => {
+    void supplyVersion
+    return getDraftSupplyPoints().length
+  }, [supplyVersion])
+
+  const handleMapAnnotateClick = useCallback(
+    (lat: number, lng: number) => {
+      if (!annotateEnabled) return
+      const nearMarker = findNearestMarkerId(
+        lat,
+        lng,
+        (gpxWaypoints ?? []).map((w) => ({ id: w.id, lat: w.lat, lng: w.lng }))
+      )
+      setPendingAnnotate({ lat, lng, nearMarker })
+    },
+    [annotateEnabled, gpxWaypoints]
+  )
+
+  const handleSaveAnnotate = useCallback(
+    (data: { name: string; note: string; nearMarker: string; types: SupplyType[] }) => {
+      if (!pendingAnnotate) return
+      addDraftSupplyPoint({
+        name: data.name,
+        types: data.types,
+        lat: pendingAnnotate.lat,
+        lng: pendingAnnotate.lng,
+        trailIds: [trail.id],
+        nearMarker: data.nearMarker || undefined,
+        note: data.note || undefined,
+      })
+      setPendingAnnotate(null)
+      refreshSupply()
+    },
+    [pendingAnnotate, trail.id, refreshSupply]
+  )
+
+  const handleDeleteDraft = useCallback(
+    (id: string) => {
+      removeDraftSupplyPoint(id)
+      refreshSupply()
+    },
+    [refreshSupply]
+  )
+
+  const handleExportJson = useCallback(async () => {
+    const ok = await copySupplyPointsJson()
+    setExportStatus(ok ? 'copied' : 'failed')
+    window.setTimeout(() => setExportStatus('idle'), 2000)
+  }, [])
+
+  const handleDownloadJson = useCallback(() => {
+    downloadSupplyPointsJson()
+  }, [])
+
+  const handleClearDrafts = useCallback(() => {
+    clearDraftSupplyPoints()
+    refreshSupply()
+  }, [refreshSupply])
 
   const campsiteIconMemo = useMemo(
     () =>
@@ -490,15 +626,126 @@ function TrailMap({
 
   const hasDayFocus = focusedDay != null
 
+  const routeEndpoints = useMemo(() => {
+    type Ep = {
+      lat: number
+      lng: number
+      label: string
+      markerId?: string
+    }
+
+    const nearestMarker = (lat: number, lng: number, maxKm = 0.2) => {
+      let best: (typeof allMarkers)[number] | null = null
+      let bestD = Infinity
+      for (const m of allMarkers) {
+        const dLat = ((m.lat - lat) * Math.PI) / 180
+        const dLng = ((m.lng - lng) * Math.PI) / 180
+        const h =
+          Math.sin(dLat / 2) ** 2 +
+          Math.cos((lat * Math.PI) / 180) *
+            Math.cos((m.lat * Math.PI) / 180) *
+            Math.sin(dLng / 2) ** 2
+        const d = 2 * 6371 * Math.asin(Math.sqrt(h))
+        if (d < bestD) {
+          bestD = d
+          best = m
+        }
+      }
+      if (!best || bestD > maxKm) return null
+      return best
+    }
+
+    const fromPos = (
+      pos: [number, number],
+      fallbackLabel: string
+    ): Ep => {
+      const near = nearestMarker(pos[0], pos[1])
+      if (near) {
+        return {
+          lat: pos[0],
+          lng: pos[1],
+          label: formatMarkerLabel(near, (text) => lc(text, 'traditional')),
+          markerId: near.id,
+        }
+      }
+      return { lat: pos[0], lng: pos[1], label: fallbackLabel }
+    }
+
+    let start: Ep | null = null
+    let end: Ep | null = null
+
+    // 优先用轨迹几何起终点（麦理浩径起点在 M001 之前约 500m）
+    if (dayPaths && dayPaths.length > 0) {
+      const firstDay = dayPaths[0]
+      const lastDay = dayPaths[dayPaths.length - 1]
+      const startPos =
+        firstDay.positions[0] ??
+        (firstDay.markers[0]
+          ? ([firstDay.markers[0].lat, firstDay.markers[0].lng] as [number, number])
+          : null)
+      const endMarker = lastDay.markers[lastDay.markers.length - 1]
+      const endPos =
+        lastDay.positions[lastDay.positions.length - 1] ??
+        (endMarker ? ([endMarker.lat, endMarker.lng] as [number, number]) : null)
+      if (startPos) start = fromPos(startPos, t('map.startPoint'))
+      if (endPos) end = fromPos(endPos, t('map.endPoint'))
+    } else if (fullTrackPositions.length > 0) {
+      // 用 GPX 轨迹端点，而非首个标距柱（如麦理浩径起点在 M001 之前）
+      start = fromPos(fullTrackPositions[0], t('map.startPoint'))
+      end = fromPos(
+        fullTrackPositions[fullTrackPositions.length - 1],
+        t('map.endPoint')
+      )
+    } else if (displayMarkers.length > 0) {
+      const startMarker = displayMarkers[0]
+      const endMarker = displayMarkers[displayMarkers.length - 1]
+      start = {
+        lat: startMarker.lat,
+        lng: startMarker.lng,
+        label: formatMarkerLabel(startMarker, (text) => lc(text, 'traditional')),
+        markerId: startMarker.id,
+      }
+      end = {
+        lat: endMarker.lat,
+        lng: endMarker.lng,
+        label: formatMarkerLabel(endMarker, (text) => lc(text, 'traditional')),
+        markerId: endMarker.id,
+      }
+    }
+
+    if (!start || !end) return null
+
+    const samePoint =
+      start.markerId && end.markerId
+        ? start.markerId === end.markerId
+        : Math.abs(start.lat - end.lat) < 0.0008 && Math.abs(start.lng - end.lng) < 0.0008
+
+    return { start, end, samePoint }
+  }, [dayPaths, displayMarkers, fullTrackPositions, allMarkers, lc, t])
+
   return (
-    <div className="w-full h-full absolute inset-0">
+    <div className={`w-full h-full absolute inset-0 ${annotateEnabled ? 'map-annotate-cursor' : ''}`}>
       <MapControls
         dayPaths={dayPaths}
         basemapId={basemapId}
         onBasemapChange={handleBasemapChange}
         showAllCampsites={showAllCampsites}
         onShowAllCampsitesChange={onShowAllCampsitesChange}
+        annotateEnabled={annotateEnabled}
+        onAnnotateEnabledChange={setAnnotateEnabled}
+        draftCount={draftCount}
+        onExportJson={handleExportJson}
+        onDownloadJson={handleDownloadJson}
+        onClearDrafts={handleClearDrafts}
+        exportStatus={exportStatus}
       />
+      {pendingAnnotate && (
+        <SupplyAnnotateForm
+          draft={pendingAnnotate}
+          onCancel={() => setPendingAnnotate(null)}
+          onSave={handleSaveAnnotate}
+        />
+      )}
       <MapContainer
         key={trail.id}
         center={[22.3, 114.2]}
@@ -511,6 +758,7 @@ function TrailMap({
         <FitMapBounds positions={boundsPositions} padding={fitPadding} />
         <FocusDayBounds dayPaths={dayPaths} focusedDay={focusedDay} padding={fitPadding} />
         <BasemapTileLayers basemapId={basemapId} onOsmUnavailable={handleOsmUnavailable} />
+        <MapClickCapture enabled={annotateEnabled && !pendingAnnotate} onClick={handleMapAnnotateClick} />
         {/* 始终显示完整的原始轨迹作为背景 */}
         {fullTrackPositions.length > 0 && (
           <Polyline
@@ -559,6 +807,48 @@ function TrailMap({
             </Popup>
           </Marker>
         ))}
+        {routeEndpoints &&
+          (routeEndpoints.samePoint ? (
+            <Marker
+              position={[routeEndpoints.start.lat, routeEndpoints.start.lng]}
+              icon={makeEndpointIcon('loop')}
+              zIndexOffset={3000}
+            >
+              <Popup className="waypoint-popup" minWidth={90}>
+                <div className="waypoint-popup-content">
+                  <strong>{t('map.loopEndpoint')}</strong>
+                  <p className="mt-1">{routeEndpoints.start.label}</p>
+                </div>
+              </Popup>
+            </Marker>
+          ) : (
+            <>
+              <Marker
+                position={[routeEndpoints.start.lat, routeEndpoints.start.lng]}
+                icon={makeEndpointIcon('start')}
+                zIndexOffset={3000}
+              >
+                <Popup className="waypoint-popup" minWidth={90}>
+                  <div className="waypoint-popup-content">
+                    <strong>{t('map.startPoint')}</strong>
+                    <p className="mt-1">{routeEndpoints.start.label}</p>
+                  </div>
+                </Popup>
+              </Marker>
+              <Marker
+                position={[routeEndpoints.end.lat, routeEndpoints.end.lng]}
+                icon={makeEndpointIcon('end')}
+                zIndexOffset={3000}
+              >
+                <Popup className="waypoint-popup" minWidth={90}>
+                  <div className="waypoint-popup-content">
+                    <strong>{t('map.endPoint')}</strong>
+                    <p className="mt-1">{routeEndpoints.end.label}</p>
+                  </div>
+                </Popup>
+              </Marker>
+            </>
+          ))}
         {mapCampsites.map((point) => {
           const selected = selectedCampsiteMap.get(point.id)
           return (
@@ -572,6 +862,18 @@ function TrailMap({
             />
           )
         })}
+        {supplyPoints.map((point: SupplyPoint) => (
+          <Marker
+            key={`supply-${point.id}`}
+            position={[point.lat, point.lng]}
+            icon={makeSupplyIcon(point.types, point.source === 'draft')}
+            zIndexOffset={1800}
+          >
+            <Popup minWidth={160}>
+              <SupplyPointPopup point={point} onDeleteDraft={handleDeleteDraft} />
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </div>
   )

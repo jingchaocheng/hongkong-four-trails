@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-07-11T08:18:16.515Z",
+  "points": [
+    {
+      "id": "maclehose-saiwan",
+      "name": "西湾村",
+      "lat": 22.396606251399714,
+      "lng": 114.37073081731799,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M031",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "maclehose-store-m036",
+      "name": "士多店",
+      "lat": 22.411013643784383,
+      "lng": 114.37600404024126,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M036",
+      "types": ["store"]
+    },
+    {
+      "id": "maclehose-hingkei",
+      "name": "兴记士多",
+      "lat": 22.41674642817417,
+      "lng": 114.37210679054262,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M038",
+      "types": ["store"]
+    },
+    {
+      "id": "maclehose-leungyau",
+      "name": "良友士多",
+      "lat": 22.421504558706285,
+      "lng": 114.35048013925554,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M044",
+      "types": ["store"]
+    },
+    {
+      "id": "maclehose-paktamau",
+      "name": "北潭凹公厕",
+      "lat": 22.421725228860712,
+      "lng": 114.33253079652789,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M048",
+      "types": ["water", "toilet"]
+    },
+    {
+      "id": "maclehose-huilin",
+      "name": "许林士多",
+      "lat": 22.42957986615942,
+      "lng": 114.30967032909395,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M055",
+      "note": "消费可免费充电 有国标插座",
+      "types": ["store"]
+    },
+    {
+      "id": "maclehose-water-m068",
+      "name": "补给点",
+      "lat": 22.40515911593898,
+      "lng": 114.27916288375856,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M068",
+      "types": ["water", "toilet"]
+    },
+    {
+      "id": "maclehose-hangyik",
+      "name": "恒益商店",
+      "lat": 22.355538234304184,
+      "lng": 114.1995280981064,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M101",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "maclehose-water-m115",
+      "name": "补给点",
+      "lat": 22.34809618119774,
+      "lng": 114.15369451045991,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M115",
+      "types": ["water", "toilet"]
+    },
+    {
+      "id": "maclehose-water-m124",
+      "name": "补给点",
+      "lat": 22.377916572925194,
+      "lng": 114.14436578750612,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M124",
+      "types": ["water", "toilet"]
+    },
+    {
+      "id": "maclehose-water-m137",
+      "name": "补给点",
+      "lat": 22.412072441412143,
+      "lng": 114.15829449892045,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M137",
+      "types": ["water", "toilet"]
+    },
+    {
+      "id": "maclehose-taimoshan-vc",
+      "name": "大帽山游客中心",
+      "lat": 22.4060493374722,
+      "lng": 114.10655736923218,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M156",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "maclehose-tinfutsai",
+      "name": "田夫仔无人士多",
+      "lat": 22.391976226696524,
+      "lng": 114.06140506267549,
+      "trailIds": ["maclehose"],
+      "nearMarker": "M170",
+      "note": "只卖水",
+      "types": ["store"]
+    }
+  ]
+}

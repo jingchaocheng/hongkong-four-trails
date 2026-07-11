@@ -1,11 +1,15 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
 import { GPXWaypoint, TrailMarker, waypointsToMarkers, formatMarkerLabel } from '../utils/gpxParser'
 import { Campsite, getAllCampsites, SelectedCampsite } from '../utils/campsites'
-import { formatPlanTemplate } from '../utils/planTemplate'
+import { formatPlanTemplate, downloadPlanExcel, type PlanTemplateInput } from '../utils/planTemplate'
 import { PlannerState } from '../utils/planState'
 import { computeDistanceBalancedSplits } from '../utils/splitRoute'
 import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import ElevationChart from './ElevationChart'
+import {
+  findSupplyPointsAlongPath,
+  supplyTypeLabelKey,
+} from '../utils/supplyPoints'
 
 const MAX_DAYS = 10
 
@@ -22,6 +26,7 @@ interface ItineraryPlannerProps {
   trackElevations?: number[] // 与 gpxTrack 顺序对齐的逐点海拔
   trailName?: string
   trailNameEn?: string
+  trailId?: string
   initialPlan?: PlannerState | null
   onPlanChange?: (state: PlannerState) => void
   onPathsChange?: (paths: DayPath[]) => void
@@ -140,7 +145,7 @@ function segmentElevationGain(markers: TrailMarker[]): number {
   return total
 }
 
-function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, onFocusCampsite, focusedDay = null, onFocusedDayChange, className }: ItineraryPlannerProps) {
+function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, trailNameEn, trailId, initialPlan, onPlanChange, onPathsChange, onCampsitesChange, onFocusCampsite, focusedDay = null, onFocusedDayChange, className }: ItineraryPlannerProps) {
   const { locale, t } = useLocale()
   const lc = useLocalizedContent()
   const restoredPlanRef = useRef(initialPlan ?? null)
@@ -322,6 +327,35 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
         }
         nodeOffset[k + 1] = idxSeq.length - 1
       }
+
+      // 标距柱外侧的轨迹头/尾：如麦理浩径起点在 M001 之前、终点贴近 M200
+      const firstNode = routeSeq[0]
+      const lastNode = routeSeq[routeSeq.length - 1]
+      let lead: number[] = []
+      let trail: number[] = []
+      if (firstNode === 0) {
+        const i0 = markerTrackIndex[0]
+        if (i0 > 0) lead = range(0, i0 - 1)
+      } else if (firstNode === markerCount - 1) {
+        const iLast = markerTrackIndex[markerCount - 1]
+        if (iLast < lastTrack) lead = range(iLast + 1, lastTrack).reverse()
+      }
+      if (lastNode === markerCount - 1) {
+        const iLast = markerTrackIndex[markerCount - 1]
+        if (iLast < lastTrack) trail = range(iLast + 1, lastTrack)
+      } else if (lastNode === 0) {
+        const i0 = markerTrackIndex[0]
+        if (i0 > 0) trail = range(0, i0 - 1).reverse()
+      }
+
+      if (lead.length > 0) {
+        for (let k = 0; k < nodeOffset.length; k++) nodeOffset[k] += lead.length
+        idxSeq.unshift(...lead)
+      }
+      if (trail.length > 0) {
+        idxSeq.push(...trail)
+      }
+
       for (const i of idxSeq) {
         positions.push(gpxTrack![i])
         if (hasTrackEle) elevations.push(trackElevations![i])
@@ -336,7 +370,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     }
 
     return { positions, elevations, nodeOffset }
-  }, [routeSeq, routeLen, hasTrack, hasTrackEle, markerTrackIndex, gpxTrack, trackElevations, orderedMarkers])
+  }, [routeSeq, routeLen, hasTrack, hasTrackEle, markerTrackIndex, gpxTrack, trackElevations, orderedMarkers, markerCount])
 
   // 路线序列各节点的累计距离（公里）
   const nodeCumulativeKm = useMemo(() => {
@@ -363,8 +397,10 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
       const pb = bounds[i + 1]
       const startNode = routeSeq[pa]
       const endNode = routeSeq[pb]
-      const posLo = nodeOffset[pa]
-      const posHi = nodeOffset[pb]
+      // 含标距柱外侧轨迹头/尾（如 M001 前的起点）
+      const posLo = pa === 0 ? 0 : nodeOffset[pa]
+      const posHi =
+        pb === routeLen - 1 ? Math.max(nodeOffset[pb], positions.length - 1) : nodeOffset[pb]
       const segPositions = positions.slice(posLo, posHi + 1)
       const segMarkers = routeSeq.slice(pa, pb + 1).map((k) => orderedMarkers[k])
 
@@ -500,10 +536,10 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
         end: markerLabel(routeSeq[routeLen - 1]),
       })
 
-  const planText = useMemo(() => {
-    if (numDays === null || daySummaries.length === 0) return ''
+  const planInput = useMemo((): PlanTemplateInput | null => {
+    if (numDays === null || daySummaries.length === 0) return null
 
-    return formatPlanTemplate({
+    return {
       trailName: trailName ?? t('planner.defaultTrailName'),
       trailNameEn: trailNameEn,
       routeDescription,
@@ -515,6 +551,9 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
       days: daySummaries.map((seg, i) => {
         const campId = dayCampsites[seg.day]
         const campsite = campId ? campsites.find((c) => c.id === campId) : undefined
+        const along = trailId
+          ? findSupplyPointsAlongPath(seg.positions, trailId)
+          : []
         return {
           day: seg.day,
           startLabel: markerLabel(seg.startNode),
@@ -522,18 +561,25 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
           distance: seg.distance,
           elevation: seg.gain,
           markerCount: seg.markers.length,
+          supplyPoints: along.map((sp) => ({
+            name: sp.name,
+            typesLabel: sp.types.map((type) => t(supplyTypeLabelKey(type))).join('·'),
+            nearMarker: sp.nearMarker,
+            note: sp.note,
+          })),
           campsiteName: i < daySummaries.length - 1 ? campsite?.name : undefined,
           campsiteAddress: i < daySummaries.length - 1 ? campsite?.address : undefined,
           campsiteWaterSource: i < daySummaries.length - 1 ? campsite?.detailsZhHans?.waterSourceZhHans : undefined,
           campsiteSanitary: i < daySummaries.length - 1 ? campsite?.detailsZhHans?.sanitaryFacilitiesZhHans : undefined,
         }
       }),
-    }, locale)
+    }
   }, [
     numDays,
     daySummaries,
     trailName,
     trailNameEn,
+    trailId,
     routeDescription,
     reverse,
     loopMode,
@@ -541,10 +587,15 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     totalElevation,
     dayCampsites,
     campsites,
-    orderedMarkers,
     locale,
     t,
+    markerLabel,
   ])
+
+  const planText = useMemo(
+    () => (planInput ? formatPlanTemplate(planInput, locale) : ''),
+    [planInput, locale]
+  )
 
   const copyShareLink = async () => {
     try {
@@ -574,6 +625,11 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
       setPlanCopied(true)
       window.setTimeout(() => setPlanCopied(false), 2000)
     }
+  }
+
+  const exportPlanExcel = () => {
+    if (!planInput) return
+    downloadPlanExcel(planInput, locale)
   }
 
   return (
@@ -839,6 +895,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                               markers={seg.markers}
                               profile={seg.profile}
                               elevationGain={elevation}
+                              distanceKm={distance}
                             />
                           </div>
                         )}
@@ -862,7 +919,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
               <div className="border border-gray-200 rounded-lg p-3">
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <h3 className="text-sm font-semibold text-gray-800">{t('planner.textPlan')}</h3>
-                  <div className="flex shrink-0 gap-1.5">
+                  <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
                     <button
                       type="button"
                       onClick={copyShareLink}
@@ -877,6 +934,13 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                       className="rounded-md border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100"
                     >
                       {planCopied ? t('planner.planCopied') : t('planner.copyPlan')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={exportPlanExcel}
+                      className="rounded-md border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-800 hover:bg-emerald-100"
+                    >
+                      {t('planner.exportExcel')}
                     </button>
                   </div>
                 </div>
@@ -899,6 +963,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                   markers={orderedMarkers}
                   profile={profileForChart}
                   elevationGain={Math.round(totalElevation)}
+                  distanceKm={totalDistance}
                 />
               </div>
             )}

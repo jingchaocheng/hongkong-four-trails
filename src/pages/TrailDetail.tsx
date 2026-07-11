@@ -14,6 +14,7 @@ import {
   decodePlanFromSearchParams,
 } from "../utils/planState";
 import TrailMarkerGuidePanel from "../components/TrailMarkerGuidePanel";
+import DataSources from "../components/DataSources";
 import { useLocale } from "../i18n/LocaleContext";
 import { localizeTrail } from "../i18n/trailLocale";
 
@@ -242,6 +243,7 @@ function TrailDetail() {
                 </p>
               </div>
               <TrailMarkerGuidePanel trailId={trail.id} />
+              <DataSources variant="light" />
             </div>
           </div>
         </div>
@@ -282,6 +284,7 @@ function TrailDetail() {
               trackElevations={trackElevations.length > 0 ? trackElevations : undefined}
               trailName={displayTrail!.name}
               trailNameEn={trail.nameEn}
+              trailId={trail.id}
               initialPlan={initialPlanRef.current}
               onPlanChange={handlePlanChange}
               onPathsChange={setDayPaths}
