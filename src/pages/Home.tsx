@@ -5,7 +5,6 @@ import { gpxToTrackPoints, loadTrailGpx, TRAIL_GPX_IDS } from '../utils/trailGpx
 import { useLocale } from '../i18n/LocaleContext'
 import { localizeTrail } from '../i18n/trailLocale'
 import LocaleToggle from '../components/LocaleToggle'
-import DataSources from '../components/DataSources'
 
 type LatLng = [number, number]
 
@@ -165,8 +164,6 @@ function Home() {
           )
         })}
       </div>
-
-      <DataSources variant="dark" />
     </div>
   )
 }
