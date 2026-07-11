@@ -18,6 +18,24 @@ import DataSources from "../components/DataSources";
 import { useLocale } from "../i18n/LocaleContext";
 import { localizeTrail } from "../i18n/trailLocale";
 
+const MOBILE_MQ = "(max-width: 767px)";
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia(MOBILE_MQ).matches : false
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_MQ);
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  return isMobile;
+}
+
 function TrailDetail() {
   const { trailId } = useParams<{ trailId: string }>();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,13 +54,34 @@ function TrailDetail() {
   const [focusedDay, setFocusedDay] = useState<number | null>(null);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showPlannerDrawer, setShowPlannerDrawer] = useState(true);
-  const mapFitPadding = useMemo(
-    () => ({
+  const isMobile = useIsMobile();
+  const [viewportH, setViewportH] = useState(() =>
+    typeof window !== "undefined" ? window.innerHeight : 800
+  );
+
+  useEffect(() => {
+    const onResize = () => setViewportH(window.innerHeight);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // 手机底部抽屉约占半屏；桌面右侧抽屉约 28rem
+  const mobileDrawerPx = Math.round(Math.min(viewportH * 0.5, 480));
+  const mapFitPadding = useMemo(() => {
+    if (isMobile) {
+      return {
+        topLeft: [16, 64] as [number, number],
+        bottomRight: [
+          16,
+          showPlannerDrawer ? mobileDrawerPx + 12 : 56,
+        ] as [number, number],
+      };
+    }
+    return {
       topLeft: [72, 72] as [number, number],
       bottomRight: [showPlannerDrawer ? 460 : 48, 48] as [number, number],
-    }),
-    [showPlannerDrawer]
-  );
+    };
+  }, [isMobile, showPlannerDrawer, mobileDrawerPx]);
 
   const { locale, t } = useLocale();
   const displayTrail = trail ? localizeTrail(trail, locale) : undefined;
@@ -132,13 +171,13 @@ function TrailDetail() {
   return (
     <div className="fixed inset-0 w-full h-full bg-white overflow-hidden">
       {/* 浮动的标题栏 */}
-      <div className="absolute top-4 left-4 z-[1000] bg-white rounded-lg shadow-lg px-4 py-3 flex items-center gap-3 pointer-events-auto">
+      <div className="absolute top-3 left-3 right-3 md:right-auto z-[1000] bg-white/95 backdrop-blur-sm rounded-lg shadow-lg px-3 py-2.5 md:px-4 md:py-3 flex items-center gap-2 md:gap-3 pointer-events-auto max-w-full md:max-w-none">
         <Link
           to="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800"
+          className="inline-flex items-center text-blue-600 hover:text-blue-800 shrink-0"
         >
           <svg
-            className="w-5 h-5 mr-1"
+            className="w-5 h-5 mr-0.5 md:mr-1"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -150,13 +189,15 @@ function TrailDetail() {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          {t('common.back')}
+          <span className="hidden sm:inline">{t('common.back')}</span>
         </Link>
-        <div className="h-6 w-px bg-gray-300"></div>
-        <h1 className="text-lg font-bold text-gray-800">{displayTrail!.name}</h1>
+        <div className="h-5 w-px bg-gray-300 shrink-0"></div>
+        <h1 className="text-base md:text-lg font-bold text-gray-800 truncate min-w-0">
+          {displayTrail!.name}
+        </h1>
         <button
           onClick={() => setShowInfoModal(true)}
-          className="inline-flex items-center justify-center w-7 h-7 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
+          className="inline-flex items-center justify-center w-7 h-7 shrink-0 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
           title={t('trail.trailInfo')}
         >
           <svg
@@ -178,15 +219,15 @@ function TrailDetail() {
       {/* 浮窗 */}
       {showInfoModal && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm:items-center justify-center z-[9999] p-0 sm:p-4"
           onClick={() => setShowInfoModal(false)}
         >
           <div
-            className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-white rounded-t-2xl sm:rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">{displayTrail!.name}</h2>
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{displayTrail!.name}</h2>
               <button
                 onClick={() => setShowInfoModal(false)}
                 className="text-gray-500 hover:text-gray-700 transition-colors"
@@ -206,9 +247,9 @@ function TrailDetail() {
                 </svg>
               </button>
             </div>
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               <div className="mb-4">
-                <p className="text-gray-600 text-lg mb-4">{trail.nameEn}</p>
+                <p className="text-gray-600 text-base sm:text-lg mb-4">{trail.nameEn}</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <div className="bg-gray-50 rounded-lg p-4">
@@ -250,7 +291,11 @@ function TrailDetail() {
       )}
 
       {/* 全屏地图 */}
-      <div className="absolute inset-0 w-full h-full">
+      <div
+        className={`absolute inset-0 w-full h-full ${
+          isMobile && showPlannerDrawer ? "map-with-bottom-drawer" : ""
+        }`}
+      >
         <TrailMap
           trail={trail}
           gpxTrack={gpxTrack.length > 0 ? gpxTrack : undefined}
@@ -271,14 +316,38 @@ function TrailDetail() {
           </div>
         )}
 
-        {/* 右侧抽屉式行程规划 */}
+        {/* 行程规划：手机底部抽屉 / 桌面右侧抽屉 */}
         <div
-          className={`absolute top-0 right-0 z-[1000] h-full w-full max-w-md pointer-events-auto overflow-hidden transition-transform duration-300 ${
-            showPlannerDrawer ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute z-[1000] pointer-events-auto overflow-hidden transition-transform duration-300 ease-out
+            inset-x-0 bottom-0 rounded-t-2xl shadow-[0_-8px_30px_rgba(0,0,0,0.12)]
+            md:inset-y-0 md:right-0 md:left-auto md:w-full md:max-w-md md:rounded-none md:shadow-2xl
+            ${
+              showPlannerDrawer
+                ? "translate-y-0 md:translate-x-0"
+                : "translate-y-[calc(100%-3.25rem)] md:translate-y-0 md:translate-x-full"
+            }`}
+          style={
+            isMobile
+              ? { height: `${mobileDrawerPx}px` }
+              : undefined
+          }
         >
-          <ItineraryPlanner
-            className="h-full rounded-none border-y-0 border-r-0 border-l border-gray-200 shadow-2xl"
+          {/* 手机端拖动条 / 展开收起 */}
+          <button
+            type="button"
+            className="md:hidden w-full flex flex-col items-center pt-2 pb-1 bg-white border-b border-gray-100 shrink-0"
+            onClick={() => setShowPlannerDrawer((open) => !open)}
+            aria-label={showPlannerDrawer ? t('trail.collapsePlanner') : t('trail.expandPlanner')}
+          >
+            <span className="block w-10 h-1 rounded-full bg-gray-300 mb-1.5" />
+            <span className="text-xs font-medium text-gray-500">
+              {showPlannerDrawer ? t('trail.collapsePlanner') : t('trail.expandPlanner')}
+            </span>
+          </button>
+
+          <div className="h-[calc(100%-2.75rem)] md:h-full">
+            <ItineraryPlanner
+              className="h-full rounded-none border-0 md:border-y-0 md:border-r-0 md:border-l md:border-gray-200 shadow-none"
               gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
               gpxTrack={gpxTrack.length > 0 ? gpxTrack : undefined}
               trackElevations={trackElevations.length > 0 ? trackElevations : undefined}
@@ -293,12 +362,14 @@ function TrailDetail() {
               focusedDay={focusedDay}
               onFocusedDayChange={setFocusedDay}
             />
+          </div>
         </div>
 
+        {/* 桌面端侧栏开关 */}
         <button
           type="button"
           onClick={() => setShowPlannerDrawer((open) => !open)}
-          className={`absolute top-4 z-[1001] flex items-center justify-center bg-white border border-gray-300 p-2 text-gray-700 shadow hover:bg-gray-50 pointer-events-auto transition-all duration-300 ${
+          className={`hidden md:flex absolute top-4 z-[1001] items-center justify-center bg-white border border-gray-300 p-2 text-gray-700 shadow hover:bg-gray-50 pointer-events-auto transition-all duration-300 ${
             showPlannerDrawer
               ? "left-[calc(100%-min(28rem,100%))] right-auto -translate-x-full rounded-l-md rounded-r-none border-r-0"
               : "right-4 left-auto translate-x-0 rounded-md"

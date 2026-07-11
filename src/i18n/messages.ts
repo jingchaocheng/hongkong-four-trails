@@ -65,6 +65,8 @@ export const uiMessages = {
     basemapOsm: "OpenStreetMap",
     basemapEsri: "ArcGIS 街道",
     basemapHint: "默认 OpenStreetMap；加载失败时自动切换 ArcGIS",
+    showLayers: "地图选项",
+    hideLayers: "收起选项",
     elevation: "海拔",
     elevationM: "{n}米",
     campsite: "露营点",

@@ -598,6 +598,83 @@ select option {
   max-width: calc(100% - 24px);
 }
 
+.map-overlays-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.map-overlays-toggle {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  color: #1f2937;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.map-overlays-toggle-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.map-overlays-toggle-icon.is-open {
+  transform: rotate(180deg);
+}
+
+/* 手机：控件移到标题栏下方，默认收起 */
+@media (max-width: 767px) {
+  .map-overlays {
+    top: 64px;
+    bottom: auto;
+    left: 8px;
+    right: auto;
+    max-width: min(100% - 16px, 280px);
+  }
+
+  .map-overlays-toggle {
+    display: inline-flex;
+  }
+
+  .map-overlays.is-open {
+    max-height: calc(50vh - 80px);
+  }
+
+  .map-overlays.is-open .map-overlays-panel {
+    max-height: calc(50vh - 120px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .map-with-bottom-drawer .map-overlays.is-open {
+    max-height: calc(50vh - 88px);
+  }
+
+  .map-with-bottom-drawer .map-overlays.is-open .map-overlays-panel {
+    max-height: calc(50vh - 128px);
+  }
+
+  .map-campsite-toggle-hint {
+    display: none;
+  }
+
+  .map-basemap-select {
+    max-width: 140px;
+  }
+}
+
 .map-campsite-toggle {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #e5e7eb;

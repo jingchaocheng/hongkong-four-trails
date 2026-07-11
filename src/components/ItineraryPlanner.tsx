@@ -634,16 +634,16 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
 
   return (
     <div className={`bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden h-full flex flex-col ${className ?? ''}`}>
-      <div className="bg-blue-600 text-white px-4 py-3">
-        <h2 className="text-lg font-bold">{t('planner.title')}</h2>
-        <p className="text-xs text-blue-100 mt-0.5">{t('planner.subtitle')}</p>
+      <div className="bg-blue-600 text-white px-4 py-2.5 md:py-3">
+        <h2 className="text-base md:text-lg font-bold">{t('planner.title')}</h2>
+        <p className="text-xs text-blue-100 mt-0.5 hidden sm:block">{t('planner.subtitle')}</p>
       </div>
 
       <div className="flex-1 overflow-y-auto">
         {markerCount < 2 ? (
           <div className="p-4 text-sm text-gray-500">{t('planner.noMarkers')}</div>
         ) : (
-          <div className="p-4 space-y-4">
+          <div className="p-3 md:p-4 space-y-4">
             {/* 起点选择 */}
             <div>
               <label className="text-sm font-semibold text-gray-700 mb-2 block">
