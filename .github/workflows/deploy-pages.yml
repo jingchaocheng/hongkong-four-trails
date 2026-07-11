@@ -30,6 +30,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_BAIDU_TONGJI_ID: 81ec960817741b4315829deec11ca8b4
 
       - name: Add SPA fallback for client-side routing
         run: cp dist/index.html dist/404.html
