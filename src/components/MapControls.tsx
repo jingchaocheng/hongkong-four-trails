@@ -16,6 +16,7 @@ interface MapControlsProps {
   showSupplyPoints?: boolean
   onShowSupplyPointsChange?: (value: boolean) => void
   supplyPointCount?: number
+  focusedDay?: number | null
   annotateEnabled: boolean
   onAnnotateEnabledChange: (value: boolean) => void
   draftCount: number
@@ -37,6 +38,7 @@ export function MapControls({
   showSupplyPoints = true,
   onShowSupplyPointsChange,
   supplyPointCount = 0,
+  focusedDay = null,
   annotateEnabled,
   onAnnotateEnabledChange,
   draftCount,
@@ -75,6 +77,11 @@ export function MapControls({
 
       <div className={`map-overlays-panel${layersOpen ? '' : ' max-md:hidden'}`}>
         {dayPaths && dayPaths.length > 0 && <DayPathLegend dayPaths={dayPaths} />}
+        {focusedDay != null && (
+          <p className="map-campsite-toggle-hint pointer-events-auto">
+            {t('map.dayFocusHint', { n: focusedDay })}
+          </p>
+        )}
         <div className="map-campsite-toggle pointer-events-auto">
           <label className="map-basemap-label" htmlFor="map-basemap-select">
             <span>{t('map.basemap')}</span>

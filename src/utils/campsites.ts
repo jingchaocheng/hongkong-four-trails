@@ -86,6 +86,40 @@ export function getCampsitesByTrail(trailId: string): Campsite[] {
   return allCampsites.filter((p) => p.trailIds.includes(trailId));
 }
 
+/** 距路径不超过 maxKm 的露营点 */
+export function filterCampsitesNearPath(
+  campsites: Campsite[],
+  positions: Array<[number, number]>,
+  maxKm = 5
+): Campsite[] {
+  if (positions.length === 0) return []
+
+  const step = Math.max(1, Math.floor(positions.length / 400))
+  const hit: Campsite[] = []
+
+  for (const camp of campsites) {
+    let bestD = Infinity
+    for (let i = 0; i < positions.length; i += step) {
+      const d = haversineKm(camp.lat, camp.lng, positions[i][0], positions[i][1])
+      if (d < bestD) bestD = d
+    }
+    if (bestD <= maxKm) hit.push(camp)
+  }
+
+  return hit
+}
+
+function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371
+  const toRad = (d: number) => (d * Math.PI) / 180
+  const dLat = toRad(lat2 - lat1)
+  const dLng = toRad(lng2 - lng1)
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2
+  return 2 * R * Math.asin(Math.sqrt(h))
+}
+
 // 每天选定的宿营点（供地图高亮）
 export interface SelectedCampsite {
   id: string;

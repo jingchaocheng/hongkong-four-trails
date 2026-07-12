@@ -4,7 +4,7 @@ import L from 'leaflet'
 import { Trail } from '../data/trails'
 import { GPXWaypoint, waypointsToMarkers, formatMarkerLabel } from '../utils/gpxParser'
 import { DayPath } from './ItineraryPlanner'
-import { SelectedCampsite, getAllCampsites, getCampsitesByTrail, Campsite } from '../utils/campsites'
+import { SelectedCampsite, getAllCampsites, getCampsitesByTrail, filterCampsitesNearPath, Campsite } from '../utils/campsites'
 import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import CampsitePopup from './CampsitePopup'
 import SupplyPointPopup from './SupplyPointPopup'
@@ -28,6 +28,7 @@ import {
   copySupplyPointsJson,
   downloadSupplyPointsJson,
   findNearestMarkerId,
+  findSupplyPointsAlongPath,
   getAllSupplyPoints,
   getDraftSupplyPoints,
   removeDraftSupplyPoint,
@@ -464,11 +465,32 @@ function TrailMap({
     )
   }, [trail.id, supplyVersion])
 
+  const focusedDayPath = useMemo(() => {
+    if (focusedDay == null || !dayPaths?.length) return null
+    return dayPaths.find((p) => p.day === focusedDay) ?? null
+  }, [focusedDay, dayPaths])
+
   const lcsdWaterPoints = useMemo(() => {
     const track = gpxTrack && gpxTrack.length >= 2 ? gpxTrack : []
     if (track.length < 2) return []
     return findWaterDispensersNearPath(track, 2)
   }, [gpxTrack])
+
+  const visibleSupplyPoints = useMemo(() => {
+    if (!showSupplyPoints) return []
+    if (focusedDayPath) {
+      return findSupplyPointsAlongPath(focusedDayPath.positions, trail.id)
+    }
+    return supplyPoints
+  }, [showSupplyPoints, focusedDayPath, supplyPoints, trail.id])
+
+  const visibleWaterPoints = useMemo(() => {
+    if (!showLcsdWater) return []
+    if (focusedDayPath) {
+      return findWaterDispensersNearPath(focusedDayPath.positions, 2)
+    }
+    return lcsdWaterPoints
+  }, [showLcsdWater, focusedDayPath, lcsdWaterPoints])
 
   const lcsdWaterIcon = useMemo(() => makeLcsdWaterIcon(), [])
 
@@ -560,8 +582,17 @@ function TrailMap({
     return map
   }, [selectedCampsites])
   const mapCampsites = useMemo((): Campsite[] => {
-    return showAllCampsites ? getAllCampsites() : getCampsitesByTrail(trail.id)
-  }, [showAllCampsites, trail.id])
+    const base = showAllCampsites ? getAllCampsites() : getCampsitesByTrail(trail.id)
+    if (!focusedDayPath) return base
+
+    const near = filterCampsitesNearPath(base, focusedDayPath.positions, 5)
+    const selectedId = selectedCampsites?.find((c) => c.day === focusedDay)?.id
+    if (!selectedId) return near
+
+    const selected = base.find((c) => c.id === selectedId)
+    if (!selected || near.some((c) => c.id === selectedId)) return near
+    return [...near, selected]
+  }, [showAllCampsites, trail.id, focusedDayPath, focusedDay, selectedCampsites])
   const allMarkers = useMemo(
     () => (gpxWaypoints && gpxWaypoints.length > 0 ? waypointsToMarkers(gpxWaypoints) : []),
     [gpxWaypoints]
@@ -569,6 +600,10 @@ function TrailMap({
 
   // 如果指定了选中的标记点，只显示这些点之间的路径
   const displayMarkers = useMemo(() => {
+    if (focusedDayPath) {
+      return focusedDayPath.markers
+    }
+
     // 如果有dayPaths，收集所有天的标记点
     if (dayPaths && dayPaths.length > 0) {
       const allDayMarkers = dayPaths.flatMap(path => path.markers)
@@ -589,7 +624,7 @@ function TrailMap({
         })
     }
     return allMarkers
-  }, [allMarkers, selectedMarkers, dayPaths])
+  }, [allMarkers, selectedMarkers, dayPaths, focusedDayPath])
 
   // 获取完整的原始轨迹（用于背景显示）
   const fullTrackPositions = useMemo(() => {
@@ -702,7 +737,19 @@ function TrailMap({
     let end: Ep | null = null
 
     // 优先用轨迹几何起终点（麦理浩径起点在 M001 之前约 500m）
-    if (dayPaths && dayPaths.length > 0) {
+    if (focusedDayPath) {
+      const startPos =
+        focusedDayPath.positions[0] ??
+        (focusedDayPath.markers[0]
+          ? ([focusedDayPath.markers[0].lat, focusedDayPath.markers[0].lng] as [number, number])
+          : null)
+      const endMarker = focusedDayPath.markers[focusedDayPath.markers.length - 1]
+      const endPos =
+        focusedDayPath.positions[focusedDayPath.positions.length - 1] ??
+        (endMarker ? ([endMarker.lat, endMarker.lng] as [number, number]) : null)
+      if (startPos) start = fromPos(startPos, t('map.startPoint'))
+      if (endPos) end = fromPos(endPos, t('map.endPoint'))
+    } else if (dayPaths && dayPaths.length > 0) {
       const firstDay = dayPaths[0]
       const lastDay = dayPaths[dayPaths.length - 1]
       const startPos =
@@ -748,7 +795,7 @@ function TrailMap({
         : Math.abs(start.lat - end.lat) < 0.0008 && Math.abs(start.lng - end.lng) < 0.0008
 
     return { start, end, samePoint }
-  }, [dayPaths, displayMarkers, fullTrackPositions, allMarkers, lc, t])
+  }, [dayPaths, focusedDayPath, displayMarkers, fullTrackPositions, allMarkers, lc, t])
 
   return (
     <div className={`w-full h-full absolute inset-0 ${annotateEnabled ? 'map-annotate-cursor' : ''}`}>
@@ -760,10 +807,11 @@ function TrailMap({
         onShowAllCampsitesChange={onShowAllCampsitesChange}
         showLcsdWater={showLcsdWater}
         onShowLcsdWaterChange={setShowLcsdWater}
-        lcsdWaterCount={lcsdWaterPoints.length}
+        lcsdWaterCount={visibleWaterPoints.length}
         showSupplyPoints={showSupplyPoints}
         onShowSupplyPointsChange={setShowSupplyPoints}
-        supplyPointCount={supplyPoints.length}
+        supplyPointCount={visibleSupplyPoints.length}
+        focusedDay={focusedDay}
         annotateEnabled={annotateEnabled}
         onAnnotateEnabledChange={setAnnotateEnabled}
         draftCount={draftCount}
@@ -896,7 +944,7 @@ function TrailMap({
           )
         })}
         {showSupplyPoints &&
-          supplyPoints.map((point: SupplyPoint) => (
+          visibleSupplyPoints.map((point: SupplyPoint) => (
             <Marker
               key={`supply-${point.id}`}
               position={[point.lat, point.lng]}
@@ -909,7 +957,7 @@ function TrailMap({
             </Marker>
           ))}
         {showLcsdWater &&
-          lcsdWaterPoints.map((point) => (
+          visibleWaterPoints.map((point) => (
             <Marker
               key={point.id}
               position={[point.lat, point.lng]}
