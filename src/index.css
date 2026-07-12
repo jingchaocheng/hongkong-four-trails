@@ -532,12 +532,34 @@ select option {
   border: none !important;
 }
 
+.waypoint-marker-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
 .waypoint-marker-dot {
-  width: 14px;
-  height: 14px;
   border-radius: 999px;
-  border: 2.5px solid #fff;
+  border-style: solid;
+  border-color: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.waypoint-marker-label {
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  color: #1f2937;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .campsite-popup {

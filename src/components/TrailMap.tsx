@@ -62,15 +62,49 @@ function makeSelectedCampsiteIcon(color: string, day: number, title: string) {
   })
 }
 
-// 路线标注点（M001 等）：圆点标记
-function makeWaypointDotIcon(color: string) {
+// 路线标注点（M001 等）：圆点随缩放变化，放大后显示编号
+function getWaypointDotSpec(zoom: number) {
+  if (zoom <= 11) return { size: 7, showLabel: false }
+  if (zoom <= 13) return { size: 10, showLabel: false }
+  if (zoom <= 14) return { size: 12, showLabel: false }
+  if (zoom <= 15) return { size: 14, showLabel: false }
+  return { size: 14, showLabel: true }
+}
+
+function makeWaypointDotIcon(color: string, zoom: number, markerId: string) {
+  const { size, showLabel } = getWaypointDotSpec(zoom)
+  const border = Math.max(1.5, Math.round(size * 0.2))
+  const label = showLabel ? `<span class="waypoint-marker-label">${markerId}</span>` : ''
+  const width = showLabel ? Math.max(size + 4, markerId.length * 6 + 8) : size
+  const height = showLabel ? size + 16 : size
+
   return L.divIcon({
     className: 'waypoint-marker',
-    html: `<div class="waypoint-marker-dot" style="background:${color}"></div>`,
-    iconSize: [14, 14],
-    iconAnchor: [7, 7],
-    popupAnchor: [0, -8],
+    html: `
+      <div class="waypoint-marker-wrap">
+        <div class="waypoint-marker-dot" style="background:${color};width:${size}px;height:${size}px;border-width:${border}px"></div>
+        ${label}
+      </div>
+    `,
+    iconSize: [width, height],
+    iconAnchor: [width / 2, size / 2],
+    popupAnchor: [0, -(size / 2 + 2)],
   })
+}
+
+function MapZoomSync({ onZoomChange }: { onZoomChange: (zoom: number) => void }) {
+  const map = useMap()
+
+  useEffect(() => {
+    const sync = () => onZoomChange(map.getZoom())
+    sync()
+    map.on('zoomend', sync)
+    return () => {
+      map.off('zoomend', sync)
+    }
+  }, [map, onZoomChange])
+
+  return null
 }
 
 function makeLcsdWaterIcon() {
@@ -440,6 +474,7 @@ function TrailMap({
   const [annotateEnabled, setAnnotateEnabled] = useState(false)
   const [showLcsdWater, setShowLcsdWater] = useState(true)
   const [showSupplyPoints, setShowSupplyPoints] = useState(true)
+  const [mapZoom, setMapZoom] = useState(10)
   const [pendingAnnotate, setPendingAnnotate] = useState<SupplyAnnotateDraft | null>(null)
   const [supplyVersion, setSupplyVersion] = useState(0)
   const [exportStatus, setExportStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
@@ -494,7 +529,16 @@ function TrailMap({
 
   const lcsdWaterIcon = useMemo(() => makeLcsdWaterIcon(), [])
 
-  const waypointIcon = useMemo(() => makeWaypointDotIcon(trail.color), [trail.color])
+  const handleMapZoomChange = useCallback((zoom: number) => {
+    setMapZoom((prev) => {
+      const prevSpec = getWaypointDotSpec(prev)
+      const nextSpec = getWaypointDotSpec(zoom)
+      if (prevSpec.size === nextSpec.size && prevSpec.showLabel === nextSpec.showLabel) {
+        return prev
+      }
+      return zoom
+    })
+  }, [])
 
   const draftCount = useMemo(() => {
     void supplyVersion
@@ -836,6 +880,7 @@ function TrailMap({
         scrollWheelZoom={true}
       >
         <HideZoomControl />
+        <MapZoomSync onZoomChange={handleMapZoomChange} />
         <FitMapBounds positions={boundsPositions} padding={fitPadding} />
         <FocusDayBounds dayPaths={dayPaths} focusedDay={focusedDay} padding={fitPadding} />
         <BasemapTileLayers basemapId={basemapId} onOsmUnavailable={handleOsmUnavailable} />
@@ -877,7 +922,11 @@ function TrailMap({
           )
         )}
         {displayMarkers.map((marker) => (
-          <Marker key={marker.id} position={[marker.lat, marker.lng]} icon={waypointIcon}>
+          <Marker
+            key={marker.id}
+            position={[marker.lat, marker.lng]}
+            icon={makeWaypointDotIcon(trail.color, mapZoom, marker.id)}
+          >
             <Popup className="waypoint-popup" minWidth={72}>
               <div className="waypoint-popup-content">
                 <strong>{formatMarkerLabel(marker, (text) => lc(text, 'traditional'))}</strong>
