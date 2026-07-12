@@ -61,17 +61,16 @@ function makeSelectedCampsiteIcon(color: string, day: number, title: string) {
   })
 }
 
-// 路线标注点（M001 等）：默认图钉缩小 1/3
-const waypointIcon = new L.Icon({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-  iconSize: [17, 27],
-  iconAnchor: [8, 27],
-  popupAnchor: [1, -23],
-  shadowSize: [27, 27],
-  shadowAnchor: [8, 27],
-})
+// 路线标注点（M001 等）：圆点标记
+function makeWaypointDotIcon(color: string) {
+  return L.divIcon({
+    className: 'waypoint-marker',
+    html: `<div class="waypoint-marker-dot" style="background:${color}"></div>`,
+    iconSize: [14, 14],
+    iconAnchor: [7, 7],
+    popupAnchor: [0, -8],
+  })
+}
 
 function makeLcsdWaterIcon() {
   return L.divIcon({
@@ -472,6 +471,8 @@ function TrailMap({
   }, [gpxTrack])
 
   const lcsdWaterIcon = useMemo(() => makeLcsdWaterIcon(), [])
+
+  const waypointIcon = useMemo(() => makeWaypointDotIcon(trail.color), [trail.color])
 
   const draftCount = useMemo(() => {
     void supplyVersion

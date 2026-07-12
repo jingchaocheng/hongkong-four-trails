@@ -527,6 +527,19 @@ select option {
   color: #6b7280;
 }
 
+.waypoint-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.waypoint-marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
 .campsite-popup {
   max-width: 440px;
   max-height: 520px;
