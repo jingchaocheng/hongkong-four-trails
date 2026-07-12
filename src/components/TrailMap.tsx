@@ -92,6 +92,31 @@ function makeWaypointDotIcon(color: string, zoom: number, markerId: string) {
   })
 }
 
+function MapPolyline({
+  positions,
+  color,
+  weight,
+  opacity = 1,
+}: {
+  positions: L.LatLngExpression[]
+  color: string
+  weight: number
+  opacity?: number
+}) {
+  return (
+    <>
+      <Polyline
+        positions={positions}
+        pathOptions={{ color: '#ffffff', weight: weight + 4, opacity }}
+      />
+      <Polyline
+        positions={positions}
+        pathOptions={{ color, weight, opacity }}
+      />
+    </>
+  )
+}
+
 function MapZoomSync({ onZoomChange }: { onZoomChange: (zoom: number) => void }) {
   const map = useMap()
 
@@ -902,22 +927,21 @@ function TrailMap({
             const isFocused = hasDayFocus && path.day === focusedDay
             const isDimmed = hasDayFocus && path.day !== focusedDay
             return (
-              <Polyline
+              <MapPolyline
                 key={path.day}
                 positions={path.positions}
-                pathOptions={{
-                  color: isDimmed ? '#9ca3af' : path.color,
-                  weight: isFocused ? 7 : isDimmed ? 4 : 5,
-                  opacity: isDimmed ? 0.35 : 1,
-                }}
+                color={isDimmed ? '#9ca3af' : path.color}
+                weight={isFocused ? 7 : isDimmed ? 4 : 5}
+                opacity={isDimmed ? 0.35 : 1}
               />
             )
           })
         ) : (
           defaultDisplayPositions.length > 0 && (
-            <Polyline
+            <MapPolyline
               positions={defaultDisplayPositions}
-              pathOptions={{ color: trail.color, weight: 4 }}
+              color={trail.color}
+              weight={4}
             />
           )
         )}
