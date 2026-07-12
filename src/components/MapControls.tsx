@@ -10,6 +10,12 @@ interface MapControlsProps {
   onBasemapChange: (id: BasemapId) => void
   showAllCampsites?: boolean
   onShowAllCampsitesChange?: (value: boolean) => void
+  showLcsdWater?: boolean
+  onShowLcsdWaterChange?: (value: boolean) => void
+  lcsdWaterCount?: number
+  showSupplyPoints?: boolean
+  onShowSupplyPointsChange?: (value: boolean) => void
+  supplyPointCount?: number
   annotateEnabled: boolean
   onAnnotateEnabledChange: (value: boolean) => void
   draftCount: number
@@ -25,6 +31,12 @@ export function MapControls({
   onBasemapChange,
   showAllCampsites = false,
   onShowAllCampsitesChange,
+  showLcsdWater = true,
+  onShowLcsdWaterChange,
+  lcsdWaterCount = 0,
+  showSupplyPoints = true,
+  onShowSupplyPointsChange,
+  supplyPointCount = 0,
   annotateEnabled,
   onAnnotateEnabledChange,
   draftCount,
@@ -91,6 +103,39 @@ export function MapControls({
                 onChange={(e) => onShowAllCampsitesChange(e.target.checked)}
               />
               <span>{t('map.showAllCampsites')}</span>
+            </label>
+          </div>
+        )}
+
+        {onShowLcsdWaterChange && (
+          <div className="map-campsite-toggle pointer-events-auto">
+            <label className="map-campsite-toggle-label">
+              <input
+                type="checkbox"
+                checked={showLcsdWater}
+                onChange={(e) => onShowLcsdWaterChange(e.target.checked)}
+              />
+              <span>
+                {t('map.showLcsdWater')}
+                {lcsdWaterCount > 0 ? ` (${lcsdWaterCount})` : ''}
+              </span>
+            </label>
+            <p className="map-campsite-toggle-hint">{t('map.showLcsdWaterHint')}</p>
+          </div>
+        )}
+
+        {onShowSupplyPointsChange && (
+          <div className="map-campsite-toggle pointer-events-auto">
+            <label className="map-campsite-toggle-label">
+              <input
+                type="checkbox"
+                checked={showSupplyPoints}
+                onChange={(e) => onShowSupplyPointsChange(e.target.checked)}
+              />
+              <span>
+                {t('map.showSupplyPoints')}
+                {supplyPointCount > 0 ? ` (${supplyPointCount})` : ''}
+              </span>
             </label>
           </div>
         )}

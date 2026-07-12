@@ -74,6 +74,14 @@ export const uiMessages = {
     startPoint: "起点",
     endPoint: "终点",
     loopEndpoint: "起终点",
+    showLcsdWater: "郊野公园加水站（径道附近）",
+    showLcsdWaterHint: "数据来源：渔农自然护理署，仅显示距当前径道 2 公里内",
+    showSupplyPoints: "补给点（士多/补水/厕所）",
+  },
+  waterDispenser: {
+    badge: "郊野公园加水站",
+    type: "类型",
+    hours: "服务时间",
   },
   supply: {
     store: "士多",

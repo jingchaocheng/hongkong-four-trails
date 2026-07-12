@@ -9,6 +9,7 @@ import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import CampsitePopup from './CampsitePopup'
 import SupplyPointPopup from './SupplyPointPopup'
 import SupplyAnnotateForm, { SupplyAnnotateDraft } from './SupplyAnnotateForm'
+import WaterDispenserPopup from './WaterDispenserPopup'
 import { MapControls } from './MapControls'
 import {
   BasemapId,
@@ -32,6 +33,7 @@ import {
   removeDraftSupplyPoint,
   supplyIconStyle,
 } from '../utils/supplyPoints'
+import { findWaterDispensersNearPath } from '../utils/waterDispensers'
 import 'leaflet/dist/leaflet.css'
 
 export interface FocusCampsiteRequest {
@@ -70,6 +72,20 @@ const waypointIcon = new L.Icon({
   shadowSize: [27, 27],
   shadowAnchor: [8, 27],
 })
+
+function makeLcsdWaterIcon() {
+  return L.divIcon({
+    className: 'lcsd-water-marker',
+    html: `
+      <div class="lcsd-water-marker-inner" title="加水站">
+        <span>水</span>
+      </div>
+    `,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+    popupAnchor: [0, -11],
+  })
+}
 
 function makeSupplyIcon(types: SupplyType[], isDraft: boolean) {
   const { bg, glyph } = supplyIconStyle(types)
@@ -422,6 +438,8 @@ function TrailMap({
   const lc = useLocalizedContent()
   const [basemapId, setBasemapId] = useState<BasemapId>(() => getStoredBasemapId())
   const [annotateEnabled, setAnnotateEnabled] = useState(false)
+  const [showLcsdWater, setShowLcsdWater] = useState(true)
+  const [showSupplyPoints, setShowSupplyPoints] = useState(true)
   const [pendingAnnotate, setPendingAnnotate] = useState<SupplyAnnotateDraft | null>(null)
   const [supplyVersion, setSupplyVersion] = useState(0)
   const [exportStatus, setExportStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
@@ -446,6 +464,14 @@ function TrailMap({
       (p) => p.trailIds.length === 0 || p.trailIds.includes(trail.id)
     )
   }, [trail.id, supplyVersion])
+
+  const lcsdWaterPoints = useMemo(() => {
+    const track = gpxTrack && gpxTrack.length >= 2 ? gpxTrack : []
+    if (track.length < 2) return []
+    return findWaterDispensersNearPath(track, 2)
+  }, [gpxTrack])
+
+  const lcsdWaterIcon = useMemo(() => makeLcsdWaterIcon(), [])
 
   const draftCount = useMemo(() => {
     void supplyVersion
@@ -731,6 +757,12 @@ function TrailMap({
         onBasemapChange={handleBasemapChange}
         showAllCampsites={showAllCampsites}
         onShowAllCampsitesChange={onShowAllCampsitesChange}
+        showLcsdWater={showLcsdWater}
+        onShowLcsdWaterChange={setShowLcsdWater}
+        lcsdWaterCount={lcsdWaterPoints.length}
+        showSupplyPoints={showSupplyPoints}
+        onShowSupplyPointsChange={setShowSupplyPoints}
+        supplyPointCount={supplyPoints.length}
         annotateEnabled={annotateEnabled}
         onAnnotateEnabledChange={setAnnotateEnabled}
         draftCount={draftCount}
@@ -862,18 +894,32 @@ function TrailMap({
             />
           )
         })}
-        {supplyPoints.map((point: SupplyPoint) => (
-          <Marker
-            key={`supply-${point.id}`}
-            position={[point.lat, point.lng]}
-            icon={makeSupplyIcon(point.types, point.source === 'draft')}
-            zIndexOffset={1800}
-          >
-            <Popup minWidth={160}>
-              <SupplyPointPopup point={point} onDeleteDraft={handleDeleteDraft} />
-            </Popup>
-          </Marker>
-        ))}
+        {showSupplyPoints &&
+          supplyPoints.map((point: SupplyPoint) => (
+            <Marker
+              key={`supply-${point.id}`}
+              position={[point.lat, point.lng]}
+              icon={makeSupplyIcon(point.types, point.source === 'draft')}
+              zIndexOffset={1800}
+            >
+              <Popup minWidth={160}>
+                <SupplyPointPopup point={point} onDeleteDraft={handleDeleteDraft} />
+              </Popup>
+            </Marker>
+          ))}
+        {showLcsdWater &&
+          lcsdWaterPoints.map((point) => (
+            <Marker
+              key={point.id}
+              position={[point.lat, point.lng]}
+              icon={lcsdWaterIcon}
+              zIndexOffset={1600}
+            >
+              <Popup minWidth={180}>
+                <WaterDispenserPopup point={point} />
+              </Popup>
+            </Marker>
+          ))}
       </MapContainer>
     </div>
   )

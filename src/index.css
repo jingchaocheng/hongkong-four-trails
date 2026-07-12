@@ -830,6 +830,26 @@ select option {
   outline-offset: 1px;
 }
 
+.lcsd-water-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.lcsd-water-marker-inner {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  background: #0ea5e9;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
 .map-annotate-cursor .leaflet-container {
   cursor: crosshair;
 }
