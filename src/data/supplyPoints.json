@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T08:18:16.515Z",
+  "generatedAt": "2026-07-13T07:09:21.224Z",
   "points": [
     {
       "id": "maclehose-saiwan",
@@ -83,6 +83,53 @@
       "nearMarker": "M170",
       "note": "只卖水",
       "types": ["store"]
+    },
+    {
+      "id": "hongkong-victoria-peak",
+      "name": "太平山顶",
+      "lat": 22.27112455364705,
+      "lng": 114.14962559938434,
+      "trailIds": ["hongkong"],
+      "nearMarker": "H001",
+      "note": "餐饮、士多、厕所",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "hongkong-water-h005",
+      "name": "直饮水",
+      "lat": 22.272946416737263,
+      "lng": 114.1390335559845,
+      "trailIds": ["hongkong"],
+      "nearMarker": "H005",
+      "types": ["water", "toilet"]
+    },
+    {
+      "id": "hongkong-wongneichung-gas",
+      "name": "黄泥涌加油站",
+      "lat": 22.25755911872969,
+      "lng": 114.19335633516313,
+      "trailIds": ["hongkong"],
+      "nearMarker": "H051",
+      "types": ["store"]
+    },
+    {
+      "id": "hongkong-wongneichung-park",
+      "name": "黄泥涌水塘公园公共厕所",
+      "lat": 22.257221517489075,
+      "lng": 114.1953331232071,
+      "trailIds": ["hongkong"],
+      "nearMarker": "H051",
+      "types": ["water", "toilet"]
+    },
+    {
+      "id": "hongkong-big-wave-bay",
+      "name": "大浪湾",
+      "lat": 22.2464526037795,
+      "lng": 114.24557358026506,
+      "trailIds": ["hongkong"],
+      "nearMarker": "H100",
+      "note": "餐饮、士多、厕所",
+      "types": ["store", "toilet"]
     }
   ]
 }
