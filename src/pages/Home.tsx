@@ -130,7 +130,7 @@ function Home() {
                 isSibling ? 'is-sibling' : '',
               ].join(' ')}
             >
-              <div className="route-accordion-inner route-accordion-content p-6 md:p-8 h-full flex flex-col justify-between">
+              <div className="route-accordion-inner route-accordion-content py-6 pr-6 pl-10 md:py-8 md:pr-8 md:pl-12 h-full flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="route-title text-3xl md:text-4xl font-black text-amber-50 drop-shadow-xl tracking-wide">{display.name}</h3>

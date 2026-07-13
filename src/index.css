@@ -375,6 +375,7 @@ select option {
 
   .route-accordion-item.is-active .route-accordion-content {
     justify-content: space-between;
+    padding-left: clamp(2rem, 3vw, 3.25rem);
     padding-right: clamp(1rem, 2vw, 2.4rem);
   }
 
@@ -425,7 +426,7 @@ select option {
   }
 
   .route-accordion-item.is-active .route-accordion-inner {
-    transform: skewX(7deg) translateX(28px);
+    transform: skewX(7deg) translateX(36px);
   }
 
   .route-accordion-fullscreen {
