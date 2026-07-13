@@ -1,4 +1,4 @@
-export type BasemapId = 'osm' | 'esri'
+export type BasemapId = 'osm' | 'carto'
 
 export interface BasemapLayer {
   url: string
@@ -9,12 +9,12 @@ export interface BasemapLayer {
 
 export interface BasemapDefinition {
   id: BasemapId
-  labelKey: `map.basemap${'Osm' | 'Esri'}`
+  labelKey: `map.basemap${'Osm' | 'Carto'}`
   layers: BasemapLayer[]
 }
 
 export const BASEMAP_STORAGE_KEY = 'hk-four-trails-basemap'
-export const FALLBACK_BASEMAP_ID: BasemapId = 'esri'
+export const FALLBACK_BASEMAP_ID: BasemapId = 'carto'
 export const DEFAULT_BASEMAP_ID: BasemapId = 'osm'
 
 /** OSM 连续瓦片失败达到此次数且尚无成功加载时，切换备用底图 */
@@ -37,14 +37,15 @@ const BASEMAP_DEFINITIONS: BasemapDefinition[] = [
     ],
   },
   {
-    id: 'esri',
-    labelKey: 'map.basemapEsri',
+    id: 'carto',
+    labelKey: 'map.basemapCarto',
     layers: [
       {
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+        url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        subdomains: 'abcd',
         attribution:
-          'Tiles &copy; <a href="https://www.esri.com/">Esri</a>',
-        maxZoom: 19,
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        maxZoom: 20,
       },
     ],
   },
@@ -59,13 +60,15 @@ export function getBasemapById(id: BasemapId): BasemapDefinition {
 }
 
 function isBasemapId(value: string): value is BasemapId {
-  return value === 'osm' || value === 'esri'
+  return value === 'osm' || value === 'carto'
 }
 
 /** 读取本地偏好；无效时默认 OpenStreetMap */
 export function getStoredBasemapId(): BasemapId {
   if (typeof localStorage === 'undefined') return DEFAULT_BASEMAP_ID
   const stored = localStorage.getItem(BASEMAP_STORAGE_KEY)
+  // 旧版 ArcGIS 底图已停用，自动迁移到 Carto
+  if (stored === 'esri') return 'carto'
   if (stored && isBasemapId(stored)) return stored
   return DEFAULT_BASEMAP_ID
 }
