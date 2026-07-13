@@ -10,6 +10,7 @@ import CampsitePopup from './CampsitePopup'
 import SupplyPointPopup from './SupplyPointPopup'
 import SupplyAnnotateForm, { SupplyAnnotateDraft } from './SupplyAnnotateForm'
 import WaterDispenserPopup from './WaterDispenserPopup'
+import ToiletPopup from './ToiletPopup'
 import { MapControls } from './MapControls'
 import {
   BasemapId,
@@ -35,6 +36,7 @@ import {
   supplyIconStyle,
 } from '../utils/supplyPoints'
 import { findWaterDispensersNearPath } from '../utils/waterDispensers'
+import { findToiletsNearPath } from '../utils/toilets'
 import 'leaflet/dist/leaflet.css'
 
 export interface FocusCampsiteRequest {
@@ -146,6 +148,20 @@ function makeLcsdWaterIcon() {
   })
 }
 
+function makeAfcdToiletIcon() {
+  return L.divIcon({
+    className: 'afcd-toilet-marker',
+    html: `
+      <div class="afcd-toilet-marker-inner" title="厕所">
+        <span>厕</span>
+      </div>
+    `,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+    popupAnchor: [0, -11],
+  })
+}
+
 function makeSupplyIcon(types: SupplyType[], isDraft: boolean) {
   const { bg, glyph } = supplyIconStyle(types)
   return L.divIcon({
@@ -225,6 +241,9 @@ const DEFAULT_FIT_PADDING: MapFitPadding = {
   topLeft: [72, 72],
   bottomRight: [48, 48],
 }
+
+/** 官方加水站 / 厕所：仅沿当天路段、此距离内显示 */
+const OFFICIAL_NEAR_KM = 0.6
 
 /** 与 TrailDetail 侧边栏 transition-duration-300 对齐 */
 const DRAWER_TRANSITION_MS = 320
@@ -498,6 +517,7 @@ function TrailMap({
   const [basemapId, setBasemapId] = useState<BasemapId>(() => getStoredBasemapId())
   const [annotateEnabled, setAnnotateEnabled] = useState(false)
   const [showLcsdWater, setShowLcsdWater] = useState(true)
+  const [showAfcdToilets, setShowAfcdToilets] = useState(true)
   const [showSupplyPoints, setShowSupplyPoints] = useState(true)
   const [mapZoom, setMapZoom] = useState(10)
   const [pendingAnnotate, setPendingAnnotate] = useState<SupplyAnnotateDraft | null>(null)
@@ -530,12 +550,7 @@ function TrailMap({
     return dayPaths.find((p) => p.day === focusedDay) ?? null
   }, [focusedDay, dayPaths])
 
-  const lcsdWaterPoints = useMemo(() => {
-    const track = gpxTrack && gpxTrack.length >= 2 ? gpxTrack : []
-    if (track.length < 2) return []
-    return findWaterDispensersNearPath(track, 2)
-  }, [gpxTrack])
-
+  // 官方加水/厕所：全览显示整段径道附近；聚焦某天则只显示当天沿途
   const visibleSupplyPoints = useMemo(() => {
     if (!showSupplyPoints) return []
     if (focusedDayPath) {
@@ -544,15 +559,8 @@ function TrailMap({
     return supplyPoints
   }, [showSupplyPoints, focusedDayPath, supplyPoints, trail.id])
 
-  const visibleWaterPoints = useMemo(() => {
-    if (!showLcsdWater) return []
-    if (focusedDayPath) {
-      return findWaterDispensersNearPath(focusedDayPath.positions, 2)
-    }
-    return lcsdWaterPoints
-  }, [showLcsdWater, focusedDayPath, lcsdWaterPoints])
-
   const lcsdWaterIcon = useMemo(() => makeLcsdWaterIcon(), [])
+  const afcdToiletIcon = useMemo(() => makeAfcdToiletIcon(), [])
 
   const handleMapZoomChange = useCallback((zoom: number) => {
     setMapZoom((prev) => {
@@ -702,6 +710,20 @@ function TrailMap({
     }
     return allMarkers.map((m) => [m.lat, m.lng] as [number, number])
   }, [gpxTrack, allMarkers])
+
+  const visibleWaterPoints = useMemo(() => {
+    if (!showLcsdWater) return []
+    const path = focusedDayPath?.positions ?? fullTrackPositions
+    if (path.length < 2) return []
+    return findWaterDispensersNearPath(path, OFFICIAL_NEAR_KM)
+  }, [showLcsdWater, focusedDayPath, fullTrackPositions])
+
+  const visibleToiletPoints = useMemo(() => {
+    if (!showAfcdToilets) return []
+    const path = focusedDayPath?.positions ?? fullTrackPositions
+    if (path.length < 2) return []
+    return findToiletsNearPath(path, OFFICIAL_NEAR_KM)
+  }, [showAfcdToilets, focusedDayPath, fullTrackPositions])
 
   // 如果有dayPaths，使用dayPaths；否则使用原来的逻辑
   const defaultDisplayPositions = useMemo(() => {
@@ -877,6 +899,9 @@ function TrailMap({
         showLcsdWater={showLcsdWater}
         onShowLcsdWaterChange={setShowLcsdWater}
         lcsdWaterCount={visibleWaterPoints.length}
+        showAfcdToilets={showAfcdToilets}
+        onShowAfcdToiletsChange={setShowAfcdToilets}
+        afcdToiletCount={visibleToiletPoints.length}
         showSupplyPoints={showSupplyPoints}
         onShowSupplyPointsChange={setShowSupplyPoints}
         supplyPointCount={visibleSupplyPoints.length}
@@ -1039,6 +1064,19 @@ function TrailMap({
             >
               <Popup minWidth={180}>
                 <WaterDispenserPopup point={point} />
+              </Popup>
+            </Marker>
+          ))}
+        {showAfcdToilets &&
+          visibleToiletPoints.map((point) => (
+            <Marker
+              key={point.id}
+              position={[point.lat, point.lng]}
+              icon={afcdToiletIcon}
+              zIndexOffset={1550}
+            >
+              <Popup minWidth={180}>
+                <ToiletPopup point={point} />
               </Popup>
             </Marker>
           ))}

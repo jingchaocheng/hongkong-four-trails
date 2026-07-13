@@ -38,15 +38,6 @@
       "types": ["store"]
     },
     {
-      "id": "maclehose-paktamau",
-      "name": "北潭凹公厕",
-      "lat": 22.421725228860712,
-      "lng": 114.33253079652789,
-      "trailIds": ["maclehose"],
-      "nearMarker": "M048",
-      "types": ["water", "toilet"]
-    },
-    {
       "id": "maclehose-huilin",
       "name": "许林士多",
       "lat": 22.42957986615942,
@@ -57,15 +48,6 @@
       "types": ["store"]
     },
     {
-      "id": "maclehose-water-m068",
-      "name": "补给点",
-      "lat": 22.40515911593898,
-      "lng": 114.27916288375856,
-      "trailIds": ["maclehose"],
-      "nearMarker": "M068",
-      "types": ["water", "toilet"]
-    },
-    {
       "id": "maclehose-hangyik",
       "name": "恒益商店",
       "lat": 22.355538234304184,
@@ -73,24 +55,6 @@
       "trailIds": ["maclehose"],
       "nearMarker": "M101",
       "types": ["store", "toilet"]
-    },
-    {
-      "id": "maclehose-water-m115",
-      "name": "补给点",
-      "lat": 22.34809618119774,
-      "lng": 114.15369451045991,
-      "trailIds": ["maclehose"],
-      "nearMarker": "M115",
-      "types": ["water", "toilet"]
-    },
-    {
-      "id": "maclehose-water-m124",
-      "name": "补给点",
-      "lat": 22.377916572925194,
-      "lng": 114.14436578750612,
-      "trailIds": ["maclehose"],
-      "nearMarker": "M124",
-      "types": ["water", "toilet"]
     },
     {
       "id": "maclehose-water-m137",

@@ -21,25 +21,56 @@ export function getAllWaterDispensers(): WaterDispenser[] {
   return allPoints
 }
 
-/** 距路径不超过 maxKm 的郊野公园加水站 */
+/** 距路径不超过 maxKm 的郊野公园加水站（默认 0.6 km，避免全览过密） */
 export function findWaterDispensersNearPath(
   positions: Array<[number, number]>,
-  maxKm = 2
+  maxKm = 0.6
 ): WaterDispenser[] {
+  return findWaterDispensersAlongPath(positions, maxKm).map(
+    ({ pathIndex: _i, distanceKm: _d, ...point }) => point
+  )
+}
+
+export interface WaterDispenserAlongPath extends WaterDispenser {
+  pathIndex: number
+  distanceKm: number
+}
+
+/** 找出距某段路径不超过 maxKm 的加水站，按途经顺序排列 */
+export function findWaterDispensersAlongPath(
+  positions: Array<[number, number]>,
+  maxKm = 0.6
+): WaterDispenserAlongPath[] {
   if (positions.length === 0) return []
 
-  const hit: WaterDispenser[] = []
+  const hit: WaterDispenserAlongPath[] = []
   const step = Math.max(1, Math.floor(positions.length / 400))
 
   for (const point of allPoints) {
     let bestD = Infinity
+    let bestI = 0
     for (let i = 0; i < positions.length; i += step) {
       const d = haversineKm(point.lat, point.lng, positions[i][0], positions[i][1])
-      if (d < bestD) bestD = d
+      if (d < bestD) {
+        bestD = d
+        bestI = i
+      }
     }
-    if (bestD <= maxKm) hit.push(point)
+    const lo = Math.max(0, bestI - step)
+    const hi = Math.min(positions.length - 1, bestI + step)
+    for (let i = lo; i <= hi; i++) {
+      const d = haversineKm(point.lat, point.lng, positions[i][0], positions[i][1])
+      if (d < bestD) {
+        bestD = d
+        bestI = i
+      }
+    }
+    if (bestD <= maxKm) {
+      hit.push({ ...point, pathIndex: bestI, distanceKm: bestD })
+    }
   }
 
+  hit.sort((a, b) => a.pathIndex - b.pathIndex || a.distanceKm - b.distanceKm)
   return hit
 }
 

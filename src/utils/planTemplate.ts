@@ -110,8 +110,9 @@ export function formatPlanTemplate(
         const note = sp.note
           ? `（${localizeContent(sp.note, locale, 'simplified')}）`
           : ''
+        const typePart = sp.typesLabel ? ` · ${sp.typesLabel}` : ''
         lines.push(
-          `   ${idx + 1}. ${name}${near} · ${sp.typesLabel}${note ? ` ${note}` : ''}`
+          `   ${idx + 1}. ${name}${near}${typePart}${note ? ` ${note}` : ''}`
         )
       })
     }
@@ -206,7 +207,8 @@ export function formatPlanExcelXml(
         const note = sp.note
           ? `（${localizeContent(sp.note, locale, 'simplified')}）`
           : ''
-        return `${idx + 1}. ${name}${near} · ${sp.typesLabel}${note ? ` ${note}` : ''}`
+        const typePart = sp.typesLabel ? ` · ${sp.typesLabel}` : ''
+        return `${idx + 1}. ${name}${near}${typePart}${note ? ` ${note}` : ''}`
       })
       .join('\n')
 

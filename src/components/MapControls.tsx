@@ -13,6 +13,9 @@ interface MapControlsProps {
   showLcsdWater?: boolean
   onShowLcsdWaterChange?: (value: boolean) => void
   lcsdWaterCount?: number
+  showAfcdToilets?: boolean
+  onShowAfcdToiletsChange?: (value: boolean) => void
+  afcdToiletCount?: number
   showSupplyPoints?: boolean
   onShowSupplyPointsChange?: (value: boolean) => void
   supplyPointCount?: number
@@ -35,6 +38,9 @@ export function MapControls({
   showLcsdWater = true,
   onShowLcsdWaterChange,
   lcsdWaterCount = 0,
+  showAfcdToilets = true,
+  onShowAfcdToiletsChange,
+  afcdToiletCount = 0,
   showSupplyPoints = true,
   onShowSupplyPointsChange,
   supplyPointCount = 0,
@@ -128,6 +134,23 @@ export function MapControls({
               </span>
             </label>
             <p className="map-campsite-toggle-hint">{t('map.showLcsdWaterHint')}</p>
+          </div>
+        )}
+
+        {onShowAfcdToiletsChange && (
+          <div className="map-campsite-toggle pointer-events-auto">
+            <label className="map-campsite-toggle-label">
+              <input
+                type="checkbox"
+                checked={showAfcdToilets}
+                onChange={(e) => onShowAfcdToiletsChange(e.target.checked)}
+              />
+              <span>
+                {t('map.showAfcdToilets')}
+                {afcdToiletCount > 0 ? ` (${afcdToiletCount})` : ''}
+              </span>
+            </label>
+            <p className="map-campsite-toggle-hint">{t('map.showAfcdToiletsHint')}</p>
           </div>
         )}
 

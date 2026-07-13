@@ -232,10 +232,7 @@ export function supplyTypeLabelKey(type: SupplyType): `supply.${SupplyType}` {
   return `supply.${type}`
 }
 
-/** 图标主色：多设施用中性色，单设施用对应色 */
-export function supplyIconStyle(types: SupplyType[]): { bg: string; glyph: string } {
-  if (types.length > 1) return { bg: '#7c3aed', glyph: '补' }
-  if (types[0] === 'water') return { bg: '#0284c7', glyph: '水' }
-  if (types[0] === 'toilet') return { bg: '#57534e', glyph: '厕' }
-  return { bg: '#ea580c', glyph: '店' }
+/** 手工补给点地图图标统一为「补」+ 同色 */
+export function supplyIconStyle(_types: SupplyType[]): { bg: string; glyph: string } {
+  return { bg: '#7c3aed', glyph: '补' }
 }

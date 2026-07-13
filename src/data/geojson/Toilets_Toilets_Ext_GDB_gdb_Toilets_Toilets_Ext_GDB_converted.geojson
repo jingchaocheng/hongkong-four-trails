@@ -1,0 +1,2994 @@
+{
+	"type" : "FeatureCollection",
+	"name" : "Toilets_Toilets_Ext_GDB",
+	"features" : [
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1435090962, 22.3848320879 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shing Mun Kisok)",
+				"FACILITY_NAME_TC" : "廁所 (城門茶水亭)",
+				"OBJECTID" : 1
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2953493074, 22.2559011554 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TLF/TT/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "TUNG LUNG FORT (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "東龍洲炮台特別地區",
+				"FACILITY_NAME_EN" : "Toilet (Tung Lung Fort Camp Site)",
+				"FACILITY_NAME_TC" : "廁所 (東龍洲炮台營地)",
+				"OBJECTID" : 2
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.251620083, 22.392286468 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TT/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Ngong Ping Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (昂平營地)",
+				"OBJECTID" : 3
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9882139534, 22.2368500034 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shap Long Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (十塱營地)",
+				"OBJECTID" : 4
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0663197573, 22.3905204029 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/055",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tin Fu Tsai Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (田夫仔營地)",
+				"OBJECTID" : 5
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3324569183, 22.4216816505 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TF/302",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of Pak Tam Road and MacLehose Trail - Section No. 2)",
+				"FACILITY_NAME_TC" : "廁所 (北潭路及麥理浩徑 - 第二段 交界)",
+				"OBJECTID" : 6
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1782132363, 22.4985337176 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TF/301",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Hok Tau Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (鶴藪營地)",
+				"OBJECTID" : 7
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2028267111, 22.2593172495 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TT/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI TAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大潭郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Tai Tam Barbecue Site No. 2, Tai Tam Reservoir Road)",
+				"FACILITY_NAME_TC" : "廁所 (近大潭燒烤場地2號；大潭水塘道)",
+				"OBJECTID" : 8
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2323091579, 22.5148487924 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PC/TF/601",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PLOVER COVE COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "船灣郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Kong Ha Au Barbecue Site, Bride's Pool Road, Wu Kau Tang Country Trail End Point)",
+				"FACILITY_NAME_TC" : "廁所 (新娘潭路；降下坳燒烤場地；烏蛟騰郊遊徑 終點)",
+				"OBJECTID" : 9
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1352911458, 22.2794875615 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LFS/TT/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LUNG FU SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "龍虎山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Peak Trail - Pinewood Battery Section)",
+				"FACILITY_NAME_TC" : "廁所 (近爐峰自然步道 - 松林砲台段)",
+				"OBJECTID" : 10
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0207127814, 22.3738423071 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/047",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Sham Tseng Picnic Site No. 310, Tai Lam Chung Reservoir)",
+				"FACILITY_NAME_TC" : "廁所 (深井郊遊場地310號；大欖涌水塘)",
+				"OBJECTID" : 11
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2999788053, 22.2904193007 ]
+			},
+			"properties" : {
+				"FAC_ID" : "CWB/TF/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "CLEAR WATER BAY COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "清水灣郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Hang Tun Barbecue Site)",
+				"FACILITY_NAME_TC" : "廁所 (大坑墩燒烤場地)",
+				"OBJECTID" : 12
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8914978802, 22.2440870681 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/2011",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of Lantau Trail - Section No. 4 and Lantau Trail - Section No. 5)",
+				"FACILITY_NAME_TC" : "廁所 (鳳凰徑 - 第四段及鳳凰徑 - 第五段 交界)",
+				"OBJECTID" : 13
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1327833498, 22.2766055464 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LFS/TT/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LUNG FU SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "龍虎山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lung Fu Shan Morning Walker Garden Site No. 1)",
+				"FACILITY_NAME_TC" : "廁所 (龍虎山晨運園地1號場)",
+				"OBJECTID" : 14
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1364256666, 22.2655273986 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PFL/TF/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "POK FU LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "薄扶林郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pok Fu Lam Reservoir Road, Pok Fu Lam Family Walk)",
+				"FACILITY_NAME_TC" : "廁所 (薄扶林水塘道；薄扶林家樂徑)",
+				"OBJECTID" : 15
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2318186491, 22.2551262568 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SO/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHEK O COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "石澳郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Tai Tam Gap Correctional Institution, Hong Kong Trail - Section No. 8)",
+				"FACILITY_NAME_TC" : "廁所 (港島徑 - 第八段 近大潭峽懲教所)",
+				"OBJECTID" : 16
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.265221313, 22.3742079385 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TF/503",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TSIU HANG (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "蕉坑特別地區",
+				"FACILITY_NAME_EN" : "Toilet (Lions Nature Education Centre - Car Park)",
+				"FACILITY_NAME_TC" : "廁所 (獅子會自然教育中心 - 停車場)",
+				"OBJECTID" : 17
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0328323781, 22.4097497551 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TF/101",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Tong Barbecue Site No. 1, Tai Tong Shan Road)",
+				"FACILITY_NAME_TC" : "廁所 (大棠山道；大棠燒烤場地1號)",
+				"OBJECTID" : 18
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2094088565, 22.2779372629 ]
+			},
+			"properties" : {
+				"FAC_ID" : "QB/TF/101",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI TAM COUNTRY PARK (QUARRY BAY EXTENSION)",
+				"COUNTRY_PARK_TC" : "大潭郊野公園(鰂魚涌擴建部分)",
+				"FACILITY_NAME_EN" : "Toilet (Mount Parker Road Barbecue Site No. 1, Mount Parker Road)",
+				"FACILITY_NAME_TC" : "廁所 (柏架山道燒烤場地1號；柏架山道)",
+				"OBJECTID" : 19
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.284339394, 22.3960788998 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "Excluded Area",
+				"COUNTRY_PARK_TC" : "不包括地區",
+				"FACILITY_NAME_EN" : "Toilet (Tai Mong Tsai Barbecue Site No. 4, Junction of Sai Sha Road and Tai Mong Tsai Road)",
+				"FACILITY_NAME_TC" : "廁所 (大網仔燒烤場地4號；西沙路及大網仔路 交界)",
+				"OBJECTID" : 20
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1040896762, 22.4227191927 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TF/401",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Shek Kong Barbecue Site No. 3, Kap Lung)",
+				"FACILITY_NAME_TC" : "廁所 (甲龍；石崗燒烤場地3號)",
+				"OBJECTID" : 21
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3358471978, 22.4229664741 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TT/303",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Tam Au Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (北潭凹營地；西貢東郊野公園)",
+				"OBJECTID" : 22
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2953503761, 22.2558447961 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TLF/TT/004",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "TUNG LUNG FORT (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "東龍洲炮台特別地區",
+				"FACILITY_NAME_EN" : "Toilet (Tung Lung Fort Camp Site)",
+				"FACILITY_NAME_TC" : "廁所 (東龍洲炮台營地)",
+				"OBJECTID" : 23
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0170206947, 22.3823004424 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/043",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Halfway along MacLehose Trail - Section No. 10, Pak Shek Hang)",
+				"FACILITY_NAME_TC" : "廁所 (白石坑；麥理浩徑 - 第十段 中間位)",
+				"OBJECTID" : 24
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.239825169, 22.2270196597 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SO/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHEK O COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "石澳郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (To Tei Wan Tsuen, Junction of Shek O Road and Hong Kong Trail - Section No. 8)",
+				"FACILITY_NAME_TC" : "廁所 (土地灣村；石澳道及港島徑 - 第八段 交界)",
+				"OBJECTID" : 25
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9149842143, 22.2122304177 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/204",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lo Kei Wan Campsite, Lantau Trail - Section No. 9)",
+				"FACILITY_NAME_TC" : "廁所 (鳳凰徑 - 第九段；籮箕灣營地)",
+				"OBJECTID" : 26
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9831451161, 22.3889357386 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/039",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Tuen Mun Fitness Trail, near Hin Fat Lane)",
+				"FACILITY_NAME_TC" : "廁所 (屯門健身徑；近顯發里)",
+				"OBJECTID" : 27
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1594508141, 22.2541703862 ]
+			},
+			"properties" : {
+				"FAC_ID" : "ABD/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "ABERDEEN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "香港仔郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Aberdeen P.H.A.B. Barbecue Site, Aberdeen Country Park Entrance)",
+				"FACILITY_NAME_TC" : "廁所 (香港仔傷健樂園燒烤場地；香港仔郊野公園 入口)",
+				"OBJECTID" : 28
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.233015298, 22.4684750305 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PC/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "Excluded Area",
+				"COUNTRY_PARK_TC" : "不包括地區",
+				"FACILITY_NAME_EN" : "Toilet (Tai Mei Tuk Barbecue Site No. 1)",
+				"FACILITY_NAME_TC" : "廁所 (大美督燒烤場地1號)",
+				"OBJECTID" : 29
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1047351501, 22.4069955818 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/050",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Tai Lam Country Park Twisk Management Centre)",
+				"FACILITY_NAME_TC" : "廁所 (近大欖郊野公園荃錦管理站)",
+				"OBJECTID" : 30
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1699841345, 22.496804041 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TH/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lau Shui Heung Road, near Lau Shui Heung Irrigation Reservoir)",
+				"FACILITY_NAME_TC" : "廁所 (流水響道；近流水嚮灌溉水塘)",
+				"OBJECTID" : 31
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2437342319, 22.4855378879 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TH/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Bride's Pool Road Barbecue Site No. 6, Chung Pui)",
+				"FACILITY_NAME_TC" : "廁所 (涌背；新娘潭路燒烤場地6號)",
+				"OBJECTID" : 32
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.318843356, 22.3992529066 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/103",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Tam Chung Barbecue Site No. 3, Pak Tam Chung Family Walk Start Point)",
+				"FACILITY_NAME_TC" : "廁所 (北潭涌燒烤場地3號；北潭涌家樂徑 起點)",
+				"OBJECTID" : 33
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9884382979, 22.2562969118 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LN/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Nam Shan Barbecue Site No. 1, Nam Shan Tree Walk Start Point)",
+				"FACILITY_NAME_TC" : "廁所 (南山燒烤場地1號；南山樹木研習徑 起點)",
+				"OBJECTID" : 34
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3425100807, 22.4617443235 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/303",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK (WAN TSAI EXTENSION)",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園(灣仔擴建部分)",
+				"FACILITY_NAME_EN" : "Toilet (Wan Tsai South Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (灣仔南營地)",
+				"OBJECTID" : 35
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2140758627, 22.2772318695 ]
+			},
+			"properties" : {
+				"FAC_ID" : "QB/TT/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "TAI TAM COUNTRY PARK (QUARRY BAY EXTENSION)",
+				"COUNTRY_PARK_TC" : "大潭郊野公園(鰂魚涌擴建部分)",
+				"FACILITY_NAME_EN" : "Toilet (Junction of Wilson Trail - Section No. 2 and Hong Pak Country Trail)",
+				"FACILITY_NAME_TC" : "廁所 (衛奕信徑 - 第二段及康柏郊遊徑 交界)",
+				"OBJECTID" : 36
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3342798325, 22.4370860335 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/301",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "Excluded Area",
+				"COUNTRY_PARK_TC" : "不包括地區",
+				"FACILITY_NAME_EN" : "Toilet (Tai Tan Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (大灘營地)",
+				"OBJECTID" : 37
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2189933737, 22.3354329315 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TF/504",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Jat's Incline Morning Walkers Garden)",
+				"FACILITY_NAME_TC" : "廁所 (扎山道晨運園地)",
+				"OBJECTID" : 38
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1520257318, 22.3545505031 ]
+			},
+			"properties" : {
+				"FAC_ID" : "KS/TH/004",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "KAM SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "金山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (MacLehose Trail - Section No. 6, near entrance of Kam Shan Tree Walk)",
+				"FACILITY_NAME_TC" : "廁所 (麥理浩徑 - 第六段；金山樹木研習徑起點附近)",
+				"OBJECTID" : 39
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3205248152, 22.3972879719 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/102",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Tam Chung P.H.A.B. Site)",
+				"FACILITY_NAME_TC" : "廁所 (北潭涌傷健樂園)",
+				"OBJECTID" : 40
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1342159692, 22.2763144268 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LFS/TT/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LUNG FU SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "龍虎山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lung Fu Shan Country Park)",
+				"FACILITY_NAME_TC" : "廁所 (龍虎山郊野公園)",
+				"OBJECTID" : 41
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1692260993, 22.4969484933 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TF/303",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lau Shui Heung Irrigation Reservoir, Lau Shui Heung Road)",
+				"FACILITY_NAME_TC" : "廁所 (流水響道；流水響灌溉水塘)",
+				"OBJECTID" : 42
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1582168747, 22.4120975474 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TF/004",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lead Mine Pass Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (鉛礦坳營地)",
+				"OBJECTID" : 43
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1673411606, 22.4908980252 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TT/308",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lau Shui Heung Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (流水響營地)",
+				"OBJECTID" : 44
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2375557903, 22.4083295132 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TF/101",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Ma On Shan Barbecue Site)",
+				"FACILITY_NAME_TC" : "廁所 (馬鞍山燒烤場地)",
+				"OBJECTID" : 45
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2642346935, 22.3736649213 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TF/501",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TSIU HANG (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "蕉坑特別地區",
+				"FACILITY_NAME_EN" : "Toilet (Lions Nature Education Centre - Visitor Centre)",
+				"FACILITY_NAME_TC" : "廁所 (獅子會自然教育中心 - 遊客中心)",
+				"OBJECTID" : 46
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1500415382, 22.3483246296 ]
+			},
+			"properties" : {
+				"FAC_ID" : "KS/TH/005",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "KAM SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "金山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Kowloon Baywash Reservoir Barbecue Site, Cheung Yuen Road)",
+				"FACILITY_NAME_TC" : "廁所 (長源路；九龍副水塘燒烤場地)",
+				"OBJECTID" : 47
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2105233592, 22.5141660999 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TF/601",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Wilson Trail - Section No. 10 End Point, Nam Chung)",
+				"FACILITY_NAME_TC" : "廁所 (南涌；近衛奕信徑 - 第十段 終點)",
+				"OBJECTID" : 48
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2421629244, 22.4879754541 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Chung Pui Barbecue Site, Chung Pui Tree Walk)",
+				"FACILITY_NAME_TC" : "廁所 (涌背燒烤場地；涌背樹木研習徑)",
+				"OBJECTID" : 49
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8445727527, 22.2087265368 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/203",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tsin Yue Wan Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (煎魚灣營地)",
+				"OBJECTID" : 50
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3321856057, 22.3775184647 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TT/106",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Yuen Ng Fan (Nam Fung Wan) Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (南風灣營地)",
+				"OBJECTID" : 51
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8528727879, 22.2385692536 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LN/TT/209",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU NORTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "北大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Nga Ying Kok Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (牙鷹角營地)",
+				"OBJECTID" : 52
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1477744315, 22.3788010097 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shing Mun Barbecue Site No. 14, Shing Mun Main Dam)",
+				"FACILITY_NAME_TC" : "廁所 (城門水塘主壩；城門燒烤場地14號)",
+				"OBJECTID" : 53
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9840318091, 22.3832820969 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/040",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Tuen Mun Barbecue Site No. 2, Tuen Mun Fitness Trail)",
+				"FACILITY_NAME_TC" : "廁所 (屯門燒烤場地2號；屯門健身徑)",
+				"OBJECTID" : 54
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0353889449, 22.4075214853 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TF/102",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Tong Barbecue Site No. 6, Tai Tong Shan Road)",
+				"FACILITY_NAME_TC" : "廁所 (大棠山道；大棠燒烤場地6號)",
+				"OBJECTID" : 55
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9943836352, 22.2515769922 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Fu Tin Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (白富田營地)",
+				"OBJECTID" : 56
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.983976536, 22.3832562458 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/041",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Tuen Mun Barbecue Site No. 2, Tuen Mun Fitness Trail)",
+				"FACILITY_NAME_TC" : "廁所 (屯門燒烤場地2號；屯門健身徑)",
+				"OBJECTID" : 57
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8662669315, 22.2306484655 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/208",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Man Cheung Po Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (萬丈布營地)",
+				"OBJECTID" : 58
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3191002876, 22.39756527 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/101",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Tam Chung Bus Terminus, Sai Kung Country Park Visitor Centre)",
+				"FACILITY_NAME_TC" : "廁所 (北潭涌巴士總站；西貢郊野公園遊客中心)",
+				"OBJECTID" : 59
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0313895224, 22.4094848885 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TF/103",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Kiosk near Tai Tong Barbecue Site No. 1, Tai Tong Shan Road)",
+				"FACILITY_NAME_TC" : "廁所 (大棠山道；大棠燒烤場地1號小食亭)",
+				"OBJECTID" : 60
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0506811891, 22.3697171977 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Sham Tseng Barbecue Site No. 2, near Tai Lam Nature Trail End Point)",
+				"FACILITY_NAME_TC" : "廁所 (深井燒烤場地2號；近大欖自然教育徑終點)",
+				"OBJECTID" : 61
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3394014852, 22.4655291571 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/304",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK (WAN TSAI EXTENSION)",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園(灣仔擴建部分)",
+				"FACILITY_NAME_EN" : "Toilet (Wan Tsai West Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (灣仔西營地)",
+				"OBJECTID" : 62
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1364225674, 22.2771988033 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LFS/TF/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "LUNG FU SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "龍虎山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lung Fu Shan Barbecue Site)",
+				"FACILITY_NAME_TC" : "廁所 (龍虎山燒烤場地)",
+				"OBJECTID" : 63
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3366781719, 22.4342074042 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TF/301",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Wong Shek Barbecue Site No. 1)",
+				"FACILITY_NAME_TC" : "廁所 (黃石燒烤場地1號)",
+				"OBJECTID" : 64
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0346474752, 22.3993619077 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/R26A",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Tong Nature Trail Start Point, Halfway along MacLehose Trail - Section No. 10)",
+				"FACILITY_NAME_TC" : "廁所 (大欖自然教育徑 起點；麥理浩徑 - 第十段 中間位)",
+				"OBJECTID" : 65
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1058236068, 22.4050602134 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TMS/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI MO SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大帽山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Mo Shan Kisok, Rotary Park)",
+				"FACILITY_NAME_TC" : "廁所 (扶輪公園；大帽山茶水亭)",
+				"OBJECTID" : 66
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3535175761, 22.3614764558 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TH/102",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak A, MacLehose Trail - Section No. 1)",
+				"FACILITY_NAME_TC" : "廁所 (北丫；麥理浩徑 - 第一段)",
+				"OBJECTID" : 67
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2626536971, 22.3744428018 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TF/502",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TSIU HANG (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "蕉坑特別地區",
+				"FACILITY_NAME_EN" : "Toilet (Lions Nature Education Centre - Cafeteria)",
+				"FACILITY_NAME_TC" : "廁所 (獅子會自然教育中心 - 聰鳴茶座)",
+				"OBJECTID" : 68
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0717776143, 22.3925193077 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/054",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of Tin Fu Tsai Mountain Bike Trail and Twisk Mountain Bike Trail)",
+				"FACILITY_NAME_TC" : "廁所 (田夫仔越野單車徑及荃錦越野單車徑 交界)",
+				"OBJECTID" : 69
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.301008301, 22.2914118836 ]
+			},
+			"properties" : {
+				"FAC_ID" : "CWB/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "CLEAR WATER BAY COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "清水灣郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Clear Water Bay Management Centre, Tai Hang Tun)",
+				"FACILITY_NAME_TC" : "廁所 (大坑墩；清水灣管理站)",
+				"OBJECTID" : 70
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0605547468, 22.3849778557 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/057",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Twisk Picnic Site, Tsing Fai Tong)",
+				"FACILITY_NAME_TC" : "廁所 (清快塘；荃錦郊遊場地)",
+				"OBJECTID" : 71
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3357534673, 22.3813078115 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TH/101",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (High Island Reservoir West Dam, Sheung Yiu Country Trail End Point)",
+				"FACILITY_NAME_TC" : "廁所 (萬宜水庫西壩；上窰郊遊徑 終點)",
+				"OBJECTID" : 72
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8779041298, 22.2135211349 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/201",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Long Wan Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (大浪灣營地)",
+				"OBJECTID" : 73
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1811200192, 22.3639374938 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LR/TF/101",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "LION ROCK COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "獅子山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Hung Mui Kuk Barbecue Site)",
+				"FACILITY_NAME_TC" : "廁所 (紅梅谷燒烤場地)",
+				"OBJECTID" : 74
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3756768296, 22.374266909 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TT/109A&B",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Long Ke Wan Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (浪茄灣營地)",
+				"OBJECTID" : 75
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1089873337, 22.3981134514 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/059",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Chuen Lung Barbecue Site No. 2, Rotary Park Nature Trail End Point)",
+				"FACILITY_NAME_TC" : "廁所 (川龍燒烤場地2號；扶輪公園自然教育徑終點)",
+				"OBJECTID" : 76
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2372177388, 22.5023917185 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TF/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Bride's Pool Nature Trail, Bride's Pool Road)",
+				"FACILITY_NAME_TC" : "廁所 (新娘潭路；新娘潭自然教育徑)",
+				"OBJECTID" : 77
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1809846191, 22.4285215283 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TPK/TF/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI PO KAU NATURE RESERVE (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "大埔滘自然護理區(特別地區)",
+				"FACILITY_NAME_EN" : "Toilet (Tai Po Kau Nature Trail End Point)",
+				"FACILITY_NAME_TC" : "廁所 (大埔滘自然教育徑 終點)",
+				"OBJECTID" : 78
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0206048087, 22.39194668 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/046",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Halfway along MacLehose Trail Section No. 10, near Wong Nai Tun Irrigation Reservoir)",
+				"FACILITY_NAME_TC" : "廁所 (近黃泥墩灌溉水塘；麥理浩徑 - 第十段 中間位)",
+				"OBJECTID" : 79
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2584650456, 22.4298741693 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TF/102",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Nai Chung Barbecue Site, Ma On Shan)",
+				"FACILITY_NAME_TC" : "廁所 (馬鞍山；泥涌燒烤場地)",
+				"OBJECTID" : 80
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1431577073, 22.3787833892 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shing Mun Barbecue Site No. 4)",
+				"FACILITY_NAME_TC" : "廁所 (城門燒烤場地4號)",
+				"OBJECTID" : 81
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9033148337, 22.2133039334 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/207",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shek Lam Chau Campsite, Lantau Trail - Section No. 9)",
+				"FACILITY_NAME_TC" : "廁所 (鳳凰徑 - 第九段；石欖洲營地)",
+				"OBJECTID" : 82
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2135880247, 22.2669551059 ]
+			},
+			"properties" : {
+				"FAC_ID" : "QB/TF/102",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI TAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大潭郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Mount Parker Road Barbecue Site No. 4, Quarry Gap (Tai Fung Au))",
+				"FACILITY_NAME_TC" : "廁所 (柏架山道燒烤場地4號；大風坳)",
+				"OBJECTID" : 83
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1646203049, 22.349125321 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LR/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "LION ROCK COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "獅子山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Eagle's Nest Nature Trail, Lung Yan Road)",
+				"FACILITY_NAME_TC" : "廁所 (龍欣道；近鷹巢山自然教育徑)",
+				"OBJECTID" : 84
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.988577631, 22.4069590079 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/038",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Fu Tei Barbecue Site No. 1, near Fu Tei Road)",
+				"FACILITY_NAME_TC" : "廁所 (近富地路；虎地燒烤場地1號 )",
+				"OBJECTID" : 85
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2481337591, 22.4549011777 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PC/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "PLOVER COVE COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "船灣郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Eastern end of Main Dam, Plover Cove Reservoir Country Trail End Point)",
+				"FACILITY_NAME_TC" : "廁所 (船灣淡水湖郊遊徑 終點；主壩東端)",
+				"OBJECTID" : 86
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1525965746, 22.3489102982 ]
+			},
+			"properties" : {
+				"FAC_ID" : "KS/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "KAM SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "金山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Cheung Yuen Road Junction)",
+				"FACILITY_NAME_TC" : "廁所 (長源路口)",
+				"OBJECTID" : 87
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9859505447, 22.2535721076 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Nam Shan Campsite, South Lantau Road)",
+				"FACILITY_NAME_TC" : "廁所 (南大嶼路；南山營地)",
+				"OBJECTID" : 88
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1461537671, 22.3692549479 ]
+			},
+			"properties" : {
+				"FAC_ID" : "KS/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "KAM SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "金山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Roundabout at the end of Golden Hill Road)",
+				"FACILITY_NAME_TC" : "廁所 (金山路尾迴旋處)",
+				"OBJECTID" : 89
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1497411366, 22.3956789001 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TF/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Shing Mun Reservoir Walk)",
+				"FACILITY_NAME_TC" : "廁所 (近城門畔塘徑)",
+				"OBJECTID" : 90
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1178867479, 22.390354406 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TMS/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI MO SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大帽山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Lung Mun Country Trail Start Point)",
+				"FACILITY_NAME_TC" : "廁所 (近龍門郊遊徑 起點)",
+				"OBJECTID" : 91
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1562112555, 22.3533557027 ]
+			},
+			"properties" : {
+				"FAC_ID" : "KS/TH/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "KAM SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "金山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Kowloon Reservoir Barbecue Site No. 3, Tai Po Road - Sha Tin Heights)",
+				"FACILITY_NAME_TC" : "廁所 (大埔公路 - 沙田嶺段；九龍水塘燒烤場地3號)",
+				"OBJECTID" : 92
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3275549098, 22.4414405294 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/302",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Hau Tong Kai Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (猴塘溪營地)",
+				"OBJECTID" : 93
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1729868958, 22.5037575435 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TF/302",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Hok Tau Reservoir Barbecue Site No. 6, Hok Tau Wai, Hok Tau Road)",
+				"FACILITY_NAME_TC" : "廁所 (鶴藪道；鶴藪圍；鶴藪水塘燒烤場地6號)",
+				"OBJECTID" : 94
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1442875556, 22.3778697121 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TF/003",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shing Mun Barbecue Site No. 8, Shing Mun Road)",
+				"FACILITY_NAME_TC" : "廁所 (城門道；城門燒烤場地8號)",
+				"OBJECTID" : 95
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1682297749, 22.3948517496 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Halfway along MacLehose Trail - Section No. 7)",
+				"FACILITY_NAME_TC" : "廁所 (麥理浩徑 - 第七段 中間位)",
+				"OBJECTID" : 96
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8636455012, 22.2045385004 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/205",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Kau Ling Chung Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (狗嶺涌營地)",
+				"OBJECTID" : 97
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3097123097, 22.4285569611 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TT/301",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "Excluded Area",
+				"COUNTRY_PARK_TC" : "不包括地區",
+				"FACILITY_NAME_EN" : "Toilet (Cheung Sheung Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (嶂上營地)",
+				"OBJECTID" : 98
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2792977039, 22.4051290323 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Sai Sha Road Barbecue Site No. 5)",
+				"FACILITY_NAME_TC" : "廁所 (西沙路燒烤場地5號)",
+				"OBJECTID" : 99
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1830894818, 22.4901041982 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TT/303-304",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Hok Tau Reservoir Barbecue Site No. 3, Hok Tau Reservoir Family Walk)",
+				"FACILITY_NAME_TC" : "廁所 (鶴藪水塘燒烤場地3號；鶴藪水塘家樂徑)",
+				"OBJECTID" : 100
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2263327485, 22.5206656076 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PC/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Bride's Pool Road, Fung Hang Family Walk End Point)",
+				"FACILITY_NAME_TC" : "廁所 (新娘潭路；鳳坑家樂徑 終點)",
+				"OBJECTID" : 101
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2345226954, 22.5097543559 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PC/TH/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "PLOVER COVE COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "船灣郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of Wu Kau Tang Road and Bride's Pool Road)",
+				"FACILITY_NAME_TC" : "廁所 (烏蛟騰路及新娘潭路 交界)",
+				"OBJECTID" : 102
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2340981294, 22.5058790348 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TH/004",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Bride's Pool Road Barbecue Site No. 19, Sam Tam Lo)",
+				"FACILITY_NAME_TC" : "廁所 (三担籮；新娘潭路燒烤場地19號)",
+				"OBJECTID" : 103
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2894830319, 22.3920476953 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TH/201",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Mong Tsai Barbecue Site No. 8, Tso Wo Hang Pier)",
+				"FACILITY_NAME_TC" : "廁所 (早禾坑碼頭；大網仔燒烤場地8號)",
+				"OBJECTID" : 104
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1441303859, 22.3863428997 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/006",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lung Mun Country Trail End Point, Near Shing Mun Reservoir Walk)",
+				"FACILITY_NAME_TC" : "廁所 (龍門郊遊徑 終點；近城門畔塘徑)",
+				"OBJECTID" : 105
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1550119399, 22.3923956319 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/005",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Shing Mun Reservoir Walk)",
+				"FACILITY_NAME_TC" : "廁所 (近城門畔塘徑)",
+				"OBJECTID" : 106
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9948565092, 22.3781303231 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/042",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Tuen Mun Fitness Trail End Point)",
+				"FACILITY_NAME_TC" : "廁所 (屯門健身徑 終點)",
+				"OBJECTID" : 107
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.359862608, 22.3951170382 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TH/104",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Sai Wan Pavilion, Sai Kung Sai Wan Road)",
+				"FACILITY_NAME_TC" : "廁所 (西貢西灣路；西灣亭)",
+				"OBJECTID" : 108
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2991818954, 22.3891871111 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TH/105",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Mong Tsai Barbecue Site No. 10)",
+				"FACILITY_NAME_TC" : "廁所 (大網仔燒烤場地10號)",
+				"OBJECTID" : 109
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3420930798, 22.3705685697 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TH/106",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (High Island Reservoir West Dam, MacLehose Trail - Section No. 1)",
+				"FACILITY_NAME_TC" : "廁所 (萬宜水庫西壩；麥理浩徑 - 第一段)",
+				"OBJECTID" : 110
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.046111732, 22.3964139852 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/R31A",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Tong Picnic Site No. 2, Tai Tong Nature Trail)",
+				"FACILITY_NAME_TC" : "廁所 (大棠郊遊場地2號；大欖自然教育徑)",
+				"OBJECTID" : 111
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0718165573, 22.4106196215 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/060",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Ho Pui Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (河背營地)",
+				"OBJECTID" : 112
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1809249628, 22.4296680393 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TPK/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI PO KAU NATURE RESERVE (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "大埔滘自然護理區(特別地區)",
+				"FACILITY_NAME_EN" : "Toilet (Opposite to Tai Po Kau Management Centre)",
+				"FACILITY_NAME_TC" : "廁所 (大埔滘管理站 對面)",
+				"OBJECTID" : 113
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.175474772, 22.4304468661 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TPK/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI PO KAU NATURE RESERVE (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "大埔滘自然護理區(特別地區)",
+				"FACILITY_NAME_EN" : "Toilet (Tai Po Kau Blue Walk)",
+				"FACILITY_NAME_TC" : "廁所 (大埔滘藍路)",
+				"OBJECTID" : 114
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1704446282, 22.4204743195 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TPK/TH/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI PO KAU NATURE RESERVE (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "大埔滘自然護理區(特別地區)",
+				"FACILITY_NAME_EN" : "Toilet (Tai Po Kau Nature Reserve Picnic Site No. 4)",
+				"FACILITY_NAME_TC" : "廁所 (大埔滘自然護理區郊遊場地4號)",
+				"OBJECTID" : 115
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2211855708, 22.3530214659 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Halfway along Wilson Trail - Section No. 4)",
+				"FACILITY_NAME_TC" : "廁所 (衛奕信徑 - 第四段 中間位)",
+				"OBJECTID" : 116
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2253502712, 22.3502156345 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Fei Ngo Shan Picnic Site No. 1, Fei Ngo Shan Road)",
+				"FACILITY_NAME_TC" : "廁所 (飛鵝山郊遊場地1號；飛鵝山道)",
+				"OBJECTID" : 117
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2143861928, 22.3556947585 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TH/004",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of MacLehose Trail - Section No. 5 and Wilson Trail - Section No. 4)",
+				"FACILITY_NAME_TC" : "廁所 (麥理浩徑 - 第五段及衛奕信徑 - 第四段 交界)",
+				"OBJECTID" : 118
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3710325323, 22.3616189436 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TH/107",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (High Island Geo Trail - Po Pin Chau Section Start Point)",
+				"FACILITY_NAME_TC" : "廁所 (萬宜地質步道 - 破邊洲段 起點)",
+				"OBJECTID" : 119
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.4407733163, 22.5412840118 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PCE/TT/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "PLOVER COVE (EXTENSION) COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "船灣郊野公園(擴建部分)",
+				"FACILITY_NAME_EN" : "Toilet (Tung Ping Chau Campsite）",
+				"FACILITY_NAME_TC" : "廁所 (東平洲營地)",
+				"OBJECTID" : 120
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.198268256, 22.2582037125 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TT/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI TAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大潭郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Tai Tam Barbecue Site No. 1, Tai Tam Reservoir Road)",
+				"FACILITY_NAME_TC" : "廁所 (近大潭燒烤場地1號；大潭水塘道)",
+				"OBJECTID" : 121
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.320610804, 22.3969547147 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TF/104",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Tam Chung P.H.A.B. Site)",
+				"FACILITY_NAME_TC" : "廁所 (北潭涌傷健樂園)",
+				"OBJECTID" : 122
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.236069042, 22.4763102433 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TF/304",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Plover Cove Country Park Tai Mei Tuk Management Centre, Bride's Pool Road)",
+				"FACILITY_NAME_TC" : "廁所 (新娘潭路；船灣郊野公園大美督管理站)",
+				"OBJECTID" : 123
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2113576377, 22.2811862236 ]
+			},
+			"properties" : {
+				"FAC_ID" : "QB/TF/Woodside",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Woodside Biodiversity Education Centre)",
+				"FACILITY_NAME_TC" : "廁所 (林邊生物多樣性自然教育中心)",
+				"OBJECTID" : 124
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1065009746, 22.4059909034 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TMS/TF/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "TAI MO SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大帽山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Mo Shan Visitor Centre)",
+				"FACILITY_NAME_TC" : "廁所 (大帽山遊客中心)",
+				"OBJECTID" : 125
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.951127303, 22.2721969081 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LN/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Wong Lung Hang Road, Wong Lung Hang Country Trail Start Point)",
+				"FACILITY_NAME_TC" : "廁所 (黃龍坑道；黃龍坑郊遊徑 起點)",
+				"OBJECTID" : 126
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1812986756, 22.4160289761 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TPK/TH/004",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI PO KAU NATURE RESERVE (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "大埔滘自然護理區(特別地區)",
+				"FACILITY_NAME_EN" : "Toilet (Tai Po Kau Yellow Walk)",
+				"FACILITY_NAME_TC" : "廁所 (大埔滘黃路)",
+				"OBJECTID" : 127
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1537310498, 22.3473449065 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LR/TH/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "LION ROCK COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "獅子山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (MacLehose Trail - Section No. 5, near Fire Control Centre)",
+				"FACILITY_NAME_TC" : "廁所 (麥理浩徑 - 第五段；山火控制中心附近)",
+				"OBJECTID" : 128
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3697243747, 22.3981812527 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TF/102",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Sai Wan Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (西灣營地)",
+				"OBJECTID" : 129
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3713452967, 22.3960337041 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TF/101",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Sai Wan, MacLehose Trail - Section No. 2)",
+				"FACILITY_NAME_TC" : "廁所 (西灣；麥理浩徑 - 第二段)",
+				"OBJECTID" : 130
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1049692102, 22.4056044872 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/058",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Twisk Barbecue Site No. 2, Tai Mo Shan Road)",
+				"FACILITY_NAME_TC" : "廁所 (大帽山道；荃錦燒烤場地)",
+				"OBJECTID" : 131
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0607656013, 22.3939879867 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/056",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (MacLehose Trail - Section No. 10, Tin Fu Tsai)",
+				"FACILITY_NAME_TC" : "廁所 (田夫仔；麥理浩徑 - 第十段)",
+				"OBJECTID" : 132
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2716140817, 22.5084931395 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PC/TT/001",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "PLOVER COVE COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "船灣郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Sam A Chung Campsite, Plover Cove)",
+				"FACILITY_NAME_TC" : "廁所 (船灣；三椏涌營地)",
+				"OBJECTID" : 133
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1047915734, 22.4071067626 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/051",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Twisk Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (荃錦營地)",
+				"OBJECTID" : 134
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8637269488, 22.2045372487 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/206",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Kau Ling Chung Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (狗嶺涌營地)",
+				"OBJECTID" : 135
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9149003946, 22.2122518771 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/2010",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Lo Kei Wan Campsite, Lantau Trail - Section No. 9)",
+				"FACILITY_NAME_TC" : "廁所 (鳳凰徑 - 第九段；籮箕灣營地)",
+				"OBJECTID" : 136
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2954391542, 22.2558087873 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TLF/TT/005",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "TUNG LUNG FORT (SPECIAL AREA)",
+				"COUNTRY_PARK_TC" : "東龍洲炮台特別地區",
+				"FACILITY_NAME_EN" : "Toilet (Tung Lung Fort Camp Site)",
+				"FACILITY_NAME_TC" : "廁所 (東龍洲炮台營地)",
+				"OBJECTID" : 137
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.053727918, 22.3714596404 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/048",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Sham Tseng Barbecue Site No. 1, Sham Tseng Settlement Basin)",
+				"FACILITY_NAME_TC" : "廁所 (深井沉澱塘；深井燒烤場地1號)",
+				"OBJECTID" : 138
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0476024142, 22.3806479291 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/049",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of Tsing Lung Tau Mountain Bike Trail and Tsing Fai Tong Mountain Bike Trail)",
+				"FACILITY_NAME_TC" : "廁所 (青龍頭越野單車徑及清快塘越野單車徑 交界)",
+				"OBJECTID" : 139
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0738374264, 22.396470144 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/053",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Twisk Picnic Site, Tin Fu Tsai North Mountain Bike Trail)",
+				"FACILITY_NAME_TC" : "廁所 (荃錦郊遊場地；田夫仔北越野單車徑)",
+				"OBJECTID" : 140
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3267153861, 22.3821604203 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TT/107",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Po Kwu Wan Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (曝罟灣營地)",
+				"OBJECTID" : 141
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.374243002, 22.3655661602 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TF/103",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (High Island Geo Trail - Biu Tsim Kok Section Start Point)",
+				"FACILITY_NAME_TC" : "廁所 (萬宜地質步道 - 標尖角段 起點)",
+				"OBJECTID" : 142
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1966516726, 22.3702093365 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TH/005",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Near Shui Chuen O Estate)",
+				"FACILITY_NAME_TC" : "廁所 (近水泉澳邨)",
+				"OBJECTID" : 143
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3651365481, 22.3596030731 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKE/TH/110",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG EAST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢東郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Lap Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (白腊營地)",
+				"OBJECTID" : 144
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3255945399, 22.4067924844 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TH/301",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Yee Ting Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (怡庭營地)",
+				"OBJECTID" : 145
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2749268871, 22.4027197427 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TH/007",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "MA ON SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "馬鞍山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shui Long Wo Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (水浪窩營地)",
+				"OBJECTID" : 146
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1506907583, 22.3657053693 ]
+			},
+			"properties" : {
+				"FAC_ID" : "KS/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "KAM SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "金山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of MacLehose Trail - Section No. 6 and Wilson Trail - Section No. 6)",
+				"FACILITY_NAME_TC" : "廁所 (麥理浩徑 - 第六段及衛奕信徑 - 第六段 交界)",
+				"OBJECTID" : 147
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1812961262, 22.4934538475 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TH/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Hok Tau Reservoir Family Walk)",
+				"FACILITY_NAME_TC" : "廁所 (近鶴藪水塘家樂徑)",
+				"OBJECTID" : 148
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9036112498, 22.2265099212 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TH/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Cheung Sha Catchwater Barbecue Site No. 1, Lantau Trail - Section No. 11)",
+				"FACILITY_NAME_TC" : "廁所 (鳳凰徑 - 第十一段；長沙引水道燒烤場)",
+				"OBJECTID" : 149
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9881901112, 22.2383567396 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TT/209",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Dry Toilet",
+				"TYPE_TC" : "旱廁",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shap Long Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (十塱營地)",
+				"OBJECTID" : 150
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1945356423, 22.3714878758 ]
+			},
+			"properties" : {
+				"FAC_ID" : "MOS/TH/006",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "LION ROCK COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "獅子山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Shui Chuen O Estate)",
+				"FACILITY_NAME_TC" : "廁所 (近水泉澳邨)",
+				"OBJECTID" : 151
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9998076905, 22.2584553028 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TF/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Mui Wo Mountain Bike Practice Ground)",
+				"FACILITY_NAME_TC" : "廁所 (梅窩越野單車練習場)",
+				"OBJECTID" : 152
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0914519537, 22.3993701641 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/052",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI LAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大欖郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Halfway along MacLehose Trail - Section No. 9)",
+				"FACILITY_NAME_TC" : "廁所 (麥理浩徑 - 第九段 中間位)",
+				"OBJECTID" : 153
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1155513648, 22.409736364 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TMS/TH/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI MO SHAN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大帽山郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Tai Mo Shan Picnic Site No. 3, Tai Mo Shan Road)",
+				"FACILITY_NAME_TC" : "廁所 (大帽山道；大帽山郊遊場地3號)",
+				"OBJECTID" : 154
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2410920484, 22.4949311169 ]
+			},
+			"properties" : {
+				"FAC_ID" : "PSL/TH005",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "PAT SIN LENG COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "八仙嶺郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Chung Mei Barbecue Site, Bride's Pool Road)",
+				"FACILITY_NAME_TC" : "廁所 (涌尾段燒烤場地；新娘潭路)",
+				"OBJECTID" : 155
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.8687103978, 22.2088441899 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TH/005",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Junction of Lantau Trail - Section No. 8 and Keung Shan Country Trail Start Point)",
+				"FACILITY_NAME_TC" : "廁所 (鳳凰徑 - 第八段及羗山郊遊徑起點 交界)",
+				"OBJECTID" : 156
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.0946627845, 22.4221376829 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TL/TH/061",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Shek Kong Barbecue Site No. 6, near Ma Pau Ling)",
+				"FACILITY_NAME_TC" : "廁所 (近麻包嶺；石崗燒烤場地6號)",
+				"OBJECTID" : 157
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9461992138, 22.23871937 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TH/004",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Cheung Sha Catchwater Barbecue Site No.1, Lantau Trail - Section No. 11)",
+				"FACILITY_NAME_TC" : "廁所 (鳳凰徑 - 第十一段；長沙引水道燒烤場)",
+				"OBJECTID" : 158
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.219304617, 22.2411260089 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TT/TH/002",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "TAI TAM COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "大潭郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Tai Tam Tuk Reservoir Barbecue Area Site No. 1)",
+				"FACILITY_NAME_TC" : "廁所 (近大潭篤水塘燒烤場地1號場)",
+				"OBJECTID" : 159
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1561200054, 22.4052973297 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/004",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shing Mun Arboretum)",
+				"FACILITY_NAME_TC" : "廁所 (城門標本林)",
+				"OBJECTID" : 160
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.2212515011, 22.2401102415 ]
+			},
+			"properties" : {
+				"FAC_ID" : "TT/TF/002",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "Outside Country Park and Special Area",
+				"COUNTRY_PARK_TC" : "不在郊野公園及特別地區範圍",
+				"FACILITY_NAME_EN" : "Toilet (Tai Tam Reservoir Road)",
+				"FACILITY_NAME_TC" : "廁所 (大潭水塘道)",
+				"OBJECTID" : 161
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1596348017, 22.2544147702 ]
+			},
+			"properties" : {
+				"FAC_ID" : "ABD/TH/001",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "ABERDEEN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "香港仔郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Aberdeen P.H.A.B. Barbecue Site)",
+				"FACILITY_NAME_TC" : "廁所 (香港仔傷健樂園燒烤場地)",
+				"OBJECTID" : 162
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1552834646, 22.3897636491 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/007",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Near Shing Mun Reservoir Walk)",
+				"FACILITY_NAME_TC" : "廁所 (近城門畔塘徑)",
+				"OBJECTID" : 163
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.3256137908, 22.4066299181 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SKW/TH/304",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SAI KUNG WEST COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "西貢西郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Yee Ting Campsite)",
+				"FACILITY_NAME_TC" : "廁所 (怡庭營地)",
+				"OBJECTID" : 164
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 114.1473746327, 22.3915094057 ]
+			},
+			"properties" : {
+				"FAC_ID" : "SM/TH/008",
+				"BARRIER_FREE_FAC" : "Y",
+				"TYPE_EN" : "Portable Toilet",
+				"TYPE_TC" : "流動廁所",
+				"COUNTRY_PARK_EN" : "SHING MUN COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "城門郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Shing Mun Picinc Site No. 5)",
+				"FACILITY_NAME_TC" : "廁所 (城門郊遊地點5號場)",
+				"OBJECTID" : 165
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 113.9430603683, 22.2479622467 ]
+			},
+			"properties" : {
+				"FAC_ID" : "LS/TF/003",
+				"BARRIER_FREE_FAC" : "N",
+				"TYPE_EN" : "Flushing Toilet",
+				"TYPE_TC" : "沖水式廁所",
+				"COUNTRY_PARK_EN" : "LANTAU SOUTH COUNTRY PARK",
+				"COUNTRY_PARK_TC" : "南大嶼郊野公園",
+				"FACILITY_NAME_EN" : "Toilet (Pak Kung Au)",
+				"FACILITY_NAME_TC" : "廁所 (伯公坳)",
+				"OBJECTID" : 166
+			}
+		}
+	]
+}

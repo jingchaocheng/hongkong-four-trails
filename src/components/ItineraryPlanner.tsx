@@ -8,8 +8,10 @@ import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import ElevationChart from './ElevationChart'
 import {
   findSupplyPointsAlongPath,
+  findNearestMarkerId,
   supplyTypeLabelKey,
 } from '../utils/supplyPoints'
+import { findWaterDispensersAlongPath } from '../utils/waterDispensers'
 
 const MAX_DAYS = 10
 
@@ -554,6 +556,43 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
         const along = trailId
           ? findSupplyPointsAlongPath(seg.positions, trailId)
           : []
+        const waterAlong = findWaterDispensersAlongPath(seg.positions, 0.6)
+        const markerRefs = orderedMarkers.map((m) => ({
+          id: m.id,
+          lat: m.lat,
+          lng: m.lng,
+        }))
+        const seenWaterMarkers = new Set<string>()
+        const waterItems = waterAlong.flatMap((w) => {
+          const nearMarker = findNearestMarkerId(w.lat, w.lng, markerRefs)
+          const dedupeKey = nearMarker ?? w.id
+          if (seenWaterMarkers.has(dedupeKey)) return []
+          seenWaterMarkers.add(dedupeKey)
+          return [
+            {
+              pathIndex: w.pathIndex,
+              distanceKm: w.distanceKm,
+              name: t('sources.waterStations'),
+              typesLabel: '',
+              nearMarker,
+              note: undefined as string | undefined,
+            },
+          ]
+        })
+        const supplyPoints = [
+          ...along.map((sp) => ({
+            pathIndex: sp.pathIndex,
+            distanceKm: sp.distanceKm,
+            name: sp.name,
+            typesLabel: sp.types.map((type) => t(supplyTypeLabelKey(type))).join('·'),
+            nearMarker: sp.nearMarker,
+            note: sp.note,
+          })),
+          ...waterItems,
+        ]
+          .sort((a, b) => a.pathIndex - b.pathIndex || a.distanceKm - b.distanceKm)
+          .map(({ pathIndex: _i, distanceKm: _d, ...rest }) => rest)
+
         return {
           day: seg.day,
           startLabel: markerLabel(seg.startNode),
@@ -561,12 +600,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
           distance: seg.distance,
           elevation: seg.gain,
           markerCount: seg.markers.length,
-          supplyPoints: along.map((sp) => ({
-            name: sp.name,
-            typesLabel: sp.types.map((type) => t(supplyTypeLabelKey(type))).join('·'),
-            nearMarker: sp.nearMarker,
-            note: sp.note,
-          })),
+          supplyPoints,
           campsiteName: i < daySummaries.length - 1 ? campsite?.name : undefined,
           campsiteAddress: i < daySummaries.length - 1 ? campsite?.address : undefined,
           campsiteWaterSource: i < daySummaries.length - 1 ? campsite?.detailsZhHans?.waterSourceZhHans : undefined,
@@ -587,6 +621,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
     totalElevation,
     dayCampsites,
     campsites,
+    orderedMarkers,
     locale,
     t,
     markerLabel,

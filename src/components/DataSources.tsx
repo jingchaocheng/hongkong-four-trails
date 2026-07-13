@@ -17,6 +17,18 @@ export const DATA_SOURCES = {
       url: 'https://hikingtrailhk.appspot.com/home.hk.html',
     },
   ],
+  waterStations: [
+    {
+      nameKey: 'sources.afcd' as const,
+      url: 'https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_rec/cou_vis_wfs.html',
+    },
+  ],
+  toilets: [
+    {
+      nameKey: 'sources.afcd' as const,
+      url: 'https://portal.csdi.gov.hk/geoportal/?lang=tc&datasetId=afcd_rcd_1634603765857_53282',
+    },
+  ],
 }
 
 interface DataSourcesProps {
@@ -62,6 +74,38 @@ function DataSources({ variant = 'dark', className = '' }: DataSourcesProps) {
           <span className={`data-sources-label ${labelClass}`}>{t('sources.tracks')}</span>
           <span className="data-sources-links">
             {DATA_SOURCES.tracks.map((item) => (
+              <a
+                key={item.url}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass(isDark)}
+              >
+                {t(item.nameKey)}
+              </a>
+            ))}
+          </span>
+        </div>
+        <div className="data-sources-group">
+          <span className={`data-sources-label ${labelClass}`}>{t('sources.waterStations')}</span>
+          <span className="data-sources-links">
+            {DATA_SOURCES.waterStations.map((item) => (
+              <a
+                key={item.url}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass(isDark)}
+              >
+                {t(item.nameKey)}
+              </a>
+            ))}
+          </span>
+        </div>
+        <div className="data-sources-group">
+          <span className={`data-sources-label ${labelClass}`}>{t('sources.toilets')}</span>
+          <span className="data-sources-links">
+            {DATA_SOURCES.toilets.map((item) => (
               <a
                 key={item.url}
                 href={item.url}
