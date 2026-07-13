@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T07:09:21.224Z",
+  "generatedAt": "2026-07-13T07:45:59.715Z",
   "points": [
     {
       "id": "maclehose-saiwan",
@@ -52,8 +52,8 @@
       "name": "恒益商店",
       "lat": 22.355538234304184,
       "lng": 114.1995280981064,
-      "trailIds": ["maclehose"],
-      "nearMarker": "M101",
+      "trailIds": ["maclehose", "wilson"],
+      "nearMarker": "M101;W047",
       "types": ["store", "toilet"]
     },
     {
@@ -61,8 +61,8 @@
       "name": "补给点",
       "lat": 22.412072441412143,
       "lng": 114.15829449892045,
-      "trailIds": ["maclehose"],
-      "nearMarker": "M137",
+      "trailIds": ["maclehose", "wilson"],
+      "nearMarker": "M137;W084",
       "types": ["water", "toilet"]
     },
     {
@@ -129,6 +129,52 @@
       "trailIds": ["hongkong"],
       "nearMarker": "H100",
       "note": "餐饮、士多、厕所",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "wilson-fusion",
+      "name": "Fusion 超市",
+      "lat": 22.257919060332174,
+      "lng": 114.19883608818056,
+      "trailIds": ["wilson"],
+      "nearMarker": "H053;W009",
+      "types": ["store"]
+    },
+    {
+      "id": "wilson-taikoo",
+      "name": "太古",
+      "lat": 22.284676263949187,
+      "lng": 114.215125143528,
+      "trailIds": ["wilson"],
+      "nearMarker": "W018",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "wilson-leungho",
+      "name": "良好士多",
+      "lat": 22.334503485919626,
+      "lng": 114.23809021711352,
+      "trailIds": ["wilson"],
+      "nearMarker": "W032",
+      "types": ["store"]
+    },
+    {
+      "id": "wilson-weibao",
+      "name": "维宝士多",
+      "lat": 22.43549286520367,
+      "lng": 114.16446357965471,
+      "trailIds": ["wilson"],
+      "nearMarker": "W090",
+      "types": ["store"]
+    },
+    {
+      "id": "wilson-taiwo",
+      "name": "太和",
+      "lat": 22.450248231673704,
+      "lng": 114.16020423173906,
+      "trailIds": ["wilson"],
+      "nearMarker": "W097",
+      "note": "商圈、餐饮、厕所",
       "types": ["store", "toilet"]
     }
   ]
