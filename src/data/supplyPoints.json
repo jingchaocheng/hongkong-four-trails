@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T07:45:59.715Z",
+  "generatedAt": "2026-07-13T08:43:39.487Z",
   "points": [
     {
       "id": "maclehose-saiwan",
@@ -175,6 +175,62 @@
       "trailIds": ["wilson"],
       "nearMarker": "W097",
       "note": "商圈、餐饮、厕所",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "lantau-muiwo-pier",
+      "name": "梅窝码头",
+      "lat": 22.26560173106418,
+      "lng": 114.00088101625444,
+      "trailIds": ["lantau"],
+      "nearMarker": "L001",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "lantau-fanlau",
+      "name": "分流村士多",
+      "lat": 22.202780124532552,
+      "lng": 113.8514417409897,
+      "trailIds": ["lantau"],
+      "nearMarker": "L070",
+      "types": ["store"]
+    },
+    {
+      "id": "lantau-taio",
+      "name": "大澳",
+      "lat": 22.248398914129243,
+      "lng": 113.86381745338441,
+      "trailIds": ["lantau"],
+      "nearMarker": "L055",
+      "note": "餐厅、士多、公厕",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "lantau-shuikou",
+      "name": "水口",
+      "lat": 22.22152800803182,
+      "lng": 113.91476869583131,
+      "trailIds": ["lantau"],
+      "nearMarker": "L099",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "lantau-lawuk",
+      "name": "罗屋村",
+      "lat": 22.24343626581417,
+      "lng": 113.9759284257889,
+      "trailIds": ["lantau"],
+      "nearMarker": "L122",
+      "note": "餐厅、士多、厕所",
+      "types": ["store", "toilet"]
+    },
+    {
+      "id": "lantau-ngongping",
+      "name": "昂坪市集",
+      "lat": 22.256382475585756,
+      "lng": 113.90330493450165,
+      "trailIds": ["lantau"],
+      "nearMarker": "L031",
       "types": ["store", "toilet"]
     }
   ]

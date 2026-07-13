@@ -556,7 +556,10 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
         const along = trailId
           ? findSupplyPointsAlongPath(seg.positions, trailId)
           : []
-        const waterAlong = findWaterDispensersAlongPath(seg.positions, 0.6)
+        const waterAlong =
+          trailId && trailId !== 'lantau'
+            ? findWaterDispensersAlongPath(seg.positions, 0.6)
+            : []
         const markerRefs = orderedMarkers.map((m) => ({
           id: m.id,
           lat: m.lat,
