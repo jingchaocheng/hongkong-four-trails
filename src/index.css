@@ -586,6 +586,32 @@ select option {
   margin-bottom: 8px;
 }
 
+.campsite-popup-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+}
+
+.campsite-popup-day {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.campsite-popup-en {
+  margin-top: 0.125rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.campsite-popup-address {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
 .campsite-popup-details {
   margin: 0;
 }
@@ -629,6 +655,86 @@ select option {
 
 .campsite-popup-source a:hover {
   text-decoration: underline;
+}
+
+.campsite-modal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.48);
+  pointer-events: auto;
+}
+
+.campsite-modal {
+  width: min(100%, 560px);
+  max-height: min(78vh, 640px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #ffffff;
+  border-radius: 18px 18px 0 0;
+  padding: 8px 16px 24px;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.28);
+  color: #1f2937;
+}
+
+.campsite-modal-handle {
+  width: 42px;
+  height: 4px;
+  margin: 4px auto 8px;
+  border-radius: 999px;
+  background: #d1d5db;
+}
+
+.campsite-modal-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.campsite-modal-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.campsite-modal-close:active {
+  background: #e5e7eb;
+}
+
+.campsite-modal .campsite-popup {
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.campsite-modal .campsite-popup-title {
+  font-size: 1.125rem;
+}
+
+.campsite-modal .campsite-popup-row {
+  display: grid;
+  grid-template-columns: 5.5em 1fr;
+  gap: 6px 12px;
+  padding: 8px 0;
+}
+
+.campsite-modal .campsite-popup-row dt {
+  font-size: 0.8125rem;
+}
+
+.campsite-modal .campsite-popup-row dd {
+  font-size: 0.875rem;
 }
 
 .map-overlays {

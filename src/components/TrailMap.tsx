@@ -454,18 +454,38 @@ function BasemapTileLayers({
   )
 }
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < breakpoint : false
+  )
+
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`)
+    const update = () => setIsMobile(mql.matches)
+    update()
+    mql.addEventListener('change', update)
+    return () => mql.removeEventListener('change', update)
+  }, [breakpoint])
+
+  return isMobile
+}
+
 function CampsiteMapMarker({
   point,
   selected,
   focusCampsite,
   defaultIcon,
   selectedTitle,
+  useModal,
+  onOpen,
 }: {
   point: Campsite
   selected?: SelectedCampsite
   focusCampsite?: FocusCampsiteRequest | null
   defaultIcon: L.DivIcon
   selectedTitle: (day: number) => string
+  useModal?: boolean
+  onOpen?: (point: Campsite, selected?: SelectedCampsite) => void
 }) {
   const markerRef = useRef<L.Marker>(null)
   const map = useMap()
@@ -475,9 +495,15 @@ function CampsiteMapMarker({
     const marker = markerRef.current
     if (!marker) return
     map.flyTo([point.lat, point.lng], 14, { duration: 0.8 })
-    const timer = window.setTimeout(() => marker.openPopup(), 500)
+    const timer = window.setTimeout(() => {
+      if (useModal) {
+        onOpen?.(point, selected)
+      } else {
+        marker.openPopup()
+      }
+    }, 500)
     return () => window.clearTimeout(timer)
-  }, [focusCampsite, point.id, point.lat, point.lng, map])
+  }, [focusCampsite, point, selected, map, useModal, onOpen])
 
   return (
     <Marker
@@ -490,10 +516,22 @@ function CampsiteMapMarker({
       }
       zIndexOffset={selected ? 2500 : 1500}
       riseOnHover
+      eventHandlers={
+        useModal
+          ? {
+              click: (e) => {
+                L.DomEvent.stopPropagation(e.originalEvent)
+                onOpen?.(point, selected)
+              },
+            }
+          : undefined
+      }
     >
-      <Popup className="campsite-popup-wrapper" maxWidth={480} minWidth={380}>
-        <CampsitePopup campsite={point} selected={selected} />
-      </Popup>
+      {!useModal && (
+        <Popup className="campsite-popup-wrapper" maxWidth={480} minWidth={320}>
+          <CampsitePopup campsite={point} selected={selected} />
+        </Popup>
+      )}
     </Marker>
   )
 }
@@ -514,7 +552,12 @@ function TrailMap({
 }: TrailMapProps) {
   const { t } = useLocale()
   const lc = useLocalizedContent()
+  const isMobile = useIsMobile()
   const [basemapId, setBasemapId] = useState<BasemapId>(() => getStoredBasemapId())
+  const [activeCampsite, setActiveCampsite] = useState<{
+    point: Campsite
+    selected?: SelectedCampsite
+  } | null>(null)
   const [annotateEnabled, setAnnotateEnabled] = useState(false)
   const [showLcsdWater, setShowLcsdWater] = useState(true)
   const [showAfcdToilets, setShowAfcdToilets] = useState(true)
@@ -523,6 +566,14 @@ function TrailMap({
   const [pendingAnnotate, setPendingAnnotate] = useState<SupplyAnnotateDraft | null>(null)
   const [supplyVersion, setSupplyVersion] = useState(0)
   const [exportStatus, setExportStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+
+  const handleOpenCampsite = useCallback((point: Campsite, selected?: SelectedCampsite) => {
+    setActiveCampsite({ point, selected })
+  }, [])
+
+  const handleCloseCampsite = useCallback(() => {
+    setActiveCampsite(null)
+  }, [])
 
   const handleBasemapChange = useCallback((id: BasemapId) => {
     setBasemapId(id)
@@ -1038,6 +1089,8 @@ function TrailMap({
               focusCampsite={focusCampsite}
               defaultIcon={campsiteIconMemo}
               selectedTitle={(day) => t('map.dayCamp', { n: day })}
+              useModal={isMobile}
+              onOpen={handleOpenCampsite}
             />
           )
         })}
@@ -1081,6 +1134,38 @@ function TrailMap({
             </Marker>
           ))}
       </MapContainer>
+
+      {isMobile && activeCampsite && (
+        <div
+          className="campsite-modal-overlay"
+          onClick={handleCloseCampsite}
+          role="presentation"
+        >
+          <div
+            className="campsite-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label={t('map.campsite')}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="campsite-modal-handle" aria-hidden="true" />
+            <div className="campsite-modal-toolbar">
+              <button
+                type="button"
+                className="campsite-modal-close"
+                onClick={handleCloseCampsite}
+                aria-label={t('common.close')}
+              >
+                ×
+              </button>
+            </div>
+            <CampsitePopup
+              campsite={activeCampsite.point}
+              selected={activeCampsite.selected}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

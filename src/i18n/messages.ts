@@ -34,6 +34,7 @@ export const uiMessages = {
     sectionN: "第 {n} 段",
     about: "约",
     loadingTrack: "正在加载轨迹数据...",
+    close: "关闭",
   },
   home: {
     title: "香港四径",

@@ -27,15 +27,15 @@ export default function CampsitePopup({ campsite, selected }: CampsitePopupProps
   return (
     <div className="campsite-popup">
       <div className="campsite-popup-header">
-        <strong className="text-base text-gray-900">
+        <strong className="campsite-popup-title">
           ⛺ {lc(campsite.name, 'traditional')}
         </strong>
         {selected && (
-          <p className="mt-1 text-sm font-semibold" style={{ color: selected.color }}>
+          <p className="campsite-popup-day" style={{ color: selected.color }}>
             {t('campsite.dayCamp', { n: selected.day })}
           </p>
         )}
-        {campsite.nameEn && <p className="mt-0.5 text-xs text-gray-500">{campsite.nameEn}</p>}
+        {campsite.nameEn && <p className="campsite-popup-en">{campsite.nameEn}</p>}
       </div>
 
       {details ? (
@@ -60,7 +60,7 @@ export default function CampsitePopup({ campsite, selected }: CampsitePopupProps
         </dl>
       ) : (
         campsite.address && (
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="campsite-popup-address">
             {lc(campsite.address, 'traditional')}
           </p>
         )

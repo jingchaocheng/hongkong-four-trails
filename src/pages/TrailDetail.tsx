@@ -19,6 +19,9 @@ import { useLocale } from "../i18n/LocaleContext";
 import { localizeTrail } from "../i18n/trailLocale";
 
 const MOBILE_MQ = "(max-width: 767px)";
+const MOBILE_DRAG_THRESHOLD_PX = 40;
+
+type MobilePlannerSnap = "collapsed" | "half" | "full";
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(() =>
@@ -54,6 +57,10 @@ function TrailDetail() {
   const [focusedDay, setFocusedDay] = useState<number | null>(null);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showPlannerDrawer, setShowPlannerDrawer] = useState(true);
+  const [mobilePlannerSnap, setMobilePlannerSnap] = useState<MobilePlannerSnap>("half");
+  const dragStartY = useRef<number | null>(null);
+  const dragDeltaY = useRef(0);
+  const skipClickAfterDrag = useRef(false);
   const isMobile = useIsMobile();
   const [viewportH, setViewportH] = useState(() =>
     typeof window !== "undefined" ? window.innerHeight : 800
@@ -65,15 +72,25 @@ function TrailDetail() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // 手机底部抽屉约占半屏；桌面右侧抽屉约 28rem
-  const mobileDrawerPx = Math.round(Math.min(viewportH * 0.5, 480));
+  useEffect(() => {
+    if (!isMobile) setMobilePlannerSnap("half");
+  }, [isMobile]);
+
+  const mobileHalfPx = Math.round(Math.min(viewportH * 0.5, 480));
+  const mobileDrawerPx =
+    mobilePlannerSnap === "full"
+      ? viewportH
+      : mobilePlannerSnap === "half"
+        ? mobileHalfPx
+        : 0;
+
   const mapFitPadding = useMemo(() => {
     if (isMobile) {
       return {
         topLeft: [16, 64] as [number, number],
         bottomRight: [
           16,
-          showPlannerDrawer ? mobileDrawerPx + 12 : 56,
+          mobilePlannerSnap === "half" ? mobileDrawerPx + 12 : 56,
         ] as [number, number],
       };
     }
@@ -81,7 +98,52 @@ function TrailDetail() {
       topLeft: [72, 72] as [number, number],
       bottomRight: [showPlannerDrawer ? 460 : 48, 48] as [number, number],
     };
-  }, [isMobile, showPlannerDrawer, mobileDrawerPx]);
+  }, [isMobile, showPlannerDrawer, mobilePlannerSnap, mobileDrawerPx]);
+
+  const expandMobilePlanner = useCallback(() => {
+    setMobilePlannerSnap((snap) =>
+      snap === "collapsed" ? "half" : snap === "half" ? "full" : "full"
+    );
+  }, []);
+
+  const collapseMobilePlanner = useCallback(() => {
+    setMobilePlannerSnap((snap) =>
+      snap === "full" ? "half" : snap === "half" ? "collapsed" : "collapsed"
+    );
+  }, []);
+
+  const handleMobilePlannerClick = useCallback(() => {
+    if (skipClickAfterDrag.current) {
+      skipClickAfterDrag.current = false;
+      return;
+    }
+    // 点击：折叠↔半屏；若已全屏则先回到半屏
+    setMobilePlannerSnap((snap) => {
+      if (snap === "collapsed") return "half";
+      if (snap === "full") return "half";
+      return "collapsed";
+    });
+  }, []);
+
+  const handleMobilePlannerTouchStart = useCallback((e: React.TouchEvent) => {
+    dragStartY.current = e.touches[0]?.clientY ?? null;
+    dragDeltaY.current = 0;
+  }, []);
+
+  const handleMobilePlannerTouchMove = useCallback((e: React.TouchEvent) => {
+    if (dragStartY.current == null) return;
+    dragDeltaY.current = (e.touches[0]?.clientY ?? dragStartY.current) - dragStartY.current;
+  }, []);
+
+  const handleMobilePlannerTouchEnd = useCallback(() => {
+    const dy = dragDeltaY.current;
+    dragStartY.current = null;
+    dragDeltaY.current = 0;
+    if (Math.abs(dy) < MOBILE_DRAG_THRESHOLD_PX) return;
+    skipClickAfterDrag.current = true;
+    if (dy < 0) expandMobilePlanner();
+    else collapseMobilePlanner();
+  }, [expandMobilePlanner, collapseMobilePlanner]);
 
   const { locale, t } = useLocale();
   const displayTrail = trail ? localizeTrail(trail, locale) : undefined;
@@ -293,7 +355,7 @@ function TrailDetail() {
       {/* 全屏地图 */}
       <div
         className={`absolute inset-0 w-full h-full ${
-          isMobile && showPlannerDrawer ? "map-with-bottom-drawer" : ""
+          isMobile && mobilePlannerSnap === "half" ? "map-with-bottom-drawer" : ""
         }`}
       >
         <TrailMap
@@ -318,34 +380,58 @@ function TrailDetail() {
 
         {/* 行程规划：手机底部抽屉 / 桌面右侧抽屉 */}
         <div
-          className={`absolute z-[1000] pointer-events-auto overflow-hidden transition-transform duration-300 ease-out
-            inset-x-0 bottom-0 rounded-t-2xl shadow-[0_-8px_30px_rgba(0,0,0,0.12)]
+          className={`absolute z-[1000] pointer-events-auto overflow-hidden transition-[transform,height,border-radius] duration-300 ease-out
+            inset-x-0 bottom-0 bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.12)]
             md:inset-y-0 md:right-0 md:left-auto md:w-full md:max-w-md md:rounded-none md:shadow-2xl
+            ${mobilePlannerSnap === "full" ? "rounded-none" : "rounded-t-2xl"}
             ${
-              showPlannerDrawer
-                ? "translate-y-0 md:translate-x-0"
-                : "translate-y-[calc(100%-3.25rem)] md:translate-y-0 md:translate-x-full"
+              isMobile
+                ? "translate-y-0"
+                : showPlannerDrawer
+                  ? "translate-y-0 md:translate-x-0"
+                  : "md:translate-y-0 md:translate-x-full"
             }`}
           style={
             isMobile
-              ? { height: `${mobileDrawerPx}px` }
+              ? mobilePlannerSnap === "collapsed"
+                ? {
+                    height: "auto",
+                    paddingBottom: "env(safe-area-inset-bottom, 0px)",
+                  }
+                : {
+                    height: `${mobileDrawerPx}px`,
+                    paddingBottom: "env(safe-area-inset-bottom, 0px)",
+                  }
               : undefined
           }
         >
-          {/* 手机端拖动条 / 展开收起 */}
+          {/* 手机端：折叠 ↔ 半屏 ↔ 全屏（上滑展开 / 下滑收起 / 点击逐级） */}
           <button
             type="button"
-            className="md:hidden w-full flex flex-col items-center pt-2 pb-1 bg-white border-b border-gray-100 shrink-0"
-            onClick={() => setShowPlannerDrawer((open) => !open)}
-            aria-label={showPlannerDrawer ? t('trail.collapsePlanner') : t('trail.expandPlanner')}
+            className="md:hidden w-full flex flex-col items-center px-3 pt-2 pb-2 bg-white border-b border-gray-100 shrink-0 touch-none"
+            onClick={handleMobilePlannerClick}
+            onTouchStart={handleMobilePlannerTouchStart}
+            onTouchMove={handleMobilePlannerTouchMove}
+            onTouchEnd={handleMobilePlannerTouchEnd}
+            aria-label={
+              mobilePlannerSnap === "collapsed"
+                ? t("trail.expandPlanner")
+                : t("trail.collapsePlanner")
+            }
           >
             <span className="block w-10 h-1 rounded-full bg-gray-300 mb-1.5" />
             <span className="text-xs font-medium text-gray-500">
-              {showPlannerDrawer ? t('trail.collapsePlanner') : t('trail.expandPlanner')}
+              {mobilePlannerSnap === "collapsed"
+                ? t("trail.expandPlanner")
+                : t("trail.collapsePlanner")}
             </span>
           </button>
 
-          <div className="h-[calc(100%-2.75rem)] md:h-full">
+          <div
+            className={`md:h-full ${
+              mobilePlannerSnap === "collapsed" ? "hidden md:block" : "h-[calc(100%-2.75rem)]"
+            }`}
+          >
             <ItineraryPlanner
               className="h-full rounded-none border-0 md:border-y-0 md:border-r-0 md:border-l md:border-gray-200 shadow-none"
               gpxWaypoints={gpxWaypoints.length > 0 ? gpxWaypoints : undefined}
