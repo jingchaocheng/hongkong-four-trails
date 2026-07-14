@@ -284,6 +284,7 @@ export default function GpxExportModal({
         <div className="px-4 py-3 overflow-y-auto flex-1 space-y-4 text-sm">
           <div className="rounded-lg border-2 border-amber-500 bg-amber-100 px-3 py-2.5 space-y-1.5 text-xs leading-relaxed text-amber-950 shadow-sm">
             <p className="font-bold text-amber-900 text-sm">{t('planner.gpxDisclaimerTitle')}</p>
+            <p className="font-medium">{t('planner.gpxDisclaimerHowTo')}</p>
             <p className="font-medium">{t('planner.gpxDisclaimerSupply')}</p>
             <p className="font-medium">{t('planner.gpxDisclaimerBackup')}</p>
             <p className="text-amber-900/85">{t('planner.gpxDisclaimerSafety')}</p>

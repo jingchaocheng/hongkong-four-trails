@@ -78,9 +78,11 @@ export const uiMessages = {
     endPoint: "终点",
     loopEndpoint: "起终点",
     showLcsdWater: "郊野公园加水站（径道附近）",
-    showLcsdWaterHint: "全览显示整段附近；聚焦某一天后仅显示当天路段 0.6 公里内",
+    showLcsdWaterHint:
+      "全览显示整段附近；聚焦某一天后仅显示当天路段 0.6 公里内",
     showAfcdToilets: "郊野公园厕所（径道附近）",
-    showAfcdToiletsHint: "全览显示整段附近；聚焦某一天后仅显示当天路段 0.6 公里内",
+    showAfcdToiletsHint:
+      "全览显示整段附近；聚焦某一天后仅显示当天路段 0.6 公里内",
     showSupplyPoints: "补给点",
     dayFocusHint: "已聚焦第 {n} 天，官方加水/厕所仅显示当天沿途",
   },
@@ -176,13 +178,16 @@ export const uiMessages = {
     gpxKindWater: "加水站",
     gpxKindToilet: "厕所",
     gpxDisclaimerTitle: "使用说明",
+    gpxDisclaimerHowTo:
+      "可将本文件导入两步路户外助手或 Tooboo 等户外软件，用于航点参考。",
     gpxDisclaimerSupply:
       "补给点为手工标注，坐标可能只是附近的大致位置，请结合现场情况与官方信息核实后再使用。",
     gpxDisclaimerBackup:
       "建议除本文件外，另备份一份成熟、经多人验证的完整轨迹路线（如官方或常用 GPX），作对照与应急参考。",
     gpxDisclaimerSafety:
       "本导出内容仅供行程参考，不构成导航保证；请量力而行，注意天气与安全。",
-    planHint: "点击文本框可全选，或复制计划；也可导出 Excel / GPX（两步路等可导入）",
+    planHint:
+      "点击文本框可全选，或复制计划；也可导出 Excel / GPX（两步路等可导入）",
     fullElevation: "全程爬升高度图",
     routeLoop: "环线：{start} 出发绕行全程返回",
     routeLinear: "从 {start} 走到 {end}",
