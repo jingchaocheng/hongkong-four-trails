@@ -1120,9 +1120,9 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
             {/* 文字版计划 */}
             {numDays !== null && daySummaries.length > 0 && (
               <div className="border border-gray-200 rounded-lg p-3">
-                <div className="flex items-center justify-between gap-2 mb-2">
+                <div className="mb-2 space-y-2">
                   <h3 className="text-sm font-semibold text-gray-800">{t('planner.textPlan')}</h3>
-                  <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
+                  <div className="flex flex-wrap gap-1.5">
                     <button
                       type="button"
                       onClick={copyShareLink}
