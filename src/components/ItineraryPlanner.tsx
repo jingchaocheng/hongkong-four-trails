@@ -2,16 +2,24 @@ import { useState, useMemo, useEffect, useRef } from 'react'
 import { GPXWaypoint, TrailMarker, waypointsToMarkers, formatMarkerLabel } from '../utils/gpxParser'
 import { Campsite, getAllCampsites, SelectedCampsite } from '../utils/campsites'
 import { formatPlanTemplate, downloadPlanExcel, type PlanTemplateInput } from '../utils/planTemplate'
+import {
+  buildPlanGpx,
+  downloadPlanGpx,
+  type GpxExportWaypoint,
+  type GpxTrackDay,
+} from '../utils/exportGpx'
 import { PlannerState } from '../utils/planState'
 import { computeDistanceBalancedSplits } from '../utils/splitRoute'
 import { useLocale, useLocalizedContent } from '../i18n/LocaleContext'
 import ElevationChart from './ElevationChart'
+import GpxExportModal from './GpxExportModal'
 import {
   findSupplyPointsAlongPath,
   findNearestMarkerId,
   supplyTypeLabelKey,
 } from '../utils/supplyPoints'
 import { findWaterDispensersAlongPath } from '../utils/waterDispensers'
+import { findToiletsNearPath } from '../utils/toilets'
 
 const MAX_DAYS = 10
 
@@ -198,6 +206,11 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
   const [dayCampsites, setDayCampsites] = useState<Record<number, string>>(
     () => initialPlan?.dayCampsites ?? {}
   )
+  const [gpxModalOpen, setGpxModalOpen] = useState(false)
+  const [gpxExportDays, setGpxExportDays] = useState<GpxTrackDay[]>([])
+  const [gpxExportWaypoints, setGpxExportWaypoints] = useState<GpxExportWaypoint[]>([])
+  const [gpxExportFilename, setGpxExportFilename] = useState('')
+  const [gpxExportTrailName, setGpxExportTrailName] = useState('')
 
   const canSyncPlan = markerCount >= 2 || numDays === null
 
@@ -424,6 +437,7 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
         endNode,
         color: DAY_COLORS[i % DAY_COLORS.length],
         positions: segPositions,
+        elevations: elevations.slice(posLo, posHi + 1),
         markers: segMarkers,
         gain,
         distance: pathDistance(segPositions),
@@ -668,6 +682,157 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
   const exportPlanExcel = () => {
     if (!planInput) return
     downloadPlanExcel(planInput, locale)
+  }
+
+  const exportPlanGpxFile = () => {
+    if (daySummaries.length === 0) return
+    const name = trailName ?? t('planner.defaultTrailName')
+    const waypoints: GpxExportWaypoint[] = []
+
+    daySummaries.forEach((seg, i) => {
+      const start = orderedMarkers[seg.startNode]
+      const end = orderedMarkers[seg.endNode]
+      if (start) {
+        waypoints.push({
+          id: `endpoint-d${seg.day}-start-${seg.startNode}`,
+          kind: 'endpoint',
+          day: seg.day,
+          name: `D${seg.day} ${t('planner.start')} ${markerLabel(seg.startNode)}`,
+          lat: start.lat,
+          lng: start.lng,
+          elevation: start.elevation,
+        })
+      }
+      if (end) {
+        waypoints.push({
+          id: `endpoint-d${seg.day}-end-${seg.endNode}`,
+          kind: 'endpoint',
+          day: seg.day,
+          name: `D${seg.day} ${t('planner.end')} ${markerLabel(seg.endNode)}`,
+          lat: end.lat,
+          lng: end.lng,
+          elevation: end.elevation,
+        })
+      }
+
+      if (i < daySummaries.length - 1) {
+        const campId = dayCampsites[seg.day]
+        const campsite = campId ? campsites.find((c) => c.id === campId) : undefined
+        if (campsite) {
+          waypoints.push({
+            id: `campsite-d${seg.day}-${campsite.id}`,
+            kind: 'campsite',
+            day: seg.day,
+            name: `D${seg.day} ${lc(campsite.name, 'traditional')}`,
+            lat: campsite.lat,
+            lng: campsite.lng,
+            description: campsite.address
+              ? lc(campsite.address, 'traditional')
+              : undefined,
+          })
+        }
+      }
+
+      if (trailId) {
+        const along = findSupplyPointsAlongPath(seg.positions, trailId)
+        along.forEach((sp) => {
+          waypoints.push({
+            id: `supply-d${seg.day}-${sp.id}`,
+            kind: 'supply',
+            day: seg.day,
+            name: lc(sp.name, 'simplified'),
+            lat: sp.lat,
+            lng: sp.lng,
+            description: [
+              sp.types.map((type) => t(supplyTypeLabelKey(type))).join('·'),
+              sp.nearMarker,
+              sp.note ? lc(sp.note, 'simplified') : '',
+            ]
+              .filter(Boolean)
+              .join(' · '),
+          })
+        })
+      }
+
+      // 官方加水站 / 厕所（与地图同一距离：当天路段 0.6 km）
+      const markerRefs = orderedMarkers.map((m) => ({
+        id: m.id,
+        lat: m.lat,
+        lng: m.lng,
+      }))
+
+      if (trailId && trailId !== 'lantau') {
+        const seenWater = new Set<string>()
+        findWaterDispensersAlongPath(seg.positions, 0.6).forEach((w) => {
+          const near = findNearestMarkerId(w.lat, w.lng, markerRefs)
+          const key = near ?? w.id
+          if (seenWater.has(key)) return
+          seenWater.add(key)
+          waypoints.push({
+            id: `water-d${seg.day}-${w.id}`,
+            kind: 'water',
+            day: seg.day,
+            name: near
+              ? `${t('sources.waterStations')}（${near}）`
+              : t('sources.waterStations'),
+            lat: w.lat,
+            lng: w.lng,
+            description: lc(w.name, 'simplified'),
+          })
+        })
+      }
+
+      const seenToilets = new Set<string>()
+      findToiletsNearPath(seg.positions, 0.6).forEach((toilet) => {
+        const near = findNearestMarkerId(toilet.lat, toilet.lng, markerRefs)
+        const key = near ?? toilet.id
+        if (seenToilets.has(key)) return
+        seenToilets.add(key)
+        waypoints.push({
+          id: `toilet-d${seg.day}-${toilet.id}`,
+          kind: 'toilet',
+          day: seg.day,
+          name: near
+            ? `${t('supply.toilet')}（${near}）`
+            : lc(toilet.name, 'simplified'),
+          lat: toilet.lat,
+          lng: toilet.lng,
+          description: [
+            lc(toilet.name, 'simplified'),
+            toilet.toiletType ? lc(toilet.toiletType, 'simplified') : '',
+          ]
+            .filter(Boolean)
+            .join(' · '),
+        })
+      })
+    })
+
+    const days: GpxTrackDay[] = daySummaries.map((seg) => ({
+      day: seg.day,
+      name: t('common.dayN', { n: seg.day }),
+      positions: seg.positions,
+      elevations:
+        seg.elevations && seg.elevations.length === seg.positions.length
+          ? seg.elevations
+          : undefined,
+    }))
+
+    const safeName = name.replace(/[\\/:*?"<>|]/g, '_')
+    setGpxExportDays(days)
+    setGpxExportWaypoints(waypoints)
+    setGpxExportFilename(`${safeName}-行程.gpx`)
+    setGpxExportTrailName(`${name} ${t('planner.gpxTitle')}`)
+    setGpxModalOpen(true)
+  }
+
+  const confirmGpxDownload = (selected: GpxExportWaypoint[]) => {
+    const xml = buildPlanGpx({
+      trailName: gpxExportTrailName,
+      days: gpxExportDays,
+      waypoints: selected,
+    })
+    downloadPlanGpx(xml, gpxExportFilename)
+    setGpxModalOpen(false)
   }
 
   return (
@@ -980,6 +1145,13 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
                     >
                       {t('planner.exportExcel')}
                     </button>
+                    <button
+                      type="button"
+                      onClick={exportPlanGpxFile}
+                      className="rounded-md border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-medium text-amber-900 hover:bg-amber-100"
+                    >
+                      {t('planner.exportGpx')}
+                    </button>
                   </div>
                 </div>
                 <textarea
@@ -1008,6 +1180,17 @@ function ItineraryPlanner({ gpxWaypoints, gpxTrack, trackElevations, trailName, 
           </div>
         )}
       </div>
+
+      <GpxExportModal
+        open={gpxModalOpen}
+        trailName={gpxExportTrailName}
+        filename={gpxExportFilename}
+        days={gpxExportDays}
+        waypoints={gpxExportWaypoints}
+        allowWater={trailId !== 'lantau'}
+        onClose={() => setGpxModalOpen(false)}
+        onConfirm={confirmGpxDownload}
+      />
     </div>
   )
 }
