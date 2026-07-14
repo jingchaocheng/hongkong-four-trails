@@ -100,7 +100,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="cinema-page cinema-grain home-serif-font h-screen w-screen overflow-hidden flex flex-col">
+    <div className="cinema-page cinema-grain home-serif-font h-full w-screen flex flex-col overflow-y-auto overscroll-y-contain lg:overflow-hidden">
       <div className="z-20 text-center px-4 pt-8 pb-4 shrink-0 relative">
         <div className="absolute right-4 top-8">
           <LocaleToggle />
