@@ -26,7 +26,7 @@ export const DATA_SOURCES = {
   toilets: [
     {
       nameKey: 'sources.afcd' as const,
-      url: 'https://portal.csdi.gov.hk/geoportal/?lang=tc&datasetId=afcd_rcd_1634603765857_53282',
+      url: 'https://data.gov.hk/sc-data/dataset/hk-afcd-afcdlist-toilet',
     },
   ],
 }
